@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <circle cx="50" cy="50" r="50" fill="#FFC107"/>
+  <circle cx="50" cy="50" r="47" fill="#14171F"/>
+  <path d="M22 88 C22 72 34 62 50 62 C66 62 78 72 78 88 Z" fill="#3B82F6"/>
+  <!-- Head & Hair -->
+  <path d="M30 35 C30 20 40 16 50 16 C60 16 70 20 70 35 C70 42 66 46 50 46 C34 46 30 42 30 35 Z" fill="#1E293B"/>
+  <circle cx="50" cy="42" r="18" fill="#F8D7DA"/>
+  <!-- Stylish hair top -->
+  <path d="M32 30 Q50 18 68 30 Q58 22 42 22 Z" fill="#1E293B"/>
+  <circle cx="44" cy="40" r="2" fill="#121212"/>
+  <circle cx="56" cy="40" r="2" fill="#121212"/>
+  <path d="M46 47 Q50 50 54 47" stroke="#121212" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+</svg>

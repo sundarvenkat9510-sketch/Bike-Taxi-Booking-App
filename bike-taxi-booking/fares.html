@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transparent Fares & Calculator | VeloMoto Bike Taxi</title>
+  <meta name="description" content="Calculate your bike taxi fare in real-time. Transparent base fares, per kilometer charges, and zero hidden costs.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Urban Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVIGATION BAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo">
+      </a>
+      
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-warning"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="how-it-works.html">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" aria-current="page" href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#why-us">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
+          </li>
+        </ul>
+
+        <!-- Dynamic Auth Buttons -->
+        <div id="navbarAuthButtons" class="d-flex align-items-center">
+          <a href="login.html" class="btn btn-dark-outline btn-sm me-2">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+          <a href="register.html" class="btn btn-yellow btn-sm">
+            <i class="bi bi-person-plus-fill"></i> Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       PAGE HEADER
+       ====================================================================== -->
+  <section class="py-5 bg-darker border-bottom border-secondary">
+    <div class="container text-center py-3">
+      <span class="badge badge-yellow mb-2"><i class="bi bi-tag-fill"></i> 100% Transparent Pricing</span>
+      <h1 class="display-5 fw-bold text-white mb-2">Honest & Affordable Fares</h1>
+      <p class="text-muted mx-auto" style="max-width: 620px;">
+        Never pay inflated taxi surge fees again. Know your exact fare before you ride with transparent base rates and fixed per-kilometer pricing.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       INTERACTIVE FARE CALCULATOR
+       ====================================================================== -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        
+        <!-- Calculator Controls -->
+        <div class="col-lg-7">
+          <div class="fare-calculator-box">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h4 class="fw-bold text-white mb-0">
+                <i class="bi bi-calculator text-warning me-2"></i> Interactive Fare Estimator
+              </h4>
+              <span class="badge badge-yellow">Real-time</span>
+            </div>
+
+            <!-- Ride Type Selector -->
+            <label class="form-label text-light fw-bold mb-2">1. Select Ride Option:</label>
+            <div class="row g-3 mb-4">
+              <div class="col-4">
+                <label class="d-block">
+                  <input type="radio" name="calcBikeType" value="standard" class="btn-check" checked>
+                  <div class="bike-option-card text-center p-3 h-100">
+                    <i class="bi bi-bicycle bike-option-icon"></i>
+                    <div class="bike-option-title">Standard</div>
+                    <div class="small text-muted">₹25 base</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="col-4">
+                <label class="d-block">
+                  <input type="radio" name="calcBikeType" value="electric" class="btn-check">
+                  <div class="bike-option-card text-center p-3 h-100">
+                    <i class="bi bi-lightning-charge-fill bike-option-icon text-success"></i>
+                    <div class="bike-option-title">Eco EV</div>
+                    <div class="small text-muted">₹20 base</div>
+                  </div>
+                </label>
+              </div>
+
+              <div class="col-4">
+                <label class="d-block">
+                  <input type="radio" name="calcBikeType" value="express" class="btn-check">
+                  <div class="bike-option-card text-center p-3 h-100">
+                    <i class="bi bi-speedometer bike-option-icon text-danger"></i>
+                    <div class="bike-option-title">Express Pro</div>
+                    <div class="small text-muted">₹35 base</div>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Distance Slider -->
+            <div class="mb-4">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <label class="form-label text-light fw-bold mb-0">2. Estimated Trip Distance:</label>
+                <span class="fs-4 fw-bold text-warning" id="fareDistanceDisplay">5.0 km</span>
+              </div>
+              <input type="range" class="range-slider-custom" id="fareDistanceSlider" min="1" max="35" step="0.5" value="5">
+              <div class="d-flex justify-content-between text-muted small mt-1">
+                <span>1 km (Quick hop)</span>
+                <span>15 km (Across city)</span>
+                <span>35 km (Suburban)</span>
+              </div>
+            </div>
+
+            <!-- Peak Hours Toggle -->
+            <div class="p-3 rounded bg-dark border border-secondary mb-4">
+              <div class="form-check form-switch d-flex justify-content-between align-items-center ps-0">
+                <label class="form-check-label text-white fw-semibold" for="calcPeakCheck">
+                  <i class="bi bi-clock-history text-warning me-2"></i>Peak Rush Hour Window (08:30-10:30 AM / 06:00-08:30 PM)
+                </label>
+                <input class="form-check-input ms-auto" type="checkbox" role="switch" id="calcPeakCheck">
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <a href="dashboard.html?action=book" class="btn btn-yellow btn-lg">
+                <i class="bi bi-bicycle"></i> Book at this Estimated Price
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculated Breakdown Card -->
+        <div class="col-lg-5">
+          <div class="fare-breakdown-card">
+            <h5 class="fw-bold text-white mb-3 d-flex align-items-center gap-2">
+              <i class="bi bi-receipt-cutoff text-warning"></i> Itemized Price Breakdown
+            </h5>
+
+            <div class="fare-item-row">
+              <span class="text-muted">Base Fare (first 1.5 km)</span>
+              <span class="text-white fw-bold" id="calcBaseFare">₹25.00</span>
+            </div>
+
+            <div class="fare-item-row">
+              <span class="text-muted">Distance Charges</span>
+              <span class="text-white fw-bold" id="calcDistFare">₹33.25</span>
+            </div>
+
+            <div class="fare-item-row d-none" id="calcPeakRow">
+              <span class="text-warning">Peak Traffic Demand Adjustment (25%)</span>
+              <span class="text-warning fw-bold" id="calcPeakFare">+₹14.50</span>
+            </div>
+
+            <div class="fare-item-row">
+              <span class="text-muted">Safety & Platform Tech Fee</span>
+              <span class="text-white fw-bold" id="calcPlatformFee">₹3.50</span>
+            </div>
+
+            <div class="fare-item-row">
+              <span class="text-muted">Taxes (GST 5%)</span>
+              <span class="text-white fw-bold" id="calcTaxes">₹3.09</span>
+            </div>
+
+            <div class="fare-item-row">
+              <span class="text-muted">Estimated Duration</span>
+              <span class="badge badge-yellow" id="calcEtaMinutes">14 mins</span>
+            </div>
+
+            <div class="fare-total-row">
+              <span>Total Estimated Fare:</span>
+              <span id="calcTotalFare">₹64.80</span>
+            </div>
+
+            <div class="text-muted small mt-3 pt-3 border-top border-secondary">
+              <i class="bi bi-info-circle me-1"></i> Fares exclude government toll booth charges if applicable. Actual fare may vary slightly based on GPS recorded distance and unexpected road diversions.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SAMPLE RIDE FARE CARDS
+       ====================================================================== -->
+  <section class="section-padding bg-darker">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-layers-fill"></i> Ride Class Overview</span>
+        <h2 class="section-title">Transparent Pricing Across All Vehicles</h2>
+        <p class="section-subtitle">
+          Choose the ride that matches your timetable, speed preference, and budget.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Card 1: Standard Moto -->
+        <div class="col-lg-4">
+          <div class="urban-card h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow">Most Popular</span>
+              <div class="stat-icon yellow" style="width: 44px; height: 44px;">
+                <i class="bi bi-bicycle fs-5"></i>
+              </div>
+            </div>
+            <h4 class="text-white fw-bold mb-1">Standard Moto</h4>
+            <p class="small text-muted mb-4">Reliable everyday commuter bikes (100cc - 150cc) for beating dense urban traffic.</p>
+            
+            <div class="p-3 rounded bg-dark border border-secondary mb-4">
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">Base Fare (incl. 1.5 km):</span>
+                <strong class="text-white">₹25.00</strong>
+              </div>
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">Per Kilometer:</span>
+                <strong class="text-white">₹9.50 / km</strong>
+              </div>
+              <div class="d-flex justify-content-between small">
+                <span class="text-muted">Waiting Charge:</span>
+                <strong class="text-white">₹1.00 / min</strong>
+              </div>
+            </div>
+
+            <ul class="list-unstyled small text-muted mb-4">
+              <li class="mb-2"><i class="bi bi-check2 text-warning me-2"></i>Clean sanitized passenger helmet</li>
+              <li class="mb-2"><i class="bi bi-check2 text-warning me-2"></i>Door-to-door agile pickup</li>
+              <li><i class="bi bi-check2 text-warning me-2"></i>Pay via Cash or UPI</li>
+            </ul>
+
+            <a href="dashboard.html?action=book" class="btn btn-dark-outline w-100">Select Standard</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Eco Electric -->
+        <div class="col-lg-4">
+          <div class="urban-card urban-card-glow h-100" style="border-color: rgba(16, 185, 129, 0.4);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-success text-white">Green & Economical</span>
+              <div class="stat-icon green" style="width: 44px; height: 44px;">
+                <i class="bi bi-lightning-charge-fill fs-5"></i>
+              </div>
+            </div>
+            <h4 class="text-white fw-bold mb-1">Eco Electric EV</h4>
+            <p class="small text-muted mb-4">Silent, emission-free electric scooters. The most pocket-friendly and sustainable ride in town.</p>
+            
+            <div class="p-3 rounded bg-dark border border-secondary mb-4">
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">Base Fare (incl. 1.5 km):</span>
+                <strong class="text-white">₹20.00</strong>
+              </div>
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">Per Kilometer:</span>
+                <strong class="text-white">₹7.50 / km</strong>
+              </div>
+              <div class="d-flex justify-content-between small">
+                <span class="text-muted">Waiting Charge:</span>
+                <strong class="text-white">₹0.80 / min</strong>
+              </div>
+            </div>
+
+            <ul class="list-unstyled small text-muted mb-4">
+              <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>100% Zero carbon tailpipe emissions</li>
+              <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>Ultra quiet & comfortable ride</li>
+              <li><i class="bi bi-check2 text-success me-2"></i>Lowest price guarantee</li>
+            </ul>
+
+            <a href="dashboard.html?action=book" class="btn btn-yellow w-100">Select Eco EV</a>
+          </div>
+        </div>
+
+        <!-- Card 3: Express Moto Pro -->
+        <div class="col-lg-4">
+          <div class="urban-card h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow">Long Hauls & Highway</span>
+              <div class="stat-icon blue" style="width: 44px; height: 44px;">
+                <i class="bi bi-speedometer fs-5"></i>
+              </div>
+            </div>
+            <h4 class="text-white fw-bold mb-1">Express Moto Pro</h4>
+            <p class="small text-muted mb-4">High-performance sports commuters (160cc - 250cc) with top-rated veteran captains for long distances.</p>
+            
+            <div class="p-3 rounded bg-dark border border-secondary mb-4">
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">Base Fare (incl. 2.0 km):</span>
+                <strong class="text-white">₹35.00</strong>
+              </div>
+              <div class="d-flex justify-content-between mb-2 small">
+                <span class="text-muted">Per Kilometer:</span>
+                <strong class="text-white">₹12.00 / km</strong>
+              </div>
+              <div class="d-flex justify-content-between small">
+                <span class="text-muted">Waiting Charge:</span>
+                <strong class="text-white">₹1.50 / min</strong>
+              </div>
+            </div>
+
+            <ul class="list-unstyled small text-muted mb-4">
+              <li class="mb-2"><i class="bi bi-check2 text-warning me-2"></i>Captains with 4.9+ star rating only</li>
+              <li class="mb-2"><i class="bi bi-check2 text-warning me-2"></i>High comfort padded passenger seat</li>
+              <li><i class="bi bi-check2 text-warning me-2"></i>Ideal for Airport & Tech Park corridors</li>
+            </ul>
+
+            <a href="dashboard.html?action=book" class="btn btn-dark-outline w-100">Select Express</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="42" class="mb-2">
+          <p class="footer-brand-desc">
+            VeloMoto provides fast, tech-enabled, pocket-friendly urban bike taxi rides with top safety and hygiene standards.
+          </p>
+          <div class="social-links">
+            <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login" title="Log in to X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Login" title="Log in to Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Login" title="Log in to Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Login" title="Log in to LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h6 class="footer-heading">Platform</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="fares.html">Fares</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Sign Up</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h6 class="footer-heading">Policies</h6>
+          <ul class="footer-links-list">
+            <li><a href="#">Cancellation Policy</a></li>
+            <li><a href="#">Toll Charges</a></li>
+            <li><a href="#">Lost & Found</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <h6 class="footer-heading">24/7 Helpline</h6>
+          <p class="text-muted small">Questions about your trip charges or fare discrepancy? Reach out to our billing team.</p>
+          <div class="text-warning fw-bold fs-5 mb-2"><i class="bi bi-telephone-outbound me-2"></i>1800-245-VELO</div>
+          <div class="text-muted small"><i class="bi bi-envelope me-2"></i>billing@velomoto.com</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-muted small">
+        <div>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</div>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-muted">Privacy Policy</a>
+          <a href="#" class="text-muted">Fare Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container-custom"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

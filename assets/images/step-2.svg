@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="radarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC107" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FF9800" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <!-- Card background -->
+  <rect x="20" y="20" width="280" height="200" rx="20" fill="#161922" stroke="#2B313E" stroke-width="1.5"/>
+
+  <!-- Radar Circles -->
+  <circle cx="160" cy="115" r="75" fill="none" stroke="#FFC107" stroke-width="1" stroke-dasharray="4,6" opacity="0.3"/>
+  <circle cx="160" cy="115" r="50" fill="url(#radarGrad)"/>
+  <circle cx="160" cy="115" r="50" fill="none" stroke="#FFC107" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="160" cy="115" r="26" fill="#1E2430" stroke="#FFC107" stroke-width="2"/>
+
+  <!-- Center Bike Taxi Driver Icon -->
+  <circle cx="160" cy="115" r="14" fill="#FFC107"/>
+  <!-- Small bike graphic -->
+  <path d="M153 118 A3 3 0 1 0 159 118 M161 118 A3 3 0 1 0 167 118 M156 118 L159 112 L163 112 L164 118 M159 112 L161 118" 
+        stroke="#121212" stroke-width="1.2" fill="none"/>
+
+  <!-- Nearby Driver Pins -->
+  <!-- Driver 1 -->
+  <g transform="translate(110, 85)">
+    <circle cx="0" cy="0" r="10" fill="#FFC107"/>
+    <text x="0" y="3.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="8" fill="#121212" text-anchor="middle">2m</text>
+  </g>
+  <!-- Driver 2 -->
+  <g transform="translate(210, 80)">
+    <circle cx="0" cy="0" r="10" fill="#FFC107"/>
+    <text x="0" y="3.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="8" fill="#121212" text-anchor="middle">3m</text>
+  </g>
+  <!-- Driver 3 -->
+  <g transform="translate(130, 160)">
+    <circle cx="0" cy="0" r="10" fill="#64748B"/>
+    <text x="0" y="3.5" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="8" fill="#FFFFFF" text-anchor="middle">5m</text>
+  </g>
+
+  <!-- Driver match notification card -->
+  <g transform="translate(50, 160)">
+    <rect width="220" height="42" rx="12" fill="#0E121A" stroke="#FFC107" stroke-width="1.2"/>
+    <circle cx="22" cy="21" r="12" fill="#10B981"/>
+    <path d="M17 21 L20 24 L27 17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <text x="42" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#FFFFFF">Captain Vikram Assigned</text>
+    <text x="42" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="9" fill="#94A3B8">Yamaha FZ • OTP: 4821</text>
+  </g>
+
+  <!-- Step number badge -->
+  <circle cx="270" cy="45" r="16" fill="#FFC107"/>
+  <text x="270" y="50" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="14" fill="#121212" text-anchor="middle">2</text>
+</svg>

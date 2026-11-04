@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <defs>
+    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#FFAB00" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#FFC107" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <!-- Bike Icon Emblem -->
+  <g transform="translate(6, 6)">
+    <rect width="48" height="48" rx="14" fill="#121212" stroke="#FFC107" stroke-width="1.5"/>
+    <!-- Stylized Modern Bike Icon -->
+    <circle cx="16" cy="32" r="7" stroke="url(#yellowGrad)" stroke-width="2.5" fill="none"/>
+    <circle cx="34" cy="32" r="7" stroke="url(#yellowGrad)" stroke-width="2.5" fill="none"/>
+    <!-- Bike Frame -->
+    <path d="M16 32 L23 22 L31 22 L34 32 M23 22 L26 32 L34 32 M25 18 L21 18 M29 17 L33 22" 
+          stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Speed Flash / Zap -->
+    <path d="M25 12 L20 20 L26 20 L22 28" stroke="#FFD700" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="64" y="32" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="-0.5">VELO<tspan fill="#FFC107">MOTO</tspan></text>
+  <rect x="64" y="38" width="56" height="13" rx="3" fill="#FFC107"/>
+  <text x="67" y="48" font-family="'Plus Jakarta Sans', 'Inter', sans-serif" font-weight="800" font-size="8.5" fill="#121212" letter-spacing="1">BIKE TAXI</text>
+  <circle cx="127" cy="44.5" r="2.5" fill="#10B981"/>
+  <text x="134" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="8" fill="#94A3B8">FAST • URBAN</text>
+</svg>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ride History & Invoices | VeloMoto Bike Taxi</title>
+  <meta name="description" content="View your past bike taxi rides, check invoices, download receipts, and manage your commuter travel history.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Urban Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVIGATION BAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo">
+      </a>
+      
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-warning"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="how-it-works.html">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" aria-current="page" href="ride-history.html">Ride History</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="dashboard.html">Dashboard</a>
+          </li>
+        </ul>
+
+        <!-- Dynamic Auth Buttons -->
+        <div id="navbarAuthButtons" class="d-flex align-items-center">
+          <a href="login.html" class="btn btn-dark-outline btn-sm me-2">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+          <a href="register.html" class="btn btn-yellow btn-sm">
+            <i class="bi bi-person-plus-fill"></i> Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       PAGE HEADER
+       ====================================================================== -->
+  <section class="py-4 bg-darker border-bottom border-secondary">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+      <div>
+        <span class="badge badge-yellow mb-1"><i class="bi bi-clock-history"></i> Trip Records</span>
+        <h2 class="text-white fw-bold mb-1">Your Ride History</h2>
+        <p class="text-muted small mb-0">Check previous routes, captains, payments, and print tax receipts.</p>
+      </div>
+
+      <div class="d-flex gap-2">
+        <a href="dashboard.html?action=book" class="btn btn-yellow btn-sm">
+          <i class="bi bi-plus-circle"></i> Book New Ride
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       RIDE HISTORY CONTENT
+       ====================================================================== -->
+  <main class="section-padding py-5">
+    <div class="container">
+      
+      <!-- Filter Bar -->
+      <div class="urban-card p-3 mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+        <!-- Status Filter Buttons -->
+        <div class="d-flex gap-2">
+          <button class="btn btn-yellow btn-sm btn-history-filter active" data-filter="all">All Trips</button>
+          <button class="btn btn-dark-outline btn-sm btn-history-filter" data-filter="completed">Completed</button>
+          <button class="btn btn-dark-outline btn-sm btn-history-filter" data-filter="cancelled">Cancelled</button>
+        </div>
+
+        <!-- Quick Search -->
+        <div style="min-width: 260px;">
+          <input type="text" id="historySearchInput" class="custom-form-control py-1 ps-3" placeholder="Search by destination or ID...">
+        </div>
+      </div>
+
+      <!-- History Table -->
+      <div class="table-responsive">
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>Route Details</th>
+              <th>Vehicle Class</th>
+              <th>Captain Details</th>
+              <th>Fare Paid</th>
+              <th>Status</th>
+              <th>Receipt</th>
+            </tr>
+          </thead>
+          <tbody id="rideHistoryTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state-box d-none" id="historyEmptyState">
+        <i class="bi bi-calendar-x empty-state-icon"></i>
+        <h5 class="text-white fw-bold mb-1">No trips found in this category</h5>
+        <p class="text-muted small mb-3">Whenever you book a ride on VeloMoto, its itemized record and receipt will appear here.</p>
+        <a href="dashboard.html?action=book" class="btn btn-yellow btn-sm">Book Your First Ride</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       RECEIPT MODAL
+       ====================================================================== -->
+  <div class="modal fade" id="receiptModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-content-custom">
+        <div class="modal-header modal-header-custom">
+          <h5 class="modal-title fw-bold text-white"><i class="bi bi-receipt text-warning me-2"></i>Trip Tax Invoice</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body modal-body-custom" id="receiptModalContent"></div>
+        <div class="modal-footer modal-footer-custom justify-content-between">
+          <button type="button" class="btn btn-dark-outline btn-sm" onclick="window.print()">
+            <i class="bi bi-printer"></i> Print Receipt
+          </button>
+          <button type="button" class="btn btn-yellow btn-sm" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-custom py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <div class="text-muted small">&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</div>
+      <div class="social-links">
+        <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login" title="Log in to X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Login" title="Log in to Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Login" title="Log in to Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Login" title="Log in to LinkedIn"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toastContainer" class="toast-container-custom"></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/dashboard.js"></script>
+
+  <script>
+    // Search filter interaction
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('historySearchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          const query = searchInput.value.toLowerCase().trim();
+          const rows = document.querySelectorAll('#rideHistoryTableBody tr');
+          rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(query)) {
+              row.style.display = '';
+            } else {
+              row.style.display = 'none';
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

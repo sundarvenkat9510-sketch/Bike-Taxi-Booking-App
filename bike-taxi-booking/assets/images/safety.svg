@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFC107" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FF9800" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Big Safety Shield -->
+  <path d="M200 40 C280 40 310 70 310 140 C310 220 200 270 200 270 C200 270 90 220 90 140 C90 70 120 40 200 40 Z" 
+        fill="url(#shieldGrad)" stroke="#FFC107" stroke-width="2.5"/>
+
+  <!-- Safety Helmet Illustration -->
+  <g transform="translate(145, 90)">
+    <!-- Helmet Outer Shell -->
+    <path d="M15 55 C15 20 40 5 60 5 C80 5 105 20 105 55 C105 75 90 78 60 78 C30 78 15 75 15 55 Z" fill="#FFC107"/>
+    <!-- Visor -->
+    <path d="M60 22 C82 22 96 35 96 52 L60 52 Z" fill="#121316"/>
+    <!-- Chin Strap -->
+    <path d="M30 65 Q60 85 85 65" stroke="#2B313E" stroke-width="3" fill="none"/>
+    <!-- Air Vents -->
+    <line x1="38" y1="20" x2="48" y2="20" stroke="#E5A600" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="34" y1="26" x2="44" y2="26" stroke="#E5A600" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Checkmark Badge on Shield -->
+  <circle cx="200" cy="210" r="24" fill="#10B981" stroke="#0F172A" stroke-width="4"/>
+  <path d="M192 210 L198 216 L209 203" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Floating Feature Tags -->
+  <!-- Tag 1: SOS -->
+  <g transform="translate(45, 90)">
+    <rect width="90" height="34" rx="17" fill="#1E232E" stroke="#EF4444" stroke-width="1.5"/>
+    <text x="45" y="21" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#EF4444" text-anchor="middle">🚨 24/7 SOS</text>
+  </g>
+
+  <!-- Tag 2: Sanitized Helmets -->
+  <g transform="translate(265, 90)">
+    <rect width="115" height="34" rx="17" fill="#1E232E" stroke="#10B981" stroke-width="1.5"/>
+    <text x="57" y="21" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#10B981" text-anchor="middle">✨ Clean Helmets</text>
+  </g>
+
+  <!-- Tag 3: Live GPS Track -->
+  <g transform="translate(125, 260)">
+    <rect width="150" height="34" rx="17" fill="#1E232E" stroke="#FFC107" stroke-width="1.5"/>
+    <text x="75" y="21" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#FFC107" text-anchor="middle">📍 Live GPS Sharing</text>
+  </g>
+</svg>

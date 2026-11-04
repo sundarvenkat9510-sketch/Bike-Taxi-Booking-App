@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="100%" height="100%">
+  <!-- Card Background -->
+  <rect x="20" y="20" width="280" height="200" rx="20" fill="#161922" stroke="#2B313E" stroke-width="1.5"/>
+
+  <!-- Success Checkmark with glowing halo -->
+  <circle cx="160" cy="85" r="38" fill="#10B981" opacity="0.15"/>
+  <circle cx="160" cy="85" r="28" fill="#10B981"/>
+  <path d="M150 85 L157 92 L172 77" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Fare & Receipt Card -->
+  <g transform="translate(60, 130)">
+    <rect width="200" height="72" rx="14" fill="#0E121A" stroke="#2A303C" stroke-width="1.2"/>
+    <text x="100" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#94A3B8" text-anchor="middle">TRIP COMPLETED</text>
+    <text x="100" y="44" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="20" fill="#FFC107" text-anchor="middle">₹ 78.50 / $4.20</text>
+    
+    <!-- Payment Badges -->
+    <rect x="35" y="52" width="60" height="14" rx="4" fill="#1E2433"/>
+    <text x="65" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="8" fill="#E2E8F0" text-anchor="middle">UPI / CARD</text>
+
+    <rect x="105" y="52" width="60" height="14" rx="4" fill="#10B981" opacity="0.2"/>
+    <text x="135" y="62" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="8" fill="#10B981" text-anchor="middle">PAID INSTANT</text>
+  </g>
+
+  <!-- Step number badge -->
+  <circle cx="270" cy="45" r="16" fill="#FFC107"/>
+  <text x="270" y="50" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="14" fill="#121212" text-anchor="middle">3</text>
+</svg>
