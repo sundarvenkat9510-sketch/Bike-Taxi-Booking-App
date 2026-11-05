@@ -55,7 +55,7 @@
         </ul>
 
         <!-- Dynamic Auth Buttons -->
-        <div id="navbarAuthButtons" class="d-flex align-items-center">
+        <div id="navbarAuthButtons" class="d-flex align-items-center justify-content-center justify-content-lg-end">
           <a href="login.html" class="btn btn-dark-outline btn-sm me-2">
             <i class="bi bi-box-arrow-in-right"></i> Login
           </a>
@@ -95,14 +95,14 @@
       <!-- Filter Bar -->
       <div class="urban-card p-3 mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
         <!-- Status Filter Buttons -->
-        <div class="d-flex gap-2">
+        <div class="d-flex flex-wrap gap-2">
           <button class="btn btn-yellow btn-sm btn-history-filter active" data-filter="all">All Trips</button>
           <button class="btn btn-dark-outline btn-sm btn-history-filter" data-filter="completed">Completed</button>
           <button class="btn btn-dark-outline btn-sm btn-history-filter" data-filter="cancelled">Cancelled</button>
         </div>
 
         <!-- Quick Search -->
-        <div style="min-width: 260px;">
+        <div class="w-100 w-md-auto flex-grow-1" style="max-width: 360px;">
           <input type="text" id="historySearchInput" class="custom-form-control py-1 ps-3" placeholder="Search by destination or ID...">
         </div>
       </div>

@@ -151,48 +151,23 @@ function logoutUser() {
 
 /**
  * Update Navbar Auth Buttons across public pages
+ * Shows clean Login & Sign Up buttons on the website header as requested
  */
 function updateNavbarAuthUI() {
   const authContainer = document.getElementById('navbarAuthButtons');
   if (!authContainer) return;
 
-  const currentUser = getCurrentUser();
-
-  if (currentUser) {
-    // Show Dashboard button & User profile badge
-    authContainer.innerHTML = `
-      <div class="d-flex align-items-center gap-2">
-        <a href="dashboard.html" class="btn btn-yellow btn-sm">
-          <i class="bi bi-speedometer2"></i> Dashboard
-        </a>
-        <div class="dropdown">
-          <button class="btn btn-dark-outline btn-sm dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="assets/images/rider-avatar.svg" alt="Avatar" width="24" height="24" class="rounded-circle">
-            <span class="d-none d-md-inline font-weight-bold">${currentUser.name.split(' ')[0]}</span>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end shadow">
-            <li><div class="dropdown-header text-white-50"><small>Signed in as</small><br><strong class="text-white">${currentUser.name}</strong></div></li>
-            <li><hr class="dropdown-divider border-secondary"></li>
-            <li><a class="dropdown-item" href="dashboard.html"><i class="bi bi-grid me-2 text-warning"></i> Dashboard</a></li>
-            <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2 text-warning"></i> My Profile</a></li>
-            <li><a class="dropdown-item" href="ride-history.html"><i class="bi bi-clock-history me-2 text-warning"></i> Ride History</a></li>
-            <li><hr class="dropdown-divider border-secondary"></li>
-            <li><button class="dropdown-item text-danger" onclick="logoutUser()"><i class="bi bi-box-arrow-right me-2"></i> Log Out</button></li>
-          </ul>
-        </div>
-      </div>
-    `;
-  } else {
-    // Show Login & Sign Up buttons
-    authContainer.innerHTML = `
+  // Always display Login & Sign Up buttons on public website pages
+  authContainer.innerHTML = `
+    <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2">
       <a href="login.html" class="btn btn-dark-outline btn-sm me-2">
         <i class="bi bi-box-arrow-in-right"></i> Login
       </a>
       <a href="register.html" class="btn btn-yellow btn-sm">
         <i class="bi bi-person-plus-fill"></i> Sign Up
       </a>
-    `;
-  }
+    </div>
+  `;
 }
 
 /**
@@ -201,11 +176,11 @@ function updateNavbarAuthUI() {
 function protectRoute() {
   const currentUser = getCurrentUser();
   if (!currentUser) {
-    // If opening dashboard directly for test, automatically authenticate with default user
-    // or redirect to login. We'll authenticate default demo user so user sees instant working dashboard!
-    const defaultUser = DEFAULT_USERS[0];
-    setCurrentUser(defaultUser);
+    // If not authenticated, redirect to login page
+    window.location.href = 'login.html';
+    return false;
   }
+  return true;
 }
 
 // Attach Form Event Listeners on DOM Ready
