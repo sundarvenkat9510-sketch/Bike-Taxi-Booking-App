@@ -349,4 +349,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 8. Logo Click Handler -> Always Navigates to Home Page (index.html)
+  document.querySelectorAll('.navbar-brand, .navbar-brand-logo, .footer-logo-link, img[src*="logo.svg"]').forEach(logoEl => {
+    logoEl.style.cursor = 'pointer';
+    logoEl.addEventListener('click', (e) => {
+      const isHomePage = window.location.pathname.endsWith('index.html') || 
+                          window.location.pathname.endsWith('/') || 
+                          window.location.pathname === '';
+      if (!isHomePage || window.location.hash) {
+        window.location.href = 'index.html';
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
 });

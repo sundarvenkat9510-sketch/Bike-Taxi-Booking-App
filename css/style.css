@@ -137,14 +137,27 @@ p {
   padding: 0.65rem 0;
 }
 
-.navbar-brand-logo {
-  height: 42px;
-  width: auto;
-  transition: transform var(--transition-fast);
+.navbar-brand,
+.footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
+.navbar-brand-logo,
+.footer-logo-link img {
+  height: 42px;
+  width: auto;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+  cursor: pointer;
+}
+
+.navbar-brand:hover .navbar-brand-logo,
+.footer-logo-link:hover img,
 .navbar-brand-logo:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
+  opacity: 0.95;
 }
 
 .nav-link-custom {
