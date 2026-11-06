@@ -168,6 +168,7 @@ p {
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
   position: relative;
+  white-space: nowrap !important;
 }
 
 .nav-link-custom:hover,
@@ -201,6 +202,7 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  white-space: nowrap !important;
   transition: all var(--transition-normal);
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
@@ -231,6 +233,7 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  white-space: nowrap !important;
   transition: all var(--transition-normal);
 }
 
@@ -489,6 +492,65 @@ p {
   color: var(--text-dim);
 }
 
+.btn-check:checked + .bike-option-card {
+  border-color: var(--yellow-primary) !important;
+  background: rgba(255, 193, 7, 0.12) !important;
+  box-shadow: 0 0 0 1px var(--yellow-primary);
+}
+
+/* Fares Page: Ride Option Selector Cards */
+.ride-options-selector {
+  width: 100%;
+}
+
+.ride-options-selector .bike-option-card {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ride-options-selector .bike-option-card:hover {
+  border-color: rgba(255, 193, 7, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Mobile Devices: Vertically Stacked (< 768px) */
+@media (max-width: 767.98px) {
+  .ride-options-selector > div,
+  .ride-options-selector [class*="col-"] {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  .ride-options-selector .bike-option-card {
+    width: 100% !important;
+    padding: 1.15rem 1rem !important;
+    border-radius: var(--radius-md) !important;
+  }
+
+  .ride-options-selector .bike-option-icon {
+    font-size: 2rem !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .ride-options-selector .bike-option-title {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.2rem !important;
+  }
+}
+
+/* Tablet & Desktop: Side-by-side in single horizontal row (>= 768px) */
+@media (min-width: 768px) {
+  .ride-options-selector > div,
+  .ride-options-selector .col-md-4 {
+    width: 33.333333% !important;
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+  }
+}
+
 /* --------------------------------------------------------------------------
    9. Sections: Steps, Why Us, Safety, Testimonials
    -------------------------------------------------------------------------- */
@@ -709,21 +771,34 @@ p {
 }
 
 /* Unified Social Sign-in Buttons (Google & Apple Pill Design) */
+.auth-social-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
 .auth-social-btn,
 .auth-apple-btn {
-  background: var(--bg-card-light);
-  border: 1.5px solid var(--border-color);
+  background: #1a2030;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: #ffffff !important;
   border-radius: var(--radius-pill);
-  height: 48px;
+  height: 52px;
+  min-height: 52px;
   padding: 0 1.25rem;
   font-weight: 600;
   font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
+  gap: 10px;
   width: 100%;
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
   transition: all var(--transition-fast);
   cursor: pointer;
   outline: none;
@@ -731,7 +806,7 @@ p {
 
 .auth-social-btn i,
 .auth-apple-btn i {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -740,8 +815,8 @@ p {
 
 .auth-social-btn:hover,
 .auth-apple-btn:hover {
-  border-color: var(--yellow-primary);
-  background: #1f2738;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #242c40;
   color: #ffffff !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
@@ -752,12 +827,77 @@ p {
   transform: translateY(0);
 }
 
+.w-full {
+  width: 100% !important;
+}
+
+.min-w-0 {
+  min-width: 0 !important;
+}
+
+/* Responsive Social Auth Layout for Login:
+   - Mobile (< 640px): Stack vertically, 100% full width, 12px gap
+   - Tablet & Desktop (>= 640px): Side by side, equal 50/50 widths, 12px gap */
+@media (max-width: 639.98px) {
+  .auth-social-group:not(.signup-social-group) {
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .auth-social-group:not(.signup-social-group) .auth-social-btn,
+  .auth-social-group:not(.signup-social-group) .auth-apple-btn {
+    width: 100% !important;
+    flex: none !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+@media (min-width: 640px) {
+  .auth-social-group:not(.signup-social-group) {
+    flex-direction: row !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .auth-social-group:not(.signup-social-group) .auth-social-btn,
+  .auth-social-group:not(.signup-social-group) .auth-apple-btn {
+    flex: 1 1 0 !important;
+    width: 100% !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+}
+
+/* Social Auth Layout for Signup:
+   Stack Google and Apple buttons vertically ("keela keela"), each button full width, 12px gap */
+.signup-social-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.signup-social-group .auth-social-btn {
+  width: 100% !important;
+  flex: none !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
 .auth-divider {
   display: flex;
   align-items: center;
   margin: 1.5rem 0;
-  color: var(--text-dim);
-  font-size: 0.85rem;
+  color: #8b9cb5;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .auth-divider::before,
@@ -765,15 +905,193 @@ p {
   content: '';
   flex: 1;
   height: 1px;
-  background-color: var(--border-color);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .auth-divider span {
   padding: 0 0.85rem;
+  color: #8b9cb5;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-/* Password strength indicator */
-.password-strength-bar {
+/* ==========================================================================
+   Signup Page Layout, Grid & Alignment (Laptop/Desktop & Mobile Responsive)
+   ========================================================================== */
+
+/* 16px vertical gap between form rows */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* All form fields stack vertically one below the other ("keela keela") with 16px gap */
+.form-grid-2,
+.signup-form .grid-cols-2 {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+
+/* Each field wrapper: label + input with 6px gap */
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  position: relative;
+}
+
+/* Labels: left-aligned with input's left edge, same font size (0.85rem) & weight 600 */
+.signup-label {
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f8fafc;
+  line-height: 1.25;
+}
+
+/* Input wrappers */
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* All signup inputs: w-full, same height (52px), same border-radius (8px),
+   same padding (16px left), same font-size (0.95rem). Placeholder & input text start identically */
+.signup-form input.custom-form-control,
+.signup-input {
+  width: 100% !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  max-height: 52px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  border-radius: 8px !important;
+  font-size: 0.95rem !important;
+  line-height: 50px !important;
+  background-color: var(--bg-card-light) !important;
+  border: 1.5px solid var(--border-color) !important;
+  color: var(--text-white) !important;
+  box-sizing: border-box !important;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.signup-form input.custom-form-control:focus,
+.signup-input:focus {
+  background-color: #1f2738 !important;
+  border-color: var(--yellow-primary) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2) !important;
+  color: var(--text-white) !important;
+}
+
+/* Password & Confirm Password inputs: ~48px right padding so typed text never overlaps eye icon */
+.signup-password-input {
+  padding-right: 48px !important;
+}
+
+/* Eye icon toggle button: vertically centered, right 16px */
+.password-toggle-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b99ad;
+  cursor: pointer;
+  z-index: 5;
+  transition: color var(--transition-fast);
+}
+
+.password-toggle-btn:hover,
+.password-toggle-btn:focus {
+  color: #ffffff;
+  outline: none;
+}
+
+.password-toggle-btn i {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+/* Password Strength Indicator:
+   - Positioned absolutely 6px below password input
+   - Spans full width of password field only
+   - 0px document flow height so Confirm Password and row below remain in exact alignment
+   - Background is transparent when empty, completely removing the stray grey line! */
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.signup-form .password-strength-bar {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  border-radius: 9999px;
+  overflow: hidden;
+  pointer-events: none;
+  margin: 0;
+  transition: background-color var(--transition-fast);
+}
+
+.signup-form .password-strength-bar.is-active,
+.signup-form .password-strength-bar:has(.password-strength-fill[style*="%"]) {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.signup-form .password-strength-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 9999px;
+  transition: width var(--transition-normal), background-color var(--transition-normal);
+}
+
+/* Hide strength bar when invalid feedback is showing */
+.signup-form input.is-invalid ~ .password-strength-bar {
+  display: none;
+}
+
+/* Checkbox alignment */
+.signup-terms-check {
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+/* Form field row stacking: always stacked vertically ("keela keela") */
+.signup-form .form-grid-2,
+.signup-form .grid-cols-2 {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  width: 100% !important;
+}
+
+/* General fallback for non-signup pages */
+.password-strength-bar:not(.signup-form .password-strength-bar) {
   height: 4px;
   background-color: var(--border-color);
   border-radius: var(--radius-pill);
@@ -781,7 +1099,7 @@ p {
   overflow: hidden;
 }
 
-.password-strength-fill {
+.password-strength-fill:not(.signup-form .password-strength-fill) {
   height: 100%;
   width: 0%;
   transition: width var(--transition-normal), background-color var(--transition-normal);
@@ -1282,6 +1600,30 @@ p {
   margin-top: 2.25rem;
 }
 
+/* Newsletter Subscription Section Base Styling (Desktop & Tablet) */
+.footer-custom form#newsletterForm,
+#newsletterForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.footer-custom form#newsletterForm .custom-form-control,
+#newsletterForm .custom-form-control {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: auto;
+}
+
+.footer-custom form#newsletterForm .btn,
+#newsletterForm .btn {
+  flex-shrink: 0;
+  width: auto;
+  white-space: nowrap;
+}
+
 /* ==========================================================================
    17. Responsive Layout System (Mobile, Tablet, and Laptop/Desktop)
    ========================================================================== */
@@ -1290,6 +1632,142 @@ p {
    17A. Laptop & Desktop Screens (min-width: 992px)
    -------------------------------------------------------------------------- */
 @media (min-width: 992px) {
+  /* Navbar Single Row Flex Alignment on Laptops & Desktops */
+  .navbar-custom {
+    padding: 0.85rem 0 !important;
+    min-height: 72px;
+  }
+
+  .navbar-custom .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    max-width: 1360px !important;
+    width: 100% !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .navbar-custom .navbar-brand {
+    flex-shrink: 0 !important;
+    margin-right: 1.5rem !important;
+  }
+
+  .navbar-custom .navbar-collapse {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Nav Links Center Alignment & Equal Gap */
+  .navbar-custom .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    gap: 26px !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .navbar-custom .navbar-nav .nav-item {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+
+  .navbar-custom .nav-link-custom {
+    white-space: nowrap !important;
+    display: inline-block !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    padding: 0.5rem 0.25rem !important;
+  }
+
+  .navbar-custom .nav-link-custom.active::after {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    bottom: -4px !important;
+  }
+
+  /* Auth Buttons Right Alignment & Equal 44px Height */
+  #navbarAuthButtons,
+  #navbarAuthButtons .d-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+  }
+
+  #navbarAuthButtons .btn {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    border-radius: 9999px !important;
+    white-space: nowrap !important;
+    font-size: 0.92rem !important;
+    font-weight: 600 !important;
+    padding: 0 1.4rem !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+    cursor: pointer;
+  }
+
+  #navbarAuthButtons .btn-dark-outline {
+    background-color: rgba(20, 26, 36, 0.9) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+    padding: 0 1.35rem !important;
+  }
+
+  #navbarAuthButtons .btn-dark-outline:hover {
+    border-color: var(--yellow-primary) !important;
+    color: var(--yellow-primary) !important;
+    background-color: rgba(255, 193, 7, 0.08) !important;
+  }
+
+  #navbarAuthButtons .btn-yellow {
+    background-color: var(--yellow-primary) !important;
+    border: 1.5px solid var(--yellow-primary) !important;
+    color: #0c1017 !important;
+    font-weight: 700 !important;
+    padding: 0 1.5rem !important;
+    box-shadow: 0 4px 14px rgba(255, 193, 7, 0.28) !important;
+  }
+
+  #navbarAuthButtons .btn-yellow:hover {
+    background-color: var(--yellow-hover) !important;
+    border-color: var(--yellow-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(255, 193, 7, 0.4) !important;
+  }
+
+  #navbarAuthButtons .btn i {
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
   .hero-section {
     padding: 5rem 0 4rem;
   }
@@ -1311,6 +1789,30 @@ p {
   .dashboard-map {
     height: 100%;
     min-height: 460px;
+  }
+
+  /* Compact adjustments for smaller laptop viewports (992px to 1200px) */
+  @media (max-width: 1200px) {
+    .navbar-custom .container {
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+    }
+
+    .navbar-custom .navbar-nav {
+      gap: 18px !important;
+    }
+
+    .navbar-custom .nav-link-custom {
+      font-size: 0.88rem !important;
+    }
+
+    #navbarAuthButtons .btn {
+      height: 40px !important;
+      min-height: 40px !important;
+      max-height: 40px !important;
+      padding: 0 1.2rem !important;
+      font-size: 0.88rem !important;
+    }
   }
 }
 
@@ -1759,18 +2261,22 @@ p {
 
   /* Auth Cards (Login & Register) */
   .auth-wrapper {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 0.75rem;
   }
 
   .auth-card {
     padding: 1.5rem 1.15rem;
     width: 100% !important;
     max-width: 100% !important;
+    box-sizing: border-box;
   }
 
   .auth-social-btn {
-    padding: 0.65rem 0.85rem;
-    font-size: 0.85rem;
+    width: 100% !important;
+    height: 52px !important;
+    min-height: 52px !important;
+    font-size: 0.95rem !important;
+    padding: 0 1.25rem !important;
   }
 
   /* Modals on Mobile */
@@ -1868,12 +2374,34 @@ p {
     margin-right: auto;
   }
 
-  .footer-custom form#newsletterForm {
-    width: 100%;
-    max-width: 340px;
+  /* Newsletter Subscription Section on Mobile Devices (< 576px): Vertical stack & full width */
+  .footer-custom form#newsletterForm,
+  #newsletterForm {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;
+    gap: 0.65rem !important;
+  }
+
+  .footer-custom form#newsletterForm .custom-form-control,
+  #newsletterForm .custom-form-control {
+    width: 100% !important;
+    flex: none !important;
+    display: block !important;
+  }
+
+  .footer-custom form#newsletterForm .btn,
+  #newsletterForm .btn {
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    text-align: center !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
   }
 
   .footer-bottom {
@@ -1960,14 +2488,6 @@ p {
     margin-right: auto;
   }
 
-  .footer-custom form#newsletterForm {
-    width: 100%;
-    max-width: 340px;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-  }
-
   .footer-bottom {
     text-align: center;
     justify-content: center;
@@ -1976,6 +2496,103 @@ p {
   .footer-bottom .d-flex {
     justify-content: center;
     width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Newsletter Subscription Responsive Overrides
+   - Desktop screens (> 1024px): Side by side
+   - Tablet devices (768px to 1024px): Vertically stacked, full width
+   - Mobile screens (< 768px): Vertically stacked, full width
+   ========================================================================== */
+
+/* Desktop Screens (> 1024px) */
+@media (min-width: 1025px) {
+  .footer-custom form#newsletterForm,
+  #newsletterForm {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 0.5rem !important;
+  }
+
+  .footer-custom form#newsletterForm .custom-form-control,
+  #newsletterForm .custom-form-control {
+    flex: 1 1 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .footer-custom form#newsletterForm .btn,
+  #newsletterForm .btn {
+    flex-shrink: 0 !important;
+    width: auto !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* Tablet Devices (768px to 1024px) - Vertically Stacked & Full Width */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-custom form#newsletterForm,
+  #newsletterForm {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    gap: 0.65rem !important;
+  }
+
+  .footer-custom form#newsletterForm .custom-form-control,
+  #newsletterForm .custom-form-control {
+    width: 100% !important;
+    flex: none !important;
+    display: block !important;
+  }
+
+  .footer-custom form#newsletterForm .btn,
+  #newsletterForm .btn {
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    text-align: center !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+  }
+}
+
+/* Mobile Screens (< 768px) - Vertically Stacked & Full Width */
+@media (max-width: 767.98px) {
+  .footer-custom form#newsletterForm,
+  #newsletterForm {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0.65rem !important;
+  }
+
+  .footer-custom form#newsletterForm .custom-form-control,
+  #newsletterForm .custom-form-control {
+    width: 100% !important;
+    flex: none !important;
+    display: block !important;
+  }
+
+  .footer-custom form#newsletterForm .btn,
+  #newsletterForm .btn {
+    width: 100% !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+    text-align: center !important;
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
   }
 }
 

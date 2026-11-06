@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeloMoto - Bike Taxi Navbar</title>
+  <style>
+    /* ==========================================================================
+       1. Reset & Global Styles
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #0b0e14;
+      color: #f1f5f9;
+      line-height: 1.5;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ==========================================================================
+       2. Sticky Header & Navbar Container
+       ========================================================================== */
+    .header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 72px;
+      background-color: #0c1017;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .navbar {
+      height: 72px;
+      width: 100%;
+      position: relative;
+    }
+
+    .navbar-container {
+      max-width: 1360px;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* ==========================================================================
+       3. Brand Logo (Left)
+       ========================================================================== */
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+      height: 48px;
+      transition: transform 0.2s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: translateY(-1px);
+    }
+
+    .navbar-logo-svg {
+      height: 44px;
+      width: auto;
+      display: block;
+    }
+
+    /* ==========================================================================
+       4. Nav Links (Center)
+       ========================================================================== */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      gap: 28px; /* Equal spacing 24-28px */
+      margin: 0;
+      padding: 0;
+      flex: 1;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 8px 0;
+      position: relative;
+      white-space: nowrap; /* Prevents "How It Works" & "Why Us" from wrapping */
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: #FFB800;
+    }
+
+    .nav-link.active {
+      color: #FFB800;
+      font-weight: 600;
+    }
+
+    /* Active Yellow Underline Indicator */
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2.5px;
+      background-color: #FFB800;
+      border-radius: 2px;
+    }
+
+    /* ==========================================================================
+       5. Auth Buttons (Right)
+       ========================================================================== */
+    .navbar-auth {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn {
+      height: 44px; /* Both buttons identical height 44px */
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 9999px; /* Pill shape */
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap; /* Prevents "Sign Up" from wrapping */
+      cursor: pointer;
+      box-sizing: border-box;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Login: Outlined Dark Pill */
+    .btn-login {
+      background-color: #141a24;
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      padding: 0 20px;
+    }
+
+    .btn-login:hover {
+      background-color: rgba(255, 184, 0, 0.08);
+      border-color: #FFB800;
+      color: #FFB800;
+    }
+
+    /* Sign Up: Yellow Filled Pill (#FFB800) */
+    .btn-signup {
+      background-color: #FFB800;
+      color: #0c1017;
+      border: 1.5px solid #FFB800;
+      padding: 0 22px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(255, 184, 0, 0.28);
+    }
+
+    .btn-signup:hover {
+      background-color: #e5a500;
+      border-color: #e5a500;
+      box-shadow: 0 6px 18px rgba(255, 184, 0, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-signup:active {
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       6. Hamburger Toggle Button (Hidden on Desktop)
+       ========================================================================== */
+    .hamburger-btn {
+      display: none; /* Strictly hidden on desktop */
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      border-radius: 10px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.2s ease;
+      z-index: 1001;
+    }
+
+    .hamburger-btn:hover {
+      border-color: #FFB800;
+    }
+
+    .hamburger-bar {
+      width: 22px;
+      height: 2px;
+      background-color: #ffffff;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease;
+    }
+
+    /* Hamburger Active Animation -> 'X' Icon */
+    .hamburger-btn.active {
+      border-color: #FFB800;
+      background: rgba(255, 184, 0, 0.08);
+    }
+
+    .hamburger-btn.active .bar-1 {
+      transform: translateY(7px) rotate(45deg);
+      background-color: #FFB800;
+    }
+
+    .hamburger-btn.active .bar-2 {
+      opacity: 0;
+    }
+
+    .hamburger-btn.active .bar-3 {
+      transform: translateY(-7px) rotate(-45deg);
+      background-color: #FFB800;
+    }
+
+    /* ==========================================================================
+       7. Mobile Dropdown Menu (Hidden on Desktop)
+       ========================================================================== */
+    .mobile-menu {
+      display: none !important; /* Strictly hidden on desktop */
+      position: absolute;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      background-color: #0c1017;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      padding: 18px 24px 24px;
+      z-index: 999;
+    }
+
+    .mobile-nav-links {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .mobile-nav-link:hover {
+      background-color: rgba(255, 184, 0, 0.08);
+      color: #FFB800;
+    }
+
+    .mobile-nav-link.active {
+      background-color: rgba(255, 184, 0, 0.14);
+      color: #FFB800;
+      font-weight: 600;
+    }
+
+    .mobile-auth {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mobile-auth .btn {
+      width: 100%;
+    }
+
+    /* ==========================================================================
+       8. Responsive Media Queries
+       ========================================================================== */
+
+    /* Medium Laptops & Desktops (<= 1200px): tighter gap, 14px text, smaller buttons */
+    @media (max-width: 1200px) {
+      .navbar-container {
+        padding: 0 20px;
+      }
+
+      .nav-links {
+        gap: 18px; /* Compact equal spacing */
+      }
+
+      .nav-link {
+        font-size: 14px;
+      }
+
+      .btn {
+        height: 38px;
+        padding: 0 16px;
+        font-size: 13.5px;
+      }
+
+      .btn-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    /* Tablets & Mobile (<= 1024px): hide desktop links/buttons, show hamburger & mobile menu */
+    @media (max-width: 1024px) {
+      .nav-links {
+        display: none !important;
+      }
+
+      .navbar-auth {
+        display: none !important;
+      }
+
+      .hamburger-btn {
+        display: flex !important;
+      }
+
+      /* When toggled via JS, mobile menu becomes active */
+      .mobile-menu.open {
+        display: block !important;
+        animation: menuSlideDown 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    @keyframes menuSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================================================
+       9. Demo Hero Section (Visual Context Only)
+       ========================================================================== */
+    .hero-demo {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 184, 0, 0.12);
+      border: 1px solid rgba(255, 184, 0, 0.3);
+      color: #FFB800;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: #FFB800;
+    }
+
+    .hero-desc {
+      max-width: 620px;
+      margin: 0 auto 32px;
+      color: #94a3b8;
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navbar Header -->
+  <header class="header">
+    <nav class="navbar" id="navbar">
+      <div class="navbar-container">
+        
+        <!-- 1. Logo (Left) -->
+        <a href="#home" class="navbar-brand" aria-label="VeloMoto Home">
+          <svg class="navbar-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="190" height="48">
+            <defs>
+              <linearGradient id="veloYellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FFD700" />
+                <stop offset="100%" stop-color="#FFAB00" />
+              </linearGradient>
+            </defs>
+            <!-- Bike Icon Badge -->
+            <g transform="translate(6, 6)">
+              <rect width="48" height="48" rx="14" fill="#121212" stroke="#FFB800" stroke-width="1.8"/>
+              <circle cx="16" cy="32" r="7" stroke="url(#veloYellowGrad)" stroke-width="2.5" fill="none"/>
+              <circle cx="34" cy="32" r="7" stroke="url(#veloYellowGrad)" stroke-width="2.5" fill="none"/>
+              <path d="M16 32 L23 22 L31 22 L34 32 M23 22 L26 32 L34 32 M25 18 L21 18 M29 17 L33 22" 
+                    stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M25 12 L20 20 L26 20 L22 28" stroke="#FFD700" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </g>
+            <!-- Brand Typography -->
+            <text x="64" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="-0.5">VELO<tspan fill="#FFB800">MOTO</tspan></text>
+            <rect x="64" y="38" width="56" height="13" rx="3" fill="#FFB800"/>
+            <text x="67" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="8.5" fill="#121212" letter-spacing="1">BIKE TAXI</text>
+            <circle cx="127" cy="44.5" r="2.5" fill="#10B981"/>
+            <text x="134" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="8" fill="#94A3B8">FAST • URBAN</text>
+          </svg>
+        </a>
+
+        <!-- 2. Nav Links (Center) -->
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li class="nav-item"><a href="#fares" class="nav-link">Fares</a></li>
+          <li class="nav-item"><a href="#why-us" class="nav-link">Why Us</a></li>
+          <li class="nav-item"><a href="#safety" class="nav-link">Safety</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- 3. Auth Buttons (Right) -->
+        <div class="navbar-auth">
+          <!-- Login Button -->
+          <a href="#login" class="btn btn-login">
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3H16C16.55 3 17 3.45 17 4V16C17 16.55 16.55 17 16 17H12" stroke-linecap="round"/>
+              <path d="M8 7L12 10L8 13" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 10H3" stroke-linecap="round"/>
+            </svg>
+            <span>Login</span>
+          </a>
+          <!-- Sign Up Button -->
+          <a href="#signup" class="btn btn-signup">
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M2 17C2 13.7 5.1 11 9 11C10.1 11 11.1 11.2 12 11.6"/>
+              <path d="M16 8V14M13 11H19" stroke-linecap="round"/>
+            </svg>
+            <span>Sign Up</span>
+          </a>
+        </div>
+
+        <!-- 4. Mobile Hamburger Button (<= 1024px) -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger-bar bar-1"></span>
+          <span class="hamburger-bar bar-2"></span>
+          <span class="hamburger-bar bar-3"></span>
+        </button>
+
+      </div>
+
+      <!-- 5. Mobile Dropdown Menu (Hidden on Desktop) -->
+      <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <ul class="mobile-nav-links">
+          <li><a href="#home" class="mobile-nav-link active">Home</a></li>
+          <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
+          <li><a href="#fares" class="mobile-nav-link">Fares</a></li>
+          <li><a href="#why-us" class="mobile-nav-link">Why Us</a></li>
+          <li><a href="#safety" class="mobile-nav-link">Safety</a></li>
+          <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-auth">
+          <a href="#login" class="btn btn-login">
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3H16C16.55 3 17 3.45 17 4V16C17 16.55 16.55 17 16 17H12" stroke-linecap="round"/>
+              <path d="M8 7L12 10L8 13" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 10H3" stroke-linecap="round"/>
+            </svg>
+            <span>Login</span>
+          </a>
+          <a href="#signup" class="btn btn-signup">
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M2 17C2 13.7 5.1 11 9 11C10.1 11 11.1 11.2 12 11.6"/>
+              <path d="M16 8V14M13 11H19" stroke-linecap="round"/>
+            </svg>
+            <span>Sign Up</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Visual Demo Content (Demonstrating Sticky Navbar & Spacing) -->
+  <main>
+    <section class="hero-demo">
+      <div class="hero-badge">⚡ Fastest Urban Commute</div>
+      <h1 class="hero-title">Your Ride, Your Time.<br><span>Book a Bike Taxi!</span></h1>
+      <p class="hero-desc">
+        Skip the traffic jams and surge prices. Travel across the city with verified captains at up to 60% lower fares.
+      </p>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Vanilla JavaScript
+       ========================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+      const mobileActionLinks = mobileMenu.querySelectorAll('a');
+
+      // Toggle Mobile Menu Open / Close
+      function toggleMenu() {
+        const isOpen = mobileMenu.classList.contains('open');
+        if (isOpen) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      }
+
+      function openMenu() {
+        mobileMenu.classList.add('open');
+        hamburgerBtn.classList.add('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeMenu() {
+        mobileMenu.classList.remove('open');
+        hamburgerBtn.classList.remove('active');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+      }
+
+      // 1. Hamburger button click listener
+      if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          toggleMenu();
+        });
+      }
+
+      // 2. Close mobile menu when any link inside it is clicked
+      mobileActionLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu();
+        });
+      });
+
+      // 3. Auto-close mobile menu when window is resized above 1024px
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 1024) {
+          closeMenu();
+        }
+      });
+
+      // 4. Close menu when clicking outside of the navbar
+      document.addEventListener('click', function (e) {
+        const navbar = document.getElementById('navbar');
+        if (navbar && !navbar.contains(e.target)) {
+          closeMenu();
+        }
+      });
+
+      // 5. Close menu on Escape key press
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+          closeMenu();
+        }
+      });
+
+      // 6. Active Link Switching (Optional Enhancement)
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          const href = this.getAttribute('href');
+          navLinks.forEach(function (l) {
+            if (l.getAttribute('href') === href) {
+              l.classList.add('active');
+            } else {
+              l.classList.remove('active');
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

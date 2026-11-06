@@ -160,7 +160,7 @@ function updateNavbarAuthUI() {
   // Always display Login & Sign Up buttons on public website pages
   authContainer.innerHTML = `
     <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2">
-      <a href="login.html" class="btn btn-dark-outline btn-sm me-2">
+      <a href="login.html" class="btn btn-dark-outline btn-sm">
         <i class="bi bi-box-arrow-in-right"></i> Login
       </a>
       <a href="register.html" class="btn btn-yellow btn-sm">
@@ -284,7 +284,16 @@ document.addEventListener('DOMContentLoaded', () => {
       passInput.addEventListener('input', () => {
         const val = passInput.value;
         const fill = document.getElementById('passStrengthFill');
+        const bar = document.getElementById('regPassStrengthBar') || (fill ? fill.parentElement : null);
         if (!fill) return;
+
+        if (!val || val.length === 0) {
+          fill.style.width = '0%';
+          if (bar) bar.classList.remove('is-active');
+          return;
+        }
+
+        if (bar) bar.classList.add('is-active');
 
         let strength = 0;
         if (val.length >= 6) strength += 25;

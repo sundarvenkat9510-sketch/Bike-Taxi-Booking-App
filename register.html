@@ -52,66 +52,64 @@
       <div id="regErrorAlert" class="alert alert-danger py-2 small d-none" role="alert"></div>
 
       <!-- Registration Form -->
-      <form id="registerForm" novalidate>
+      <form id="registerForm" class="signup-form" novalidate>
         
-        <!-- Full Name -->
-        <div class="mb-3">
-          <label class="form-label text-light small fw-bold" for="regName">Full Legal Name</label>
-          <div class="position-relative">
-            <input type="text" id="regName" class="custom-form-control ps-3" placeholder="e.g., Alex Morgan" required minlength="3">
+        <!-- 1. Full Legal Name -->
+        <div class="form-field-group">
+          <label class="form-label signup-label" for="regName">Full Legal Name</label>
+          <div class="input-wrapper">
+            <input type="text" id="regName" class="custom-form-control signup-input" placeholder="e.g., Alex Morgan" required minlength="3">
           </div>
           <div class="form-feedback text-danger">Please enter your full name (at least 3 characters).</div>
         </div>
 
-        <!-- Contact Row: Mobile & Email -->
-        <div class="row g-3 mb-3">
-          <div class="col-md-6">
-            <label class="form-label text-light small fw-bold" for="regPhone">Mobile Number</label>
-            <div class="position-relative">
-              <input type="tel" id="regPhone" class="custom-form-control ps-3" placeholder="10-digit mobile" required pattern="[0-9]{10}">
-            </div>
-            <div class="form-feedback text-danger">Valid 10-digit number required.</div>
+        <!-- 2. Mobile Number -->
+        <div class="form-field-group">
+          <label class="form-label signup-label" for="regPhone">Mobile Number</label>
+          <div class="input-wrapper">
+            <input type="tel" id="regPhone" class="custom-form-control signup-input" placeholder="10-digit mobile" required pattern="[0-9]{10}">
           </div>
-
-          <div class="col-md-6">
-            <label class="form-label text-light small fw-bold" for="regEmail">Email Address</label>
-            <div class="position-relative">
-              <input type="email" id="regEmail" class="custom-form-control ps-3" placeholder="name@domain.com" required>
-            </div>
-            <div class="form-feedback text-danger">Valid email address required.</div>
-          </div>
+          <div class="form-feedback text-danger">Valid 10-digit number required.</div>
         </div>
 
-        <!-- Password Row -->
-        <div class="row g-3 mb-2">
-          <div class="col-md-6">
-            <label class="form-label text-light small fw-bold" for="regPassword">Password</label>
-            <div class="position-relative">
-              <input type="password" id="regPassword" class="custom-form-control ps-3 pe-5" placeholder="Min. 6 chars" required minlength="6">
-              <button type="button" class="btn border-0 position-absolute end-0 top-50 translate-middle-y text-muted me-2" id="toggleRegPassBtn">
-                <i class="bi bi-eye" id="toggleRegPassIcon"></i>
-              </button>
-            </div>
-            <div class="password-strength-bar mt-2">
+        <!-- 3. Email Address -->
+        <div class="form-field-group">
+          <label class="form-label signup-label" for="regEmail">Email Address</label>
+          <div class="input-wrapper">
+            <input type="email" id="regEmail" class="custom-form-control signup-input" placeholder="name@domain.com" required>
+          </div>
+          <div class="form-feedback text-danger">Valid email address required.</div>
+        </div>
+
+        <!-- 4. Password -->
+        <div class="form-field-group">
+          <label class="form-label signup-label" for="regPassword">Password</label>
+          <div class="input-wrapper password-input-wrapper">
+            <input type="password" id="regPassword" class="custom-form-control signup-input signup-password-input" placeholder="Min. 6 chars" required minlength="6">
+            <button type="button" class="password-toggle-btn" id="toggleRegPassBtn" aria-label="Toggle password visibility">
+              <i class="bi bi-eye" id="toggleRegPassIcon"></i>
+            </button>
+            <div class="password-strength-bar" id="regPassStrengthBar">
               <div class="password-strength-fill" id="passStrengthFill"></div>
             </div>
-            <div class="form-feedback text-danger">Min. 6 characters.</div>
           </div>
+          <div class="form-feedback text-danger">Min. 6 characters.</div>
+        </div>
 
-          <div class="col-md-6">
-            <label class="form-label text-light small fw-bold" for="regConfirmPassword">Confirm Password</label>
-            <div class="position-relative">
-              <input type="password" id="regConfirmPassword" class="custom-form-control ps-3 pe-5" placeholder="Repeat password" required>
-              <button type="button" class="btn border-0 position-absolute end-0 top-50 translate-middle-y text-muted me-2" id="toggleRegConfirmBtn">
-                <i class="bi bi-eye" id="toggleRegConfirmIcon"></i>
-              </button>
-            </div>
-            <div class="form-feedback text-danger">Passwords must match.</div>
+        <!-- 5. Confirm Password -->
+        <div class="form-field-group">
+          <label class="form-label signup-label" for="regConfirmPassword">Confirm Password</label>
+          <div class="input-wrapper password-input-wrapper">
+            <input type="password" id="regConfirmPassword" class="custom-form-control signup-input signup-password-input" placeholder="Repeat password" required>
+            <button type="button" class="password-toggle-btn" id="toggleRegConfirmBtn" aria-label="Toggle confirm password visibility">
+              <i class="bi bi-eye" id="toggleRegConfirmIcon"></i>
+            </button>
           </div>
+          <div class="form-feedback text-danger">Passwords must match.</div>
         </div>
 
         <!-- Terms and Conditions Checkbox -->
-        <div class="form-check my-3">
+        <div class="form-check signup-terms-check">
           <input class="form-check-input" type="checkbox" id="regTerms" required>
           <label class="form-check-label text-muted small" for="regTerms">
             I agree to the <a href="#" class="text-warning">Terms of Service</a>, <a href="#" class="text-warning">Privacy Policy</a>, and helmet safety rules.
@@ -120,14 +118,32 @@
         </div>
 
         <!-- Submit Button -->
-        <div class="d-grid mb-3">
-          <button type="submit" class="btn btn-yellow btn-lg">
+        <div class="d-grid mb-1">
+          <button type="submit" class="btn btn-yellow btn-lg" id="btnRegister">
             <i class="bi bi-person-check-fill"></i> Create Account
           </button>
         </div>
       </form>
 
-      <div class="text-center mt-3 pt-3 border-top border-secondary">
+      <!-- OR CONTINUE WITH Social Divider -->
+      <div class="auth-divider">
+        <span>OR CONTINUE WITH</span>
+      </div>
+
+      <!-- Social Signup Buttons: Google & Apple -->
+      <div class="auth-social-group signup-social-group">
+        <button type="button" class="auth-social-btn w-100 min-w-0" onclick="showToast('Google Sign-In simulation: Welcome to VeloMoto!', 'info')">
+          <i class="bi bi-google" style="color: #ea4335;"></i>
+          <span>Google</span>
+        </button>
+        <button type="button" class="auth-social-btn w-100 min-w-0" onclick="showToast('Apple Sign-In simulation: Welcome to VeloMoto!', 'info')">
+          <i class="bi bi-apple text-white"></i>
+          <span>Apple</span>
+        </button>
+      </div>
+
+      <!-- Full-Width Divider Line & Login Link -->
+      <div class="text-center mt-4 pt-3 border-top" style="border-color: rgba(255, 255, 255, 0.08) !important;">
         <span class="text-muted small">Already registered?</span>
         <a href="login.html" class="fw-bold text-warning small ms-1">Log In Here</a>
       </div>

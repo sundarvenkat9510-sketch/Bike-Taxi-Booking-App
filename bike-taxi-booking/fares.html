@@ -55,8 +55,8 @@
         </ul>
 
         <!-- Dynamic Auth Buttons -->
-        <div id="navbarAuthButtons" class="d-flex align-items-center justify-content-center justify-content-lg-end">
-          <a href="login.html" class="btn btn-dark-outline btn-sm me-2">
+        <div id="navbarAuthButtons" class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2">
+          <a href="login.html" class="btn btn-dark-outline btn-sm">
             <i class="bi bi-box-arrow-in-right"></i> Login
           </a>
           <a href="register.html" class="btn btn-yellow btn-sm">
@@ -99,9 +99,9 @@
 
             <!-- Ride Type Selector -->
             <label class="form-label text-light fw-bold mb-2">1. Select Ride Option:</label>
-            <div class="row g-3 mb-4">
-              <div class="col-4">
-                <label class="d-block">
+            <div class="row g-3 mb-4 ride-options-selector">
+              <div class="col-12 col-md-4">
+                <label class="d-block h-100">
                   <input type="radio" name="calcBikeType" value="standard" class="btn-check" checked>
                   <div class="bike-option-card text-center p-3 h-100">
                     <i class="bi bi-bicycle bike-option-icon"></i>
@@ -111,8 +111,8 @@
                 </label>
               </div>
 
-              <div class="col-4">
-                <label class="d-block">
+              <div class="col-12 col-md-4">
+                <label class="d-block h-100">
                   <input type="radio" name="calcBikeType" value="electric" class="btn-check">
                   <div class="bike-option-card text-center p-3 h-100">
                     <i class="bi bi-lightning-charge-fill bike-option-icon text-success"></i>
@@ -122,8 +122,8 @@
                 </label>
               </div>
 
-              <div class="col-4">
-                <label class="d-block">
+              <div class="col-12 col-md-4">
+                <label class="d-block h-100">
                   <input type="radio" name="calcBikeType" value="express" class="btn-check">
                   <div class="bike-option-card text-center p-3 h-100">
                     <i class="bi bi-speedometer bike-option-icon text-danger"></i>
