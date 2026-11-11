@@ -364,4 +364,97 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // 9. RTL / LTR Navigation Direction Switcher Initialization
+  initDirectionSwitcher();
 });
+
+/**
+ * ============================================================================
+ * RTL / LTR Direction Switcher Controller
+ * ============================================================================
+ * - Toggles between LTR (default) and RTL (Right-to-Left)
+ * - Swaps Bootstrap stylesheet to bootstrap.rtl.min.css dynamically
+ * - Updates button label between "RTL" and "LTR"
+ * - Persists chosen state in localStorage ('velomoto_direction')
+ */
+function getSiteDirection() {
+  return localStorage.getItem('velomoto_direction') || 'ltr';
+}
+
+function setSiteDirection(dir) {
+  const isRTL = dir === 'rtl';
+  const targetDir = isRTL ? 'rtl' : 'ltr';
+
+  // Update HTML tag attributes
+  document.documentElement.setAttribute('dir', targetDir);
+  document.documentElement.setAttribute('lang', isRTL ? 'ar' : 'en');
+
+  // Update Bootstrap Stylesheet link
+  const bootstrapLink = document.getElementById('bootstrapCSS');
+  if (bootstrapLink) {
+    bootstrapLink.href = isRTL
+      ? 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css'
+      : 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css';
+  }
+
+  // Update all RTL / LTR toggle buttons across the page
+  const toggleButtons = document.querySelectorAll('#rtlToggleBtn, .btn-rtl-toggle');
+  toggleButtons.forEach(btn => {
+    const textSpan = btn.querySelector('#rtlToggleText, .rtl-toggle-text') || btn;
+    if (isRTL) {
+      textSpan.textContent = 'LTR';
+      btn.setAttribute('aria-label', 'Switch to LTR');
+      btn.setAttribute('title', 'Switch to LTR');
+      btn.classList.add('is-rtl');
+    } else {
+      textSpan.textContent = 'RTL';
+      btn.setAttribute('aria-label', 'Switch to RTL');
+      btn.setAttribute('title', 'Switch to RTL');
+      btn.classList.remove('is-rtl');
+    }
+  });
+
+  // Save in LocalStorage
+  try {
+    localStorage.setItem('velomoto_direction', targetDir);
+  } catch (err) {
+    console.warn('Storage unavailable:', err);
+  }
+}
+
+function toggleSiteDirection() {
+  const current = getSiteDirection();
+  const next = current === 'rtl' ? 'ltr' : 'rtl';
+  setSiteDirection(next);
+}
+
+function initDirectionSwitcher() {
+  // Bind click event to any button on the page
+  document.querySelectorAll('#rtlToggleBtn, .btn-rtl-toggle').forEach(btn => {
+    if (!btn.hasAttribute('data-rtl-bound')) {
+      btn.setAttribute('data-rtl-bound', 'true');
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleSiteDirection();
+      });
+    }
+  });
+
+  // Apply saved direction immediately
+  const saved = getSiteDirection();
+  setSiteDirection(saved);
+}
+
+// Make globally accessible
+window.getSiteDirection = getSiteDirection;
+window.setSiteDirection = setSiteDirection;
+window.toggleSiteDirection = toggleSiteDirection;
+window.initDirectionSwitcher = initDirectionSwitcher;
+
+// Auto-run early if DOM is ready or loading
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initDirectionSwitcher);
+} else {
+  initDirectionSwitcher();
+}

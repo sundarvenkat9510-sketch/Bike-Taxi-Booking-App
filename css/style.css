@@ -2775,3 +2775,196 @@ select.custom-form-control option {
   color: #ffc107 !important;
 }
 
+/* ==========================================================================
+   19. RTL (Right-to-Left) & LTR Switcher Styles
+   ========================================================================== */
+
+/* RTL / LTR Toggle Button */
+.btn-rtl-toggle {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 44px;
+  min-height: 44px;
+  max-height: 44px;
+  min-width: 58px;
+  padding: 0 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(59, 130, 246, 0.5);
+  border-radius: 9999px;
+  color: #3b82f6 !important;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  user-select: none;
+}
+
+.btn-rtl-toggle:hover {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: #3b82f6;
+  color: #60a5fa !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
+}
+
+.btn-rtl-toggle:active {
+  transform: translateY(0);
+}
+
+.btn-rtl-toggle.is-rtl {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6 !important;
+}
+
+/* RTL Layout Mode */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Navbar in RTL */
+[dir="rtl"] .navbar-custom .navbar-brand {
+  margin-right: 0 !important;
+  margin-left: 1.5rem !important;
+}
+
+[dir="rtl"] .navbar-custom .container {
+  flex-direction: row !important;
+}
+
+[dir="rtl"] .navbar-collapse {
+  flex-direction: row !important;
+}
+
+[dir="rtl"] .navbar-nav {
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+[dir="rtl"] .navbar-actions-group {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+[dir="rtl"] #navbarAuthButtons {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+[dir="rtl"] .navbar-toggler {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* Form Controls and Icons in RTL */
+[dir="rtl"] .custom-form-control {
+  text-align: right !important;
+}
+
+[dir="rtl"] .location-input-group .custom-form-control,
+[dir="rtl"] .hero-booking-card .custom-form-control {
+  padding-left: 1rem !important;
+  padding-right: 2.85rem !important;
+}
+
+[dir="rtl"] .location-input-group .icon-marker,
+[dir="rtl"] .hero-booking-card .icon-marker {
+  left: auto !important;
+  right: 1.15rem !important;
+}
+
+[dir="rtl"] .location-autocomplete-list {
+  left: auto !important;
+  right: 0 !important;
+  text-align: right !important;
+}
+
+/* Password Eye Icons in RTL */
+[dir="rtl"] .password-toggle-btn,
+[dir="rtl"] .position-relative button.btn.position-absolute.end-0 {
+  right: auto !important;
+  left: 16px !important;
+}
+
+[dir="rtl"] .signup-password-input,
+[dir="rtl"] input[type="password"].custom-form-control {
+  padding-left: 48px !important;
+  padding-right: 16px !important;
+}
+
+/* Buttons and Badges in RTL */
+[dir="rtl"] .btn i:not(.bi-eye):not(.bi-eye-slash) {
+  margin-right: 0 !important;
+  margin-left: 0.4rem !important;
+}
+
+[dir="rtl"] .badge i {
+  margin-right: 0 !important;
+  margin-left: 0.35rem !important;
+}
+
+/* Checkbox & Radio in RTL */
+[dir="rtl"] .form-check {
+  padding-left: 0 !important;
+  padding-right: 1.5em !important;
+  text-align: right !important;
+}
+
+[dir="rtl"] .form-check .form-check-input {
+  float: right !important;
+  margin-left: 0 !important;
+  margin-right: -1.5em !important;
+}
+
+/* Dashboard Sidebar in RTL */
+[dir="rtl"] .dashboard-sidebar {
+  border-right: none !important;
+  border-left: 1px solid var(--border-color) !important;
+}
+
+[dir="rtl"] .sidebar-nav-item i {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+
+/* Footer in RTL */
+[dir="rtl"] .footer-custom {
+  text-align: right !important;
+}
+
+[dir="rtl"] .footer-custom ul {
+  padding-right: 0 !important;
+}
+
+[dir="rtl"] .footer-custom .d-flex.gap-2.social-links {
+  justify-content: flex-start !important;
+}
+
+/* Small screens: Adjust button size */
+@media (max-width: 991.98px) {
+  .btn-rtl-toggle {
+    height: 38px !important;
+    min-height: 38px !important;
+    max-height: 38px !important;
+    font-size: 0.8rem !important;
+    padding: 0 12px !important;
+    min-width: 48px !important;
+  }
+}
+
