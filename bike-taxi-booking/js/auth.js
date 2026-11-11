@@ -136,7 +136,8 @@ function registerUser(name, email, phone, password) {
 
   users.push(newUser);
   localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
-  setCurrentUser(newUser);
+  // Clear any existing active session so the new user logs in fresh on the login page
+  localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
 
   return { success: true, user: newUser };
 }
@@ -191,44 +192,100 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- LOGIN PAGE LOGIC ---
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
-    // Auto-fill remembered identifier if present
-    const remembered = localStorage.getItem(STORAGE_KEYS.REMEMBER);
-    if (remembered) {
-      const idInput = document.getElementById('loginIdentifier');
-      const remCheck = document.getElementById('rememberMe');
-      if (idInput) idInput.value = remembered;
-      if (remCheck) remCheck.checked = true;
+    const urlParams = new URLSearchParams(window.location.search);
+    const registeredParam = urlParams.get('registered');
+    const emailParam = urlParams.get('email');
+    const successAlert = document.getElementById('loginSuccessAlert');
+    const errorAlert = document.getElementById('loginErrorAlert');
+    const idInput = document.getElementById('loginIdentifier');
+    const passInput = document.getElementById('loginPassword');
+
+    if (registeredParam) {
+      // Keep email address input completely empty as requested
+      if (idInput) {
+        idInput.value = '';
+        idInput.focus();
+      }
+      if (passInput) {
+        passInput.value = '';
+      }
+      if (successAlert) {
+        successAlert.innerHTML = '<i class="bi bi-check-circle-fill me-1"></i> Account created successfully! Please enter your email and password to log in.';
+        successAlert.classList.remove('d-none');
+      }
+      setTimeout(() => {
+        if (typeof showToast === 'function') {
+          showToast('Account created successfully! Please log in.', 'success');
+        }
+      }, 300);
+    } else {
+      // Auto-fill remembered identifier if present
+      const remembered = localStorage.getItem(STORAGE_KEYS.REMEMBER);
+      if (remembered) {
+        const remCheck = document.getElementById('rememberMe');
+        if (idInput) idInput.value = remembered;
+        if (remCheck) remCheck.checked = true;
+      }
+    }
+
+    const idFeedback = idInput ? idInput.closest('.mb-3')?.querySelector('.form-feedback') : null;
+    const passFeedback = passInput ? passInput.closest('.mb-3')?.querySelector('.form-feedback') : null;
+
+    if (idInput) {
+      idInput.addEventListener('input', () => {
+        if (idInput.value.trim().length > 0) {
+          idInput.classList.remove('is-invalid');
+          if (idFeedback) idFeedback.classList.remove('is-invalid', 'd-block');
+        }
+      });
+    }
+
+    if (passInput) {
+      passInput.addEventListener('input', () => {
+        if (passInput.value.length > 0) {
+          passInput.classList.remove('is-invalid');
+          if (passFeedback) passFeedback.classList.remove('is-invalid', 'd-block');
+        }
+      });
     }
 
     loginForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      if (successAlert) successAlert.classList.add('d-none');
       
-      const idInput = document.getElementById('loginIdentifier');
-      const passInput = document.getElementById('loginPassword');
       const remCheck = document.getElementById('rememberMe');
-      const errorAlert = document.getElementById('loginErrorAlert');
 
       let isValid = true;
 
       // Validate Identifier
       if (!idInput.value.trim()) {
         idInput.classList.add('is-invalid');
+        idInput.classList.remove('is-valid');
+        if (idFeedback) idFeedback.classList.add('is-invalid', 'd-block');
         isValid = false;
       } else {
         idInput.classList.remove('is-invalid');
         idInput.classList.add('is-valid');
+        if (idFeedback) idFeedback.classList.remove('is-invalid', 'd-block');
       }
 
       // Validate Password
       if (!passInput.value) {
         passInput.classList.add('is-invalid');
+        passInput.classList.remove('is-valid');
+        if (passFeedback) passFeedback.classList.add('is-invalid', 'd-block');
         isValid = false;
       } else {
         passInput.classList.remove('is-invalid');
         passInput.classList.add('is-valid');
+        if (passFeedback) passFeedback.classList.remove('is-invalid', 'd-block');
       }
 
-      if (!isValid) return;
+      if (!isValid) {
+        if (!idInput.value.trim()) idInput.focus();
+        else passInput.focus();
+        return;
+      }
 
       const submitBtn = loginForm.querySelector('button[type="submit"]');
       const origText = submitBtn.innerHTML;
@@ -244,7 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
             window.showToast('Login successful! Redirecting...', 'success');
           }
           setTimeout(() => {
-            window.location.href = 'dashboard.html';
+            const redirectTarget = urlParams.get('redirect') || 'dashboard.html';
+            window.location.href = redirectTarget;
           }, 600);
         } else {
           submitBtn.disabled = false;
@@ -279,95 +337,189 @@ document.addEventListener('DOMContentLoaded', () => {
     const termsCheck = document.getElementById('regTerms');
     const regErrorAlert = document.getElementById('regErrorAlert');
 
-    // Password strength meter
+    // Get corresponding feedback elements
+    const nameFeedback = nameInput ? nameInput.closest('.form-field-group')?.querySelector('.form-feedback') : null;
+    const phoneFeedback = phoneInput ? phoneInput.closest('.form-field-group')?.querySelector('.form-feedback') : null;
+    const emailFeedback = emailInput ? emailInput.closest('.form-field-group')?.querySelector('.form-feedback') : null;
+    const passFeedback = passInput ? passInput.closest('.form-field-group')?.querySelector('.form-feedback') : null;
+    const confirmPassFeedback = confirmPassInput ? confirmPassInput.closest('.form-field-group')?.querySelector('.form-feedback') : null;
+    const termsFeedback = termsCheck ? (termsCheck.closest('.signup-terms-check')?.querySelector('.form-feedback') || termsCheck.parentElement?.querySelector('.form-feedback')) : null;
+
+    function setFieldValidity(input, isFieldValid, feedbackEl) {
+      if (!input) return isFieldValid;
+      if (isFieldValid) {
+        input.classList.remove('is-invalid');
+        input.classList.add('is-valid');
+        if (feedbackEl) {
+          feedbackEl.classList.remove('is-invalid');
+          feedbackEl.classList.remove('d-block');
+        }
+      } else {
+        input.classList.remove('is-valid');
+        input.classList.add('is-invalid');
+        if (feedbackEl) {
+          feedbackEl.classList.add('is-invalid');
+          feedbackEl.classList.add('d-block');
+        }
+      }
+      return isFieldValid;
+    }
+
+    function checkName() {
+      const isVal = nameInput && nameInput.value.trim().length >= 3;
+      return setFieldValidity(nameInput, !!isVal, nameFeedback);
+    }
+
+    function checkPhone() {
+      if (!phoneInput) return false;
+      const digits = phoneInput.value.replace(/\D/g, '');
+      const isVal = digits.length === 10 || (digits.length === 12 && digits.startsWith('91'));
+      return setFieldValidity(phoneInput, isVal, phoneFeedback);
+    }
+
+    function checkEmail() {
+      if (!emailInput) return false;
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const isVal = emailPattern.test(emailInput.value.trim());
+      return setFieldValidity(emailInput, isVal, emailFeedback);
+    }
+
+    function checkPassword() {
+      if (!passInput) return false;
+      const isVal = passInput.value.length >= 6;
+      return setFieldValidity(passInput, isVal, passFeedback);
+    }
+
+    function checkConfirmPassword() {
+      if (!confirmPassInput || !passInput) return false;
+      const isVal = confirmPassInput.value.length >= 6 && confirmPassInput.value === passInput.value;
+      return setFieldValidity(confirmPassInput, isVal, confirmPassFeedback);
+    }
+
+    function checkTerms() {
+      if (!termsCheck) return false;
+      const isVal = termsCheck.checked;
+      return setFieldValidity(termsCheck, isVal, termsFeedback);
+    }
+
+    // Real-time input listeners to remove error state as soon as user types valid input
+    if (nameInput) {
+      nameInput.addEventListener('input', () => {
+        if (nameInput.classList.contains('is-invalid') || nameInput.value.trim().length >= 3) {
+          checkName();
+        }
+      });
+      nameInput.addEventListener('blur', () => {
+        if (nameInput.value.trim().length > 0) checkName();
+      });
+    }
+
+    if (phoneInput) {
+      phoneInput.addEventListener('input', () => {
+        if (phoneInput.classList.contains('is-invalid') || phoneInput.value.replace(/\D/g, '').length >= 10) {
+          checkPhone();
+        }
+      });
+      phoneInput.addEventListener('blur', () => {
+        if (phoneInput.value.trim().length > 0) checkPhone();
+      });
+    }
+
+    if (emailInput) {
+      emailInput.addEventListener('input', () => {
+        if (emailInput.classList.contains('is-invalid') || emailInput.value.includes('@')) {
+          checkEmail();
+        }
+      });
+      emailInput.addEventListener('blur', () => {
+        if (emailInput.value.trim().length > 0) checkEmail();
+      });
+    }
+
     if (passInput) {
       passInput.addEventListener('input', () => {
+        // Password strength meter
         const val = passInput.value;
         const fill = document.getElementById('passStrengthFill');
         const bar = document.getElementById('regPassStrengthBar') || (fill ? fill.parentElement : null);
-        if (!fill) return;
+        if (fill) {
+          if (!val || val.length === 0) {
+            fill.style.width = '0%';
+            if (bar) bar.classList.remove('is-active');
+          } else {
+            if (bar) bar.classList.add('is-active');
+            let strength = 0;
+            if (val.length >= 6) strength += 25;
+            if (val.length >= 8) strength += 25;
+            if (/[A-Z]/.test(val) || /[0-9]/.test(val)) strength += 25;
+            if (/[^A-Za-z0-9]/.test(val)) strength += 25;
 
-        if (!val || val.length === 0) {
-          fill.style.width = '0%';
-          if (bar) bar.classList.remove('is-active');
-          return;
+            fill.style.width = strength + '%';
+            if (strength <= 25) fill.style.backgroundColor = '#ef4444';
+            else if (strength <= 50) fill.style.backgroundColor = '#f59e0b';
+            else fill.style.backgroundColor = '#10b981';
+          }
         }
 
-        if (bar) bar.classList.add('is-active');
+        if (passInput.classList.contains('is-invalid') || passInput.value.length >= 6) {
+          checkPassword();
+        }
+        if (confirmPassInput && confirmPassInput.value.length > 0) {
+          checkConfirmPassword();
+        }
+      });
+      passInput.addEventListener('blur', () => {
+        if (passInput.value.length > 0) checkPassword();
+      });
+    }
 
-        let strength = 0;
-        if (val.length >= 6) strength += 25;
-        if (val.length >= 8) strength += 25;
-        if (/[A-Z]/.test(val) || /[0-9]/.test(val)) strength += 25;
-        if (/[^A-Za-z0-9]/.test(val)) strength += 25;
+    if (confirmPassInput) {
+      confirmPassInput.addEventListener('input', () => {
+        if (confirmPassInput.classList.contains('is-invalid') || confirmPassInput.value.length >= 6) {
+          checkConfirmPassword();
+        }
+      });
+      confirmPassInput.addEventListener('blur', () => {
+        if (confirmPassInput.value.length > 0) checkConfirmPassword();
+      });
+    }
 
-        fill.style.width = strength + '%';
-        if (strength <= 25) fill.style.backgroundColor = '#ef4444';
-        else if (strength <= 50) fill.style.backgroundColor = '#f59e0b';
-        else fill.style.backgroundColor = '#10b981';
+    if (termsCheck) {
+      termsCheck.addEventListener('change', () => {
+        checkTerms();
       });
     }
 
     registerForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      let isValid = true;
 
-      // Full Name Validation (at least 3 characters)
-      if (!nameInput.value.trim() || nameInput.value.trim().length < 3) {
-        nameInput.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        nameInput.classList.remove('is-invalid');
-        nameInput.classList.add('is-valid');
+      const vName = checkName();
+      const vPhone = checkPhone();
+      const vEmail = checkEmail();
+      const vPass = checkPassword();
+      const vConfirm = checkConfirmPassword();
+      const vTerms = checkTerms();
+
+      const isFormValid = vName && vPhone && vEmail && vPass && vConfirm && vTerms;
+
+      if (!isFormValid) {
+        if (regErrorAlert) {
+          regErrorAlert.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-2"></i>Please fill in all required fields correctly.';
+          regErrorAlert.classList.remove('d-none');
+        }
+
+        // Focus first invalid input
+        if (!vName && nameInput) nameInput.focus();
+        else if (!vPhone && phoneInput) phoneInput.focus();
+        else if (!vEmail && emailInput) emailInput.focus();
+        else if (!vPass && passInput) passInput.focus();
+        else if (!vConfirm && confirmPassInput) confirmPassInput.focus();
+        else if (!vTerms && termsCheck) termsCheck.focus();
+
+        return;
       }
 
-      // Phone Validation (10 digits)
-      const phoneDigits = phoneInput.value.replace(/\D/g, '');
-      if (phoneDigits.length < 10) {
-        phoneInput.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        phoneInput.classList.remove('is-invalid');
-        phoneInput.classList.add('is-valid');
-      }
-
-      // Email Validation
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(emailInput.value.trim())) {
-        emailInput.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        emailInput.classList.remove('is-invalid');
-        emailInput.classList.add('is-valid');
-      }
-
-      // Password Validation (min 6 chars)
-      if (passInput.value.length < 6) {
-        passInput.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        passInput.classList.remove('is-invalid');
-        passInput.classList.add('is-valid');
-      }
-
-      // Confirm Password
-      if (confirmPassInput.value !== passInput.value || !confirmPassInput.value) {
-        confirmPassInput.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        confirmPassInput.classList.remove('is-invalid');
-        confirmPassInput.classList.add('is-valid');
-      }
-
-      // Terms
-      if (!termsCheck.checked) {
-        termsCheck.classList.add('is-invalid');
-        isValid = false;
-      } else {
-        termsCheck.classList.remove('is-invalid');
-      }
-
-      if (!isValid) return;
+      if (regErrorAlert) regErrorAlert.classList.add('d-none');
 
       const submitBtn = registerForm.querySelector('button[type="submit"]');
       const origText = submitBtn.innerHTML;
@@ -384,17 +536,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (result.success) {
           if (regErrorAlert) regErrorAlert.classList.add('d-none');
-          if (window.showToast) {
-            window.showToast('Account created successfully! Welcome to VeloMoto.', 'success');
+          if (typeof showToast === 'function') {
+            showToast('Account created successfully! Redirecting to login...', 'success');
           }
           setTimeout(() => {
-            window.location.href = 'dashboard.html';
-          }, 700);
+            window.location.href = 'login.html?registered=true';
+          }, 600);
         } else {
           submitBtn.disabled = false;
           submitBtn.innerHTML = origText;
           if (regErrorAlert) {
-            regErrorAlert.textContent = result.message;
+            regErrorAlert.innerHTML = `<i class="bi bi-exclamation-triangle-fill me-2"></i>${result.message}`;
             regErrorAlert.classList.remove('d-none');
           }
         }

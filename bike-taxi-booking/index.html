@@ -89,7 +89,7 @@
   <!-- ======================================================================
        HERO SECTION WITH QUICK RIDE BOOKING
        ====================================================================== -->
-  <section class="hero-section">
+  <section class="hero-section" style="background-color: #0B0B0D !important;">
     <div class="container">
       <div class="row align-items-center g-5">
         
@@ -110,7 +110,7 @@
           </p>
 
           <!-- Hero Booking Widget -->
-          <div class="hero-booking-widget">
+          <div class="hero-booking-widget" style="background-color: #18181D !important;">
             <form id="heroBookingForm">
               <h5 class="fw-bold text-white mb-3 d-flex align-items-center gap-2">
                 <i class="bi bi-pin-map text-warning"></i> Quick Ride Booking
@@ -132,7 +132,7 @@
 
               <!-- Live Fare & ETA preview container (Immediately Visible) -->
               <div id="heroQuickEstimate">
-                <div class="d-flex align-items-center justify-content-between p-2 rounded bg-dark border border-secondary mb-3">
+                <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary mb-3" style="background-color: #202026 !important;">
                   <div class="d-flex align-items-center gap-2">
                     <span class="badge badge-yellow"><i class="bi bi-clock"></i> ~15 mins</span>
                     <span class="small text-light">• ~5.8 km</span>
@@ -493,9 +493,78 @@
   <!-- ======================================================================
        CALL TO ACTION / CONTACT
        ====================================================================== -->
-  <section class="section-padding bg-darker" id="contact">
+  <section class="section-padding bg-darker contact-section" id="contact">
     <div class="container">
-      <div class="urban-card p-4 p-lg-5" style="background: linear-gradient(135deg, #131722 0%, #1a2233 100%); border-color: rgba(255, 193, 7, 0.3);">
+      <!-- Section Header based on reference design -->
+      <div class="contact-header">
+        <span class="contact-badge"><i class="bi bi-headset"></i> 24/7 Commuter Helpdesk</span>
+        <h2 class="contact-title">Contact VeloMoto</h2>
+        <p class="contact-subtitle">
+          We would love to hear from you. Visit our hub, give us a call, or send a message — our support team is here to help 24/7.
+        </p>
+      </div>
+
+      <!-- 4 Contact Cards Grid (Theme Oriented) -->
+      <div class="row g-4 justify-content-center mb-5">
+        <!-- 1. Store / Hub Address -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="contact-card" style="background-color: #18181D !important;">
+            <div class="contact-card-icon">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <h5 class="contact-card-title">Hub Address</h5>
+            <p class="contact-card-text">
+              123 Tech Park, Cyber City<br>Bangalore, KA 560100
+            </p>
+            <span class="contact-card-action">Visit Hub <i class="bi bi-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- 2. Phone -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="tel:+919876543210" class="contact-card" style="background-color: #18181D !important;">
+            <div class="contact-card-icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <h5 class="contact-card-title">Phone</h5>
+            <p class="contact-card-text">
+              +91 98765 43210<br>(1800) VELO-MOTO
+            </p>
+            <span class="contact-card-action">Call Support <i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+
+        <!-- 3. Email -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="mailto:support@velomoto.com" class="contact-card" style="background-color: #18181D !important;">
+            <div class="contact-card-icon">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <h5 class="contact-card-title">Email</h5>
+            <p class="contact-card-text">
+              support@velomoto.com<br>Instant Resolution
+            </p>
+            <span class="contact-card-action">Send Mail <i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+
+        <!-- 4. WhatsApp -->
+        <div class="col-12 col-sm-6 col-lg-3">
+          <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="contact-card" style="background-color: #18181D !important;">
+            <div class="contact-card-icon whatsapp-icon">
+              <i class="bi bi-whatsapp"></i>
+            </div>
+            <h5 class="contact-card-title">WhatsApp</h5>
+            <p class="contact-card-text">
+              Message us on WhatsApp<br>Online 24/7
+            </p>
+            <span class="contact-card-action">Chat on WhatsApp <i class="bi bi-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Support Inquiry & CTA Box -->
+      <div class="urban-card p-4 p-lg-5" style="background: #18181D; border-color: rgba(255, 193, 7, 0.3);">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
             <span class="badge badge-yellow mb-2">Get Started in 60 Seconds</span>
@@ -514,7 +583,7 @@
           </div>
           <div class="col-lg-5">
             <!-- Contact Quick Inquiries Box -->
-            <div class="p-3 rounded bg-dark border border-secondary">
+            <div class="p-3 rounded border border-secondary" style="background-color: #18181D !important;">
               <h6 class="text-white fw-bold mb-3"><i class="bi bi-envelope-paper text-warning me-2"></i>Quick Support Inquiry</h6>
               <form id="contactForm">
                 <div class="mb-2">
@@ -558,7 +627,7 @@
         </div>
 
         <!-- Quick Links -->
-        <div class="col-lg-2 col-md-6 ps-lg-3">
+        <div class="col-lg-3 col-md-6 ps-lg-4">
           <h6 class="footer-heading">Platform</h6>
           <ul class="footer-links-list">
             <li><a href="index.html">Home</a></li>
@@ -570,7 +639,7 @@
         </div>
 
         <!-- Safety & Policies -->
-        <div class="col-lg-3 col-md-6 ps-lg-3">
+        <div class="col-lg-3 col-md-6 ps-lg-4">
           <h6 class="footer-heading">Safety & Trust</h6>
           <ul class="footer-links-list">
             <li><a href="#safety">Safety Standards</a></li>
@@ -581,29 +650,29 @@
           </ul>
         </div>
 
-        <!-- Newsletter & Contact -->
-        <div class="col-lg-4 col-md-6">
-          <h6 class="footer-heading">Stay Updated</h6>
-          <p class="text-muted small mb-3">Subscribe to receive exclusive commuter discounts, promo codes, and safety tips.</p>
-          <form id="newsletterForm" class="newsletter-form d-flex flex-column flex-xl-row gap-2 w-100">
-            <input type="email" class="custom-form-control py-2 ps-3 w-100" placeholder="Enter your email" required>
-            <button type="submit" class="btn btn-yellow btn-sm flex-shrink-0 px-3 py-2 w-100 w-xl-auto">Subscribe</button>
-          </form>
-          <div class="mt-3 text-muted small d-flex flex-column gap-1">
-            <div><i class="bi bi-geo-alt text-warning me-2"></i>Cyber Towers, 4th Floor, Tech Hub</div>
-            <div><i class="bi bi-telephone text-warning me-2"></i>+91 1800-245-VELO (24x7)</div>
-          </div>
+        <!-- Contact (Matches Reference Design) -->
+        <div class="col-lg-3 col-md-6 ps-lg-4">
+          <h6 class="footer-heading">Contact</h6>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
+              <span>Cyber Towers, 4th Floor, Tech Hub, Bangalore 560100</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-telephone-fill footer-contact-icon"></i>
+              <a href="tel:+9118002458356">+91 1800-245-VELO (24x7)</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-envelope-fill footer-contact-icon"></i>
+              <a href="mailto:support@velomoto.com">support@velomoto.com</a>
+            </li>
+          </ul>
         </div>
       </div>
 
       <!-- Bottom Bar -->
-      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-muted small">
-        <div>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</div>
-        <div class="d-flex gap-3">
-          <a href="#" class="text-muted">Terms of Service</a>
-          <a href="#" class="text-muted">Privacy Policy</a>
-          <a href="#" class="text-muted">Security</a>
-        </div>
+      <div class="footer-bottom text-center">
+        <p class="mb-0 text-muted small">&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>

@@ -214,10 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const sampleDist = 6.4;
         const est = calculateFareBreakdown(sampleDist, 'standard');
         quickEstimateBox.innerHTML = `
-          <div class="d-flex align-items-center justify-content-between p-2 rounded bg-dark border border-secondary mb-3">
+          <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary mb-3" style="background-color: #202026 !important;">
             <div class="d-flex align-items-center gap-2">
               <span class="badge badge-yellow"><i class="bi bi-clock"></i> ~${est.etaMinutes} mins</span>
-              <span class="small text-muted">• ~${sampleDist} km</span>
+              <span class="small text-light">• ~${sampleDist} km</span>
             </div>
             <div class="fw-bold text-warning fs-5">₹${est.totalFare}</div>
           </div>
