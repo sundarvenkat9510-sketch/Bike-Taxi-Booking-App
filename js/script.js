@@ -266,6 +266,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 3B. Home 2 Rapid Booking Form & Fleet Selector
+  const heroBookingForm2 = document.getElementById('heroBookingForm2');
+  if (heroBookingForm2) {
+    const pickupInput2 = document.getElementById('pickupLocationInput2');
+    const dropInput2 = document.getElementById('dropLocationInput2');
+
+    const fleetButtons = [
+      document.getElementById('btnFleetClassic'),
+      document.getElementById('btnFleetEV'),
+      document.getElementById('btnFleetExpress')
+    ].filter(Boolean);
+
+    const fleetFareMap = {
+      btnFleetClassic: { fare: '₹49', time: '14 mins', saving: 'Save 22 mins vs Cab' },
+      btnFleetEV: { fare: '₹45', time: '15 mins', saving: 'Save 21 mins & Zero Emissions' },
+      btnFleetExpress: { fare: '₹65', time: '10 mins', saving: 'Save 26 mins vs Cab' }
+    };
+
+    fleetButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        fleetButtons.forEach(b => {
+          b.classList.remove('active', 'btn-yellow');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const estimateFareEl = document.querySelector('.estimate-fare-amount');
+        const estimateEtaEl = document.querySelector('.estimate-eta strong');
+        const estimateSavingEl = document.querySelector('.estimate-saving');
+        const data = fleetFareMap[btn.id];
+        if (data) {
+          if (estimateFareEl) estimateFareEl.textContent = data.fare;
+          if (estimateEtaEl) estimateEtaEl.textContent = data.time;
+          if (estimateSavingEl) estimateSavingEl.innerHTML = `<i class="bi bi-arrow-down-right"></i> ${data.saving}`;
+        }
+      });
+    });
+
+    heroBookingForm2.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const pickupVal = pickupInput2 ? pickupInput2.value.trim() : '';
+      const dropVal = dropInput2 ? dropInput2.value.trim() : '';
+
+      if (!pickupVal || !dropVal) {
+        showToast('Please enter both pickup and destination locations.', 'error');
+        return;
+      }
+
+      sessionStorage.setItem('velomoto_quick_pickup', pickupVal);
+      sessionStorage.setItem('velomoto_quick_drop', dropVal);
+
+      const currentUser = localStorage.getItem('velomoto_currentUser');
+      if (currentUser) {
+        window.location.href = 'dashboard.html?action=book';
+      } else {
+        showToast('Login to confirm your booking! Redirecting...', 'info');
+        setTimeout(() => {
+          window.location.href = 'login.html?redirect=dashboard.html';
+        }, 700);
+      }
+    });
+  }
+
   // 4. Interactive Fare Calculator (on fares.html)
   const fareDistanceSlider = document.getElementById('fareDistanceSlider');
   const fareDistanceDisplay = document.getElementById('fareDistanceDisplay');
@@ -367,6 +431,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 9. RTL / LTR Navigation Direction Switcher Initialization
   initDirectionSwitcher();
+
+  // 10. Dark / Light Theme Switcher Initialization
+  initThemeSwitcher();
 });
 
 /**
@@ -405,12 +472,12 @@ function setSiteDirection(dir) {
     if (isRTL) {
       textSpan.textContent = 'LTR';
       btn.setAttribute('aria-label', 'Switch to LTR');
-      btn.setAttribute('title', 'Switch to LTR');
+      btn.removeAttribute('title');
       btn.classList.add('is-rtl');
     } else {
       textSpan.textContent = 'RTL';
       btn.setAttribute('aria-label', 'Switch to RTL');
-      btn.setAttribute('title', 'Switch to RTL');
+      btn.removeAttribute('title');
       btn.classList.remove('is-rtl');
     }
   });
@@ -432,6 +499,7 @@ function toggleSiteDirection() {
 function initDirectionSwitcher() {
   // Bind click event to any button on the page
   document.querySelectorAll('#rtlToggleBtn, .btn-rtl-toggle').forEach(btn => {
+    btn.removeAttribute('title');
     if (!btn.hasAttribute('data-rtl-bound')) {
       btn.setAttribute('data-rtl-bound', 'true');
       btn.addEventListener('click', (e) => {
@@ -455,6 +523,125 @@ window.initDirectionSwitcher = initDirectionSwitcher;
 // Auto-run early if DOM is ready or loading
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initDirectionSwitcher);
+  document.addEventListener('DOMContentLoaded', initThemeSwitcher);
 } else {
   initDirectionSwitcher();
+  initThemeSwitcher();
 }
+
+/**
+ * ============================================================================
+ * Dark / Light Theme Switcher Controller (VeloMoto Brand Theme Oriented)
+ * ============================================================================
+ * - Clicking first image (Sun icon bi-sun-fill) activates Light Theme
+ * - Clicking second image (Moon icon bi-moon-fill) activates Dark Theme
+ * - Persists chosen theme in localStorage ('velomoto_theme')
+ * - Updates data-theme attribute on <html> element with zero-flicker
+ */
+function getSiteTheme() {
+  return localStorage.getItem('velomoto_theme') || 'dark';
+}
+
+function setSiteTheme(theme) {
+  const isLight = theme === 'light';
+  const targetTheme = isLight ? 'light' : 'dark';
+
+  // Apply data-theme attribute to <html>
+  document.documentElement.setAttribute('data-theme', targetTheme);
+
+  // Update single-logo fallback images if present
+  document.querySelectorAll('img.navbar-brand-logo, .footer-logo-link img').forEach(img => {
+    if (!img.classList.contains('logo-dark') && !img.classList.contains('logo-light')) {
+      img.src = isLight ? 'assets/images/logo-light.svg' : 'assets/images/logo.svg';
+    }
+  });
+
+  // Update all theme toggle buttons across the page
+  const themeButtons = document.querySelectorAll('#themeToggleBtn, .btn-theme-toggle');
+  themeButtons.forEach(btn => {
+    if (isLight) {
+      // In Light theme, displays Moon icon (Image 2) - clicking it activates Dark theme
+      btn.innerHTML = '<i class="bi bi-moon-fill" aria-hidden="true"></i>';
+      btn.setAttribute('aria-label', 'Switch to Dark Theme');
+      btn.removeAttribute('title');
+      btn.classList.add('is-light');
+    } else {
+      // In Dark theme, displays Sun icon (Image 1) - clicking it activates Light theme
+      btn.innerHTML = '<i class="bi bi-sun-fill" aria-hidden="true"></i>';
+      btn.setAttribute('aria-label', 'Switch to Light Theme');
+      btn.removeAttribute('title');
+      btn.classList.remove('is-light');
+    }
+  });
+
+  // Save preference in localStorage
+  try {
+    localStorage.setItem('velomoto_theme', targetTheme);
+  } catch (err) {
+    console.warn('Theme storage unavailable:', err);
+  }
+}
+
+function toggleSiteTheme() {
+  const current = getSiteTheme();
+  const next = current === 'light' ? 'dark' : 'light';
+  setSiteTheme(next);
+}
+
+function initThemeSwitcher() {
+  document.querySelectorAll('#themeToggleBtn, .btn-theme-toggle').forEach(btn => {
+    btn.removeAttribute('title');
+    if (!btn.hasAttribute('data-theme-bound')) {
+      btn.setAttribute('data-theme-bound', 'true');
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        toggleSiteTheme();
+      });
+    }
+  });
+
+  // Apply saved theme immediately
+  const saved = getSiteTheme();
+  setSiteTheme(saved);
+}
+
+// GPS Auto-detect handler for booking forms
+function detectGPSLocation() {
+  const pickupInput = document.getElementById('pickupLocationInput2') ||
+                      document.getElementById('pickupLocationInput') ||
+                      document.getElementById('heroPickupInput');
+  if (!pickupInput) return;
+
+  pickupInput.value = 'Locating via GPS...';
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        pickupInput.value = 'Indiranagar 100ft Road, Metro Gate 2 (Live GPS)';
+        if (typeof showToast === 'function') {
+          showToast('Live GPS location detected successfully!', 'success');
+        }
+      },
+      (err) => {
+        pickupInput.value = 'Indiranagar 100ft Road, Bangalore (Simulated GPS)';
+        if (typeof showToast === 'function') {
+          showToast('GPS detected: Indiranagar 100ft Road', 'info');
+        }
+      },
+      { timeout: 4000 }
+    );
+  } else {
+    pickupInput.value = 'Indiranagar 100ft Road, Bangalore (GPS)';
+    if (typeof showToast === 'function') {
+      showToast('GPS location set: Indiranagar 100ft Road', 'info');
+    }
+  }
+}
+
+// Make globally accessible
+window.getSiteTheme = getSiteTheme;
+window.setSiteTheme = setSiteTheme;
+window.toggleSiteTheme = toggleSiteTheme;
+window.initThemeSwitcher = initThemeSwitcher;
+window.detectGPSLocation = detectGPSLocation;
+

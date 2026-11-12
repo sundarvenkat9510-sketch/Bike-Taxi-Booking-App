@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <circle cx="60" cy="60" r="56" fill="#18181D" stroke="#FFC107" stroke-width="2.5"/>
+  <!-- Turbo Speedometer & Flame Accent -->
+  <path d="M35 75 A 35 35 0 1 1 85 75" fill="none" stroke="#FFC107" stroke-width="6" stroke-linecap="round"/>
+  <line x1="60" y1="60" x2="80" y2="45" stroke="#FF3D00" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="60" cy="60" r="6" fill="#FFFFFF"/>
+</svg>

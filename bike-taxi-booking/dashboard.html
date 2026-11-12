@@ -15,6 +15,8 @@
   <link id="bootstrapCSS" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script>
     (function() {
+      const theme = localStorage.getItem('velomoto_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -39,11 +41,12 @@
   <!-- ======================================================================
        DASHBOARD TOPBAR
        ====================================================================== -->
-  <nav class="navbar navbar-custom py-2 px-3 border-bottom border-secondary">
+  <nav class="navbar navbar-custom py-2 px-3">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center gap-3">
         <a class="navbar-brand m-0" href="index.html">
-          <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo">
+          <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light">
         </a>
         <span class="badge badge-yellow d-none d-sm-inline-flex">
           <i class="bi bi-shield-fill-check"></i> Rider Hub
@@ -51,6 +54,11 @@
       </div>
 
       <div class="d-flex align-items-center gap-3">
+        <!-- Theme Toggle Button -->
+        <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" style="width: 38px; height: 38px; min-width: 38px; min-height: 38px; font-size: 1rem;">
+          <i class="bi bi-sun-fill"></i>
+        </button>
+
         <!-- Quick Wallet Balance Pill -->
         <div class="d-flex align-items-center gap-2 border border-secondary px-3 py-1 rounded-pill" style="background-color: #18181D !important;">
           <i class="bi bi-wallet2 text-warning"></i>
@@ -116,7 +124,7 @@
             <span>Profile Settings</span>
           </a>
         </li>
-        <li class="sidebar-nav-item mt-auto pt-3 border-top border-secondary">
+        <li class="sidebar-nav-item mt-auto pt-3">
           <button type="button" class="sidebar-nav-link text-danger w-100 border-0 bg-transparent" onclick="logoutUser()">
             <i class="bi bi-box-arrow-right"></i>
             <span>Log Out</span>
@@ -275,7 +283,7 @@
                     <span class="text-muted">Estimated Duration:</span>
                     <strong class="text-white" id="dashEstDuration">15 mins</strong>
                   </div>
-                  <div class="d-flex justify-content-between border-top border-secondary pt-2">
+                  <div class="d-flex justify-content-between pt-2">
                     <span class="text-light fw-bold">Total Estimated Fare:</span>
                     <span class="text-warning fw-bold fs-5" id="dashEstFare">₹73.00</span>
                   </div>
@@ -427,7 +435,7 @@
             <div class="urban-card h-100">
               <h5 class="fw-bold text-white mb-3"><i class="bi bi-receipt text-warning me-2"></i>Wallet Activity</h5>
               
-              <div class="d-flex justify-content-between align-items-center p-3 border-bottom border-secondary">
+              <div class="d-flex justify-content-between align-items-center p-3">
                 <div>
                   <div class="fw-bold text-white small">Ride Payment #VM-9842</div>
                   <div class="text-muted small">Central Metro to Cyber City</div>
@@ -435,7 +443,7 @@
                 <span class="text-danger fw-bold">- ₹74.00</span>
               </div>
 
-              <div class="d-flex justify-content-between align-items-center p-3 border-bottom border-secondary">
+              <div class="d-flex justify-content-between align-items-center p-3">
                 <div>
                   <div class="fw-bold text-white small">Welcome Bonus Credit</div>
                   <div class="text-muted small">Account Creation Bonus</div>

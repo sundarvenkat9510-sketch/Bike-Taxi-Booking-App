@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+  <defs>
+    <!-- Radial Background Atmosphere Glow -->
+    <radialGradient id="aboutAura" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#FFC107" stop-opacity="0.28"/>
+      <stop offset="40%" stop-color="#FF9800" stop-opacity="0.10"/>
+      <stop offset="75%" stop-color="#18181D" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#18181D" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Metallic Golden Yellow Gradient -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="45%" stop-color="#FFC107"/>
+      <stop offset="100%" stop-color="#FFA000"/>
+    </linearGradient>
+
+    <!-- Deep Tech Card Gradients -->
+    <linearGradient id="techCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#242834"/>
+      <stop offset="100%" stop-color="#141720"/>
+    </linearGradient>
+
+    <linearGradient id="cyanGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+
+    <!-- Soft Drop Shadows -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="badgeShadow" x="-15%" y="-20%" width="130%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Dark Aura -->
+  <rect x="0" y="0" width="600" height="450" fill="transparent"/>
+  <circle cx="300" cy="225" r="210" fill="url(#aboutAura)"/>
+
+  <!-- Concentric Radar / GPS Coverage Rings -->
+  <circle cx="300" cy="225" r="185" fill="none" stroke="#FFC107" stroke-width="1.2" stroke-opacity="0.18" stroke-dasharray="6,6"/>
+  <circle cx="300" cy="225" r="140" fill="none" stroke="#FFC107" stroke-width="1.2" stroke-opacity="0.25"/>
+  <circle cx="300" cy="225" r="95" fill="none" stroke="#FFC107" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,4"/>
+
+  <!-- ======================================================================
+       BACKGROUND CITY SKYLINE & METRO TRANSIT (Multimodal Urban Context)
+       ====================================================================== -->
+  <g opacity="0.45">
+    <!-- Skyline Silhouettes -->
+    <rect x="50" y="195" width="38" height="130" fill="#1C212B" rx="3"/>
+    <rect x="96" y="165" width="46" height="160" fill="#202632" rx="3"/>
+    <rect x="148" y="210" width="34" height="115" fill="#1A1F28" rx="2"/>
+    <rect x="415" y="180" width="42" height="145" fill="#1E232E" rx="3"/>
+    <rect x="465" y="150" width="50" height="175" fill="#222834" rx="3"/>
+    <rect x="522" y="200" width="36" height="125" fill="#1B202A" rx="2"/>
+
+    <!-- Building Windows (Subtle Warm Glows) -->
+    <circle cx="110" cy="180" r="2" fill="#FFC107" opacity="0.6"/>
+    <circle cx="125" cy="180" r="2" fill="#FFC107" opacity="0.6"/>
+    <circle cx="110" cy="200" r="2" fill="#FFFFFF" opacity="0.4"/>
+    <circle cx="125" cy="200" r="2" fill="#FFC107" opacity="0.6"/>
+    <circle cx="480" cy="170" r="2" fill="#FFC107" opacity="0.7"/>
+    <circle cx="495" cy="170" r="2" fill="#FFFFFF" opacity="0.5"/>
+    <circle cx="480" cy="190" r="2" fill="#FFC107" opacity="0.6"/>
+    <circle cx="495" cy="190" r="2" fill="#FFC107" opacity="0.6"/>
+
+    <!-- Metro Viaduct Line -->
+    <path d="M 40 260 L 560 260" stroke="#2B3242" stroke-width="4"/>
+    <rect x="120" y="260" width="10" height="65" fill="#2B3242"/>
+    <rect x="240" y="260" width="10" height="65" fill="#2B3242"/>
+    <rect x="360" y="260" width="10" height="65" fill="#2B3242"/>
+    <rect x="480" y="260" width="10" height="65" fill="#2B3242"/>
+  </g>
+
+  <!-- Ground Road Platform -->
+  <line x1="70" y1="340" x2="530" y2="340" stroke="#FFC107" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+  <line x1="120" y1="348" x2="480" y2="348" stroke="#333A48" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- ======================================================================
+       GPS NAVIGATION ROUTE CURVE (Visualizing Fast Urban Routing)
+       ====================================================================== -->
+  <!-- Glowing Path -->
+  <path d="M 120 280 C 180 230, 230 310, 310 240 C 370 190, 430 220, 480 190" 
+        fill="none" stroke="#FFC107" stroke-width="3.5" stroke-dasharray="7,7" stroke-linecap="round" opacity="0.8" filter="url(#softGlow)"/>
+
+  <!-- Origin Pin (A - Pickup) -->
+  <g transform="translate(120, 280)">
+    <circle cx="0" cy="0" r="10" fill="#22C55E" opacity="0.2"/>
+    <circle cx="0" cy="0" r="6" fill="#22C55E"/>
+    <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
+    <rect x="-24" y="-28" width="48" height="18" rx="9" fill="#18181D" stroke="#22C55E" stroke-width="1"/>
+    <text x="0" y="-16" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#22C55E" text-anchor="middle">PICKUP</text>
+  </g>
+
+  <!-- Destination Pin (B - Drop) -->
+  <g transform="translate(480, 190)">
+    <circle cx="0" cy="0" r="10" fill="#EF4444" opacity="0.2"/>
+    <circle cx="0" cy="0" r="6" fill="#EF4444"/>
+    <circle cx="0" cy="0" r="2.5" fill="#FFFFFF"/>
+    <rect x="-22" y="-28" width="44" height="18" rx="9" fill="#18181D" stroke="#EF4444" stroke-width="1"/>
+    <text x="0" y="-16" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="700" fill="#EF4444" text-anchor="middle">DROP</text>
+  </g>
+
+  <!-- ======================================================================
+       HERO VELOMOTO ELECTRIC BIKE & CAPTAIN (Main Visual)
+       ====================================================================== -->
+  <g transform="translate(195, 130)">
+    <!-- Rear Wheel -->
+    <circle cx="45" cy="180" r="38" fill="#18181D" stroke="#2D3342" stroke-width="10"/>
+    <circle cx="45" cy="180" r="28" fill="#141720" stroke="#FFC107" stroke-width="2.5" stroke-dasharray="5,3"/>
+    <circle cx="45" cy="180" r="10" fill="#FFC107"/>
+    <circle cx="45" cy="180" r="4" fill="#121212"/>
+
+    <!-- Front Wheel -->
+    <circle cx="175" cy="180" r="38" fill="#18181D" stroke="#2D3342" stroke-width="10"/>
+    <circle cx="175" cy="180" r="28" fill="#141720" stroke="#FFC107" stroke-width="2.5" stroke-dasharray="5,3"/>
+    <circle cx="175" cy="180" r="10" fill="#FFC107"/>
+    <circle cx="175" cy="180" r="4" fill="#121212"/>
+
+    <!-- Rear Swingarm & Electric Motor Hub -->
+    <path d="M 45 180 L 95 165 L 105 180 Z" fill="#2B3242"/>
+    <rect x="75" y="160" width="30" height="24" rx="4" fill="#1F2430" stroke="#FFC107" stroke-width="1.2"/>
+    <path d="M 82 172 L 95 172 M 88 166 L 88 178" stroke="#FFC107" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Aerodynamic Electric Bike Body & Tank -->
+    <path d="M 80 155 L 105 130 L 145 130 L 160 148 L 135 168 L 85 168 Z" fill="url(#goldGradient)"/>
+    <!-- Black Side Fairing Accent -->
+    <polygon points="108,135 140,135 130,158 98,158" fill="#18181D"/>
+    <!-- VeloMoto Signature Bolt Accent -->
+    <path d="M 120 140 L 114 148 L 122 148 L 117 156" fill="none" stroke="#FFC107" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Dual Rider Comfort Seat -->
+    <path d="M 60 145 C 75 142, 95 145, 115 145 C 115 148, 105 154, 70 154 Z" fill="#202530" rx="4"/>
+    <path d="M 62 146 Q 88 143 113 146" stroke="#FFC107" stroke-width="1.5" fill="none" opacity="0.7"/>
+
+    <!-- Front Suspension Fork & Handlebar -->
+    <line x1="175" y1="180" x2="148" y2="120" stroke="#4B5565" stroke-width="5" stroke-linecap="round"/>
+    <line x1="148" y1="120" x2="138" y2="108" stroke="#374151" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Handlebar Grip -->
+    <line x1="130" y1="106" x2="146" y2="106" stroke="#FFC107" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- LED Headlight Projector & Beam -->
+    <polygon points="160,132 172,136 172,146 160,144" fill="#2D3748"/>
+    <circle cx="170" cy="141" r="4" fill="#FFFFFF"/>
+    <!-- Headlight Light Beam Cone -->
+    <polygon points="174,141 235,120 235,165" fill="#FFC107" opacity="0.18"/>
+
+    <!-- ======================================================================
+         CAPTAIN FIGURE (Professional, Tech-Equipped)
+         ====================================================================== -->
+    <!-- Captain Torso & Branded Uniform Jacket -->
+    <path d="M 108 145 L 126 95 L 145 105 L 132 150 Z" fill="#18181D" stroke="#FFC107" stroke-width="1"/>
+    <!-- Golden Shoulder Accent -->
+    <path d="M 124 97 L 136 94 L 142 104 L 130 106 Z" fill="url(#goldGradient)"/>
+
+    <!-- Captain Arms Steering Handlebar -->
+    <path d="M 132 104 L 146 114 L 138 108" fill="none" stroke="#252B38" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="138" cy="108" r="4" fill="#FFC107"/> <!-- Glove -->
+
+    <!-- Captain Legs & Footpegs -->
+    <path d="M 115 145 L 118 165 L 130 178" fill="none" stroke="#1A1F29" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="130" cy="178" r="4.5" fill="#FFC107"/> <!-- Boot accent -->
+
+    <!-- Modern Sanitized Helmet with Golden Visor -->
+    <circle cx="128" cy="74" r="16" fill="#18181D" stroke="#FFC107" stroke-width="1.8"/>
+    <!-- Aerodynamic Helmet Tail -->
+    <path d="M 115 74 Q 112 85 125 88" fill="#18181D" stroke="#FFC107" stroke-width="1.2"/>
+    <!-- Glossy Golden Helmet Visor -->
+    <path d="M 128 67 C 138 67, 142 74, 140 82 C 132 82, 126 80, 128 67 Z" fill="url(#goldGradient)"/>
+    <path d="M 130 70 Q 138 72 136 78" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+  </g>
+
+  <!-- ======================================================================
+       FLOATING TRUST & IMPACT BADGES (Sleek UI Cards)
+       ====================================================================== -->
+  
+  <!-- Badge 1: Top-Left "⚡ 100% Electric EV Fleet" -->
+  <g transform="translate(65, 80)" filter="url(#badgeShadow)">
+    <rect x="0" y="0" width="168" height="46" rx="23" fill="url(#techCardBg)" stroke="rgba(255, 193, 7, 0.4)" stroke-width="1.2"/>
+    <!-- Icon Circle -->
+    <circle cx="23" cy="23" r="15" fill="#22C55E" opacity="0.18"/>
+    <circle cx="23" cy="23" r="11" fill="#22C55E"/>
+    <!-- Electric Bolt -->
+    <path d="M 24 16 L 20 23 L 23 23 L 22 29 L 27 22 L 24 22 Z" fill="#FFFFFF"/>
+    <!-- Text -->
+    <text x="46" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">100% EV Fleet</text>
+    <text x="46" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#22C55E">Zero Carbon Emission</text>
+  </g>
+
+  <!-- Badge 2: Top-Right "⭐ 4.9 Top Rated" -->
+  <g transform="translate(370, 75)" filter="url(#badgeShadow)">
+    <rect x="0" y="0" width="165" height="46" rx="23" fill="url(#techCardBg)" stroke="rgba(255, 193, 7, 0.4)" stroke-width="1.2"/>
+    <!-- Icon Circle -->
+    <circle cx="23" cy="23" r="15" fill="#FFC107" opacity="0.18"/>
+    <circle cx="23" cy="23" r="11" fill="#FFC107"/>
+    <!-- Star Icon -->
+    <path d="M 23 18 L 24.5 21.2 L 28 21.6 L 25.5 23.9 L 26.2 27.4 L 23 25.6 L 19.8 27.4 L 20.5 23.9 L 18 21.6 L 21.5 21.2 Z" fill="#121212"/>
+    <!-- Text -->
+    <text x="46" y="20" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">4.9 Rider Rating</text>
+    <text x="46" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#FFC107">10M+ Happy Commuters</text>
+  </g>
+
+  <!-- Badge 3: Center-Right "📍 20+ Cities Connected" -->
+  <g transform="translate(390, 275)" filter="url(#badgeShadow)">
+    <rect x="0" y="0" width="160" height="44" rx="22" fill="url(#techCardBg)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.2"/>
+    <!-- Icon Circle -->
+    <circle cx="22" cy="22" r="14" fill="#38BDF8" opacity="0.18"/>
+    <circle cx="22" cy="22" r="10" fill="#38BDF8"/>
+    <!-- Map Pin -->
+    <path d="M 22 17 C 20 17 18.5 18.5 18.5 20.5 C 18.5 23 22 26 22 26 C 22 26 25.5 23 25.5 20.5 C 25.5 18.5 24 17 22 17 Z M 22 21.5 C 21.4 21.5 21 21.1 21 20.5 C 21 19.9 21.4 19.5 22 19.5 C 22.6 19.5 23 19.9 23 20.5 C 23 21.1 22.6 21.5 22 21.5 Z" fill="#FFFFFF"/>
+    <!-- Text -->
+    <text x="44" y="19" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">20+ Smart Cities</text>
+    <text x="44" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#38BDF8">Pan-India Transit Network</text>
+  </g>
+
+  <!-- Badge 4: Bottom-Left "⚡ 3 Mins Pickup" -->
+  <g transform="translate(55, 305)" filter="url(#badgeShadow)">
+    <rect x="0" y="0" width="155" height="42" rx="21" fill="url(#techCardBg)" stroke="rgba(255, 193, 7, 0.4)" stroke-width="1.2"/>
+    <!-- Icon Circle -->
+    <circle cx="21" cy="21" r="13" fill="#FFC107" opacity="0.18"/>
+    <circle cx="21" cy="21" r="9.5" fill="#FFC107"/>
+    <!-- Clock Hands -->
+    <circle cx="21" cy="21" r="7" fill="none" stroke="#121212" stroke-width="1.2"/>
+    <polyline points="21,17 21,21 24,21" fill="none" stroke="#121212" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- Text -->
+    <text x="42" y="18" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#FFFFFF">3 Mins Pickup</text>
+    <text x="42" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600" fill="#FFC107">Lightning Fast Match</text>
+  </g>
+
+</svg>

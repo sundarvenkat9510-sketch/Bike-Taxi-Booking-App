@@ -15,6 +15,8 @@
   <link id="bootstrapCSS" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script>
     (function() {
+      const theme = localStorage.getItem('velomoto_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -39,7 +41,8 @@
   <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light">
       </a>
       
       <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,8 +51,18 @@
 
       <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <!-- Home Dropdown Menu (Home 1 & Home 2) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item active" href="index.html">HOME</a></li>
+              <li><a class="dropdown-item" href="home-2.html">HOME 2</a></li>
+            </ul>
+          </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom active" aria-current="page" href="index.html">Home</a>
+            <a class="nav-link nav-link-custom" href="about.html">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-custom" href="how-it-works.html">How It Works</a>
@@ -68,9 +81,12 @@
           </li>
         </ul>
 
-        <!-- Dynamic Auth Buttons & RTL Switcher -->
+        <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
         <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
-          <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR" title="Switch between LTR and RTL">
+          <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR">
             <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
           </button>
           <div id="navbarAuthButtons" class="d-flex align-items-center gap-2">
@@ -190,7 +206,7 @@
             </div>
             <h5 class="text-white fw-bold mb-2">Metro to Tech Park</h5>
             <p class="small text-muted mb-3">Central Metro Station <i class="bi bi-arrow-right text-warning"></i> Cyber City IT Hub</p>
-            <div class="d-flex justify-content-between text-muted small pt-2 border-top border-secondary">
+            <div class="d-flex justify-content-between text-muted small pt-2">
               <span><i class="bi bi-speedometer2"></i> ~5.2 km</span>
               <span><i class="bi bi-clock"></i> 12 mins</span>
             </div>
@@ -206,7 +222,7 @@
             </div>
             <h5 class="text-white fw-bold mb-2">Downtown to Airport</h5>
             <p class="small text-muted mb-3">City Center <i class="bi bi-arrow-right text-warning"></i> Terminal 1 Departures</p>
-            <div class="d-flex justify-content-between text-muted small pt-2 border-top border-secondary">
+            <div class="d-flex justify-content-between text-muted small pt-2">
               <span><i class="bi bi-speedometer2"></i> ~14.5 km</span>
               <span><i class="bi bi-clock"></i> 26 mins</span>
             </div>
@@ -222,7 +238,7 @@
             </div>
             <h5 class="text-white fw-bold mb-2">North Campus to Mall</h5>
             <p class="small text-muted mb-3">University Gate 2 <i class="bi bi-arrow-right text-warning"></i> Grand City Mall</p>
-            <div class="d-flex justify-content-between text-muted small pt-2 border-top border-secondary">
+            <div class="d-flex justify-content-between text-muted small pt-2">
               <span><i class="bi bi-speedometer2"></i> ~3.8 km</span>
               <span><i class="bi bi-clock"></i> 9 mins</span>
             </div>
@@ -238,7 +254,7 @@
             </div>
             <h5 class="text-white fw-bold mb-2">Old Town to Junction</h5>
             <p class="small text-muted mb-3">Heritage Clock Tower <i class="bi bi-arrow-right text-warning"></i> Railway Central</p>
-            <div class="d-flex justify-content-between text-muted small pt-2 border-top border-secondary">
+            <div class="d-flex justify-content-between text-muted small pt-2">
               <span><i class="bi bi-speedometer2"></i> ~4.4 km</span>
               <span><i class="bi bi-clock"></i> 11 mins</span>
             </div>
@@ -613,7 +629,8 @@
         <!-- Brand Info -->
         <div class="col-lg-3 col-md-6">
           <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
-            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="42" class="mb-2">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-light">
           </a>
           <p class="footer-brand-desc">
             VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
@@ -631,6 +648,8 @@
           <h6 class="footer-heading">Platform</h6>
           <ul class="footer-links-list">
             <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2 (Express)</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="fares.html">Fare Calculator</a></li>
             <li><a href="login.html">Rider Login</a></li>

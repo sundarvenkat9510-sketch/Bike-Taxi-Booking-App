@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeloMoto Express | Smart, Fast & Affordable Urban Bike Taxi (Home 2)</title>
+  <meta name="description" content="Experience VeloMoto Express - India's fastest urban bike taxi network. Instant pickup in 3 minutes, verified captains, dual helmets, and flat fares starting at ₹19.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link id="bootstrapCSS" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('velomoto_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      const dir = localStorage.getItem('velomoto_direction');
+      if (dir === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+        const bs = document.getElementById('bootstrapCSS');
+        if (bs) bs.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css';
+      }
+    })();
+  </script>
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Urban Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVIGATION BAR WITH HOME DROPDOWN
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light">
+      </a>
+      
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-warning"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <!-- Home Dropdown Menu (Home 1 & Home 2) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item" href="index.html">HOME</a></li>
+              <li><a class="dropdown-item active" href="home-2.html">HOME 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="how-it-works.html">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#why-us">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="#contact">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
+          <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR">
+            <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+          </button>
+          <div id="navbarAuthButtons" class="d-flex align-items-center gap-2">
+            <a href="login.html" class="btn btn-dark-outline btn-sm">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+            <a href="register.html" class="btn btn-yellow btn-sm">
+              <i class="bi bi-person-plus-fill"></i> Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       HOME 2 HERO SECTION: VELOMOTO EXPRESS (Alternate Dynamic Design)
+       ====================================================================== -->
+  <section class="hero-section py-5" style="background-color: #0B0B0D !important;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        
+        <!-- Hero Content & Booking Form -->
+        <div class="col-lg-6">
+          <div class="d-inline-flex align-items-center gap-2 mb-3">
+            <span class="badge badge-yellow"><i class="bi bi-rocket-takeoff-fill"></i> VeloMoto Express</span>
+            <span class="text-muted small">• Doorstep In 3 Mins</span>
+          </div>
+          <h1 class="hero-title text-white fw-black mb-3">
+            Beat City Traffic.<br>
+            <span class="text-warning">Ride Smarter, Reach Faster.</span>
+          </h1>
+          <p class="hero-subtitle text-muted mb-4 lead">
+            Skip long cab delays and high surge fares. Book India's top-rated urban bike taxi network with verified captains, dual sanitized helmets, and live GPS tracking starting at just <strong>₹19</strong>.
+          </p>
+
+          <!-- Rapid Booking Card Widget (Redesigned Modern Urban UI) -->
+          <div class="quick-book-card">
+            <!-- Widget Header -->
+            <div class="quick-book-header">
+              <div class="d-flex align-items-center gap-2">
+                <div class="quick-book-icon-badge">
+                  <i class="bi bi-lightning-charge-fill"></i>
+                </div>
+                <div>
+                  <h5 class="quick-book-title mb-0">Quick Book Ride</h5>
+                  <div class="quick-book-status">
+                    <span class="live-pulse-dot"></span>
+                    <span>Captains nearby &bull; Instant dispatch</span>
+                  </div>
+                </div>
+              </div>
+              <span class="badge-no-surge">
+                <i class="bi bi-shield-check"></i> Flat Fares
+              </span>
+            </div>
+
+            <!-- Ride Fleet Option Segmented Tabs -->
+            <div class="fleet-segmented-tabs mb-3" role="tablist">
+              <button type="button" class="fleet-tab active" id="btnFleetClassic" aria-selected="true">
+                <i class="bi bi-bicycle fleet-icon"></i>
+                <div class="fleet-info">
+                  <span class="fleet-name">Classic</span>
+                  <span class="fleet-price">₹19</span>
+                </div>
+              </button>
+              <button type="button" class="fleet-tab" id="btnFleetEV" aria-selected="false">
+                <i class="bi bi-battery-charging fleet-icon"></i>
+                <div class="fleet-info">
+                  <span class="fleet-name">Eco EV</span>
+                  <span class="fleet-price">₹22</span>
+                </div>
+              </button>
+              <button type="button" class="fleet-tab" id="btnFleetExpress" aria-selected="false">
+                <i class="bi bi-speedometer2 fleet-icon"></i>
+                <div class="fleet-info">
+                  <span class="fleet-name">Express</span>
+                  <span class="fleet-price">₹29</span>
+                </div>
+              </button>
+            </div>
+
+            <form id="heroBookingForm2" class="quick-book-form">
+              <!-- Route Container (Connected Pickup & Drop) -->
+              <div class="route-planner-box mb-3">
+                <!-- Timeline Track Indicator -->
+                <div class="route-track-col">
+                  <div class="route-node pickup-node"></div>
+                  <div class="route-line"></div>
+                  <div class="route-node drop-node"></div>
+                </div>
+
+                <!-- Input Rows -->
+                <div class="route-inputs-col">
+                  <!-- Pickup Input Field -->
+                  <div class="route-input-row pickup-row">
+                    <div class="route-input-wrap">
+                      <label for="pickupLocationInput2" class="route-input-label">PICKUP LOCATION</label>
+                      <input type="text" class="route-input-field" id="pickupLocationInput2" placeholder="Enter pickup address, landmark..." required value="Indiranagar 100ft Road, Bangalore">
+                    </div>
+                    <button type="button" class="btn-locate-gps" id="btnLocateGps" title="Detect Current GPS Location" onclick="detectGPSLocation()">
+                      <i class="bi bi-crosshair2"></i>
+                      <span>GPS</span>
+                    </button>
+                  </div>
+
+                  <div class="route-divider"></div>
+
+                  <!-- Drop Destination Field -->
+                  <div class="route-input-row drop-row">
+                    <div class="route-input-wrap">
+                      <label for="dropLocationInput2" class="route-input-label">DROP DESTINATION</label>
+                      <input type="text" class="route-input-field" id="dropLocationInput2" placeholder="Where do you want to go?" required value="Koramangala Sony World Signal">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Estimated Journey Summary Bar -->
+              <div class="trip-estimate-card mb-3">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="estimate-clock-badge">
+                    <i class="bi bi-clock-history"></i>
+                  </div>
+                  <div>
+                    <div class="estimate-eta">Est. Time: <strong class="text-warning">14 mins</strong></div>
+                    <div class="estimate-saving"><i class="bi bi-arrow-down-right"></i> Save 22 mins vs Cab</div>
+                  </div>
+                </div>
+                <div class="estimate-fare-wrap text-end">
+                  <span class="estimate-fare-label">EST. FARE</span>
+                  <div class="estimate-fare-amount">₹49</div>
+                </div>
+              </div>
+
+              <!-- Submit CTA Button -->
+              <button type="submit" class="btn-quick-confirm">
+                <span class="btn-confirm-icon"><i class="bi bi-lightning-charge-fill"></i></span>
+                <span class="btn-confirm-text">Confirm &amp; Find Nearby Captain</span>
+                <i class="bi bi-arrow-right-short btn-confirm-arrow"></i>
+              </button>
+
+              <!-- Safety & Trust Micro Badges -->
+              <div class="quick-book-trust-bar">
+                <span><i class="bi bi-shield-check"></i> 100% Insured</span>
+                <span>&bull;</span>
+                <span><i class="bi bi-stopwatch"></i> 3m Pickup</span>
+                <span>&bull;</span>
+                <span><i class="bi bi-cash-stack"></i> UPI &amp; Cash</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right Side: Dynamic Home 2 Bike Illustration -->
+        <div class="col-lg-6 text-center">
+          <div class="position-relative d-inline-block w-100">
+            <img src="assets/images/hero-bike-2.svg" alt="VeloMoto Express Bike Taxi" class="img-fluid w-100" style="max-height: 480px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.6));">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       LIVE METRICS COUNTER (Proof of Scale)
+       ====================================================================== -->
+  <section class="py-4 border-top border-bottom" style="background-color: #121216 !important; border-color: rgba(255, 255, 255, 0.08) !important;">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-md-3">
+          <div class="p-3">
+            <h3 class="text-warning fw-black mb-1">4.2M+</h3>
+            <p class="text-muted small mb-0 fw-semibold">Rides Safely Completed</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="p-3">
+            <h3 class="text-white fw-black mb-1">3 Mins</h3>
+            <p class="text-muted small mb-0 fw-semibold">Avg Doorstep Pickup</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="p-3">
+            <h3 class="text-warning fw-black mb-1">₹45</h3>
+            <p class="text-muted small mb-0 fw-semibold">Average Savings Per Ride</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="p-3">
+            <h3 class="text-white fw-black mb-1">4.9 / 5</h3>
+            <p class="text-muted small mb-0 fw-semibold">Customer Trust Rating</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       THREE RIDE FLEET CATEGORIES (Home 2 Feature)
+       ====================================================================== -->
+  <section class="py-5" style="background-color: #0B0B0D !important;">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-grid-fill"></i> Ride Categories</span>
+        <h2 class="text-white fw-bold">Pick The Perfect Ride For Your Journey</h2>
+        <p class="text-muted">Choose based on speed, eco-friendliness, or budget. All options include verified captains & sanitized helmets.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- VeloClassic -->
+        <div class="col-lg-4 col-md-6">
+          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D !important; border: 1.5px solid rgba(255, 193, 7, 0.3);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-warning text-dark fw-bold">POPULAR</span>
+              <span class="text-warning fw-bold fs-5">₹19 <small class="text-muted fs-6">Base</small></span>
+            </div>
+            <div class="text-center my-3">
+              <i class="bi bi-bicycle text-warning display-4"></i>
+            </div>
+            <h4 class="text-white fw-bold mb-2">VeloClassic</h4>
+            <p class="text-muted small mb-4">Solo 100-125cc commuter bikes. Perfect for everyday office runs, metro station hops, and escaping peak city jams.</p>
+            
+            <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-warning me-2"></i> ₹7 per additional km</li>
+              <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Free sanitized dual helmet</li>
+              <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Real-time GPS sharing</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- VeloElectric -->
+        <div class="col-lg-4 col-md-6">
+          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D !important; border: 1.5px solid rgba(16, 185, 129, 0.4);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-success text-white fw-bold">ZERO EMISSIONS</span>
+              <span class="text-success fw-bold fs-5">₹22 <small class="text-muted fs-6">Base</small></span>
+            </div>
+            <div class="text-center my-3">
+              <i class="bi bi-battery-charging text-success display-4"></i>
+            </div>
+            <h4 class="text-white fw-bold mb-2">VeloElectric (EV)</h4>
+            <p class="text-muted small mb-4">100% smart electric scooters & bikes. Smooth, silent, vibration-free ride that helps keep our city air clean and breathable.</p>
+            
+            <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> ₹6.50 per additional km (Cheapest!)</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Zero tailpipe carbon emissions</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i> Ultra-quiet smooth acceleration</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- VeloExpress -->
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D !important; border: 1.5px solid rgba(255, 255, 255, 0.15);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge bg-secondary text-white fw-bold">HIGHWAY & EXPRESS</span>
+              <span class="text-white fw-bold fs-5">₹29 <small class="text-muted fs-6">Base</small></span>
+            </div>
+            <div class="text-center my-3">
+              <i class="bi bi-speedometer2 text-white display-4"></i>
+            </div>
+            <h4 class="text-white fw-bold mb-2">VeloExpress</h4>
+            <p class="text-muted small mb-4">High-power 160cc-250cc bikes piloted exclusively by 5-star veterans. Ideal for outer ring road, airport corridors, and long trips.</p>
+            
+            <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-0">
+              <li><i class="bi bi-check-circle-fill text-warning me-2"></i> ₹8.50 per additional km</li>
+              <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Top 5% veteran captains only</li>
+              <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Extra cushioning luggage rack</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       TIME & COST COMPARISON MATRIX (Why Us in Home 2)
+       ====================================================================== -->
+  <section class="py-5" style="background-color: #121216 !important;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5">
+          <span class="badge badge-yellow mb-2"><i class="bi bi-graph-up-arrow"></i> Real Comparison</span>
+          <h2 class="text-white fw-bold mb-3">Why Thousands Switch From Cabs & Autos Every Morning</h2>
+          <p class="text-muted mb-4">
+            Four-wheelers get stuck in the exact same bumper-to-bumper city jams. VeloMoto bikes navigate lane bottlenecks smoothly, cutting your commute in half at one-third the price.
+          </p>
+
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-lightning-charge-fill text-warning fs-3 mt-1"></i>
+              <div>
+                <h6 class="text-white fw-bold mb-1">Zero Traffic Delays</h6>
+                <p class="text-muted small mb-0">Our agile bike taxis lane-split safely through congestion, saving you an average of 25 minutes daily.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start gap-3">
+              <i class="bi bi-piggy-bank-fill text-warning fs-3 mt-1"></i>
+              <div>
+                <h6 class="text-white fw-bold mb-1">Save Up to ₹1,800 Monthly</h6>
+                <p class="text-muted small mb-0">No surge charges on rainy days or morning peak hours. Transparent metered fares always.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Table Card (Clean Grid & Visible High Contrast Alignment) -->
+        <div class="col-lg-7">
+          <div class="p-3 p-md-4 rounded-4" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <div class="compare-scroll-container">
+              <div class="compare-table-wrapper">
+                <!-- Header Row -->
+                <div class="compare-row compare-header">
+                  <div class="compare-col col-feature">COMMUTE METRIC (10 KM)</div>
+                  <div class="compare-col col-velo">VELOMOTO</div>
+                  <div class="compare-col col-auto">CITY AUTO</div>
+                  <div class="compare-col col-cab">CAB / SEDAN</div>
+                </div>
+
+                <!-- Row 1: Travel Time -->
+                <div class="compare-row">
+                  <div class="compare-col col-feature">
+                    <i class="bi bi-clock-history text-warning"></i>
+                    <span>Average Travel Time</span>
+                  </div>
+                  <div class="compare-col col-velo">
+                    <strong>18 Mins</strong>
+                  </div>
+                  <div class="compare-col col-auto">
+                    <span>38 Mins</span>
+                  </div>
+                  <div class="compare-col col-cab">
+                    <span>45 Mins</span>
+                  </div>
+                </div>
+
+                <!-- Row 2: Estimated Fare -->
+                <div class="compare-row">
+                  <div class="compare-col col-feature">
+                    <i class="bi bi-currency-rupee text-warning"></i>
+                    <span>Estimated Fare</span>
+                  </div>
+                  <div class="compare-col col-velo">
+                    <strong>₹75</strong>
+                  </div>
+                  <div class="compare-col col-auto">
+                    <span>₹160</span>
+                  </div>
+                  <div class="compare-col col-cab">
+                    <span>₹240</span>
+                  </div>
+                </div>
+
+                <!-- Row 3: Pickup Wait -->
+                <div class="compare-row">
+                  <div class="compare-col col-feature">
+                    <i class="bi bi-geo-alt-fill text-warning"></i>
+                    <span>Doorstep Pickup Wait</span>
+                  </div>
+                  <div class="compare-col col-velo">
+                    <strong>2 - 3 Mins</strong>
+                  </div>
+                  <div class="compare-col col-auto">
+                    <span>Walk to Stand</span>
+                  </div>
+                  <div class="compare-col col-cab">
+                    <span>10 - 15 Mins</span>
+                  </div>
+                </div>
+
+                <!-- Row 4: Surge Pricing -->
+                <div class="compare-row">
+                  <div class="compare-col col-feature">
+                    <i class="bi bi-graph-down-arrow text-warning"></i>
+                    <span>Surge Pricing</span>
+                  </div>
+                  <div class="compare-col col-velo">
+                    <span class="badge bg-success text-white px-2 py-1"><i class="bi bi-check-circle-fill"></i> None (Flat)</span>
+                  </div>
+                  <div class="compare-col col-auto">
+                    <span>Frequent</span>
+                  </div>
+                  <div class="compare-col col-cab">
+                    <span class="text-danger fw-bold">Up to 2.5x</span>
+                  </div>
+                </div>
+
+                <!-- Row 5: Passenger Insurance -->
+                <div class="compare-row">
+                  <div class="compare-col col-feature">
+                    <i class="bi bi-shield-fill-check text-warning"></i>
+                    <span>Passenger Insurance</span>
+                  </div>
+                  <div class="compare-col col-velo">
+                    <strong>₹5 Lakh Covered</strong>
+                  </div>
+                  <div class="compare-col col-auto">
+                    <span>None</span>
+                  </div>
+                  <div class="compare-col col-cab">
+                    <span>Basic</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       THREE-STEP SIMPLE BOOKING PROCESS
+       ====================================================================== -->
+  <section class="py-5" style="background-color: #0B0B0D !important;">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-bezier2"></i> Seamless Experience</span>
+        <h2 class="text-white fw-bold">How VeloMoto Works in 3 Steps</h2>
+        <p class="text-muted">From app tap to destination in record time with zero hassle.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4 text-center">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="stat-icon yellow mx-auto mb-3" style="width: 56px; height: 56px;">
+              <i class="bi bi-geo-alt-fill fs-3"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">1. Set Route & Estimate</h5>
+            <p class="text-muted small mb-0">Enter your pickup and destination. View instant fare breakdown and travel time before confirming.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="stat-icon yellow mx-auto mb-3" style="width: 56px; height: 56px;">
+              <i class="bi bi-person-badge-fill fs-3"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">2. Match With Captain</h5>
+            <p class="text-muted small mb-0">A verified captain nearby accepts instantly and arrives at your pin in 2-4 minutes with a fresh helmet.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="stat-icon yellow mx-auto mb-3" style="width: 56px; height: 56px;">
+              <i class="bi bi-shield-fill-check fs-3"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">3. Hop On & Ride Safely</h5>
+            <p class="text-muted small mb-0">Share OTP to start. Enjoy a breeze through traffic with 100% insured safety and pay via UPI or Wallet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       RIDER TESTIMONIALS (Home 2 Social Proof)
+       ====================================================================== -->
+  <section class="py-5" style="background-color: #121216 !important;">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-chat-quote-fill"></i> Rider Reviews</span>
+        <h2 class="text-white fw-bold">Loved By 4 Million+ Daily Commuters</h2>
+        <p class="text-muted">Real stories from software engineers, college students, and daily office commuters.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div>
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-light small mb-3">"VeloMoto saved my job probation! During Silk Board peak jam, cabs were showing 55 mins and ₹280. Booked VeloMoto, captain arrived in 2 mins, and reached in 22 mins flat for just ₹65!"</p>
+            </div>
+            <div class="d-flex align-items-center gap-3 pt-3 border-top border-secondary">
+              <img src="assets/images/rider-avatar.svg" alt="Rider" width="40" height="40" class="rounded-circle border border-warning">
+              <div>
+                <h6 class="text-white fw-bold mb-0 small">Priya Sharma</h6>
+                <span class="text-muted" style="font-size: 0.78rem;">Senior Tech Lead • Daily User</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div>
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-light small mb-3">"The Eco EV fleet is unbelievable. Zero engine vibration, totally silent, and extremely polite captains who always provide clean helmets. I use it twice every single day."</p>
+            </div>
+            <div class="d-flex align-items-center gap-3 pt-3 border-top border-secondary">
+              <img src="assets/images/driver-avatar-1.svg" alt="Rider" width="40" height="40" class="rounded-circle border border-warning">
+              <div>
+                <h6 class="text-white fw-bold mb-0 small">Karthik Raja</h6>
+                <span class="text-muted" style="font-size: 0.78rem;">Product Designer • Koramangala</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mx-auto">
+          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div>
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-light small mb-3">"Safety is my primary concern as a solo female traveler at night. VeloMoto's OTP start, emergency button, and live route tracking give complete peace of mind."</p>
+            </div>
+            <div class="d-flex align-items-center gap-3 pt-3 border-top border-secondary">
+              <img src="assets/images/driver-avatar-2.svg" alt="Rider" width="40" height="40" class="rounded-circle border border-warning">
+              <div>
+                <h6 class="text-white fw-bold mb-0 small">Ananya Deshmukh</h6>
+                <span class="text-muted" style="font-size: 0.78rem;">Fintech Analyst • Indiranagar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       APP PROMO CTA BANNER (Home 2 Download Callout)
+       ====================================================================== -->
+  <section class="py-5" style="background-color: #0B0B0D !important;">
+    <div class="container">
+      <div class="p-5 rounded-4 position-relative overflow-hidden" style="background: linear-gradient(135deg, #18181D 0%, #25252E 100%); border: 1.5px solid rgba(255, 193, 7, 0.35);">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="badge badge-yellow mb-2"><i class="bi bi-gift-fill"></i> Special Launch Promo</span>
+            <h2 class="text-white fw-bold mb-2">Get 50% OFF Your First 3 Urban Rides</h2>
+            <p class="text-muted mb-4 lead">Download the VeloMoto app on iOS & Android. Use promo code <strong class="text-warning">FAST50</strong> at checkout for instant discounts.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#" class="btn btn-yellow fw-bold px-4 py-2">
+                <i class="bi bi-google-play me-2"></i> Google Play
+              </a>
+              <a href="#" class="btn btn-dark-outline fw-bold px-4 py-2">
+                <i class="bi bi-apple me-2"></i> App Store
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div class="d-inline-flex flex-column align-items-center p-3 rounded-3" style="background-color: #0B0B0D; border: 1px solid rgba(255, 193, 7, 0.3);">
+              <i class="bi bi-qr-code text-warning display-3"></i>
+              <span class="text-white small fw-bold mt-2">Scan to Download App</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       CONTACT & FOOTER
+       ====================================================================== -->
+  <footer class="footer-custom" id="contact">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand Info -->
+        <div class="col-lg-3 col-md-6">
+          <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-light">
+          </a>
+          <p class="footer-brand-desc">
+            VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
+          </p>
+          <div class="social-links">
+            <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Login"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Login"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Login"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6 ps-lg-4">
+          <h6 class="footer-heading">Platform</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="home-2.html">Home 2 (Express)</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="fares.html">Fare Calculator</a></li>
+            <li><a href="login.html">Rider Login</a></li>
+            <li><a href="register.html">Sign Up</a></li>
+          </ul>
+        </div>
+
+        <!-- Safety & Policies -->
+        <div class="col-lg-3 col-md-6 ps-lg-4">
+          <h6 class="footer-heading">Safety & Trust</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html#safety">Safety Standards</a></li>
+            <li><a href="#">Captain Verification</a></li>
+            <li><a href="#">Insurance Policy</a></li>
+            <li><a href="#">Community Guidelines</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact (Matches Reference Design) -->
+        <div class="col-lg-3 col-md-6 ps-lg-4">
+          <h6 class="footer-heading">Contact</h6>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
+              <span>Cyber Towers, 4th Floor, Tech Hub, Bangalore 560100</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-telephone-fill footer-contact-icon"></i>
+              <a href="tel:+9118002458356">+91 1800-245-VELO (24x7)</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-envelope-fill footer-contact-icon"></i>
+              <a href="mailto:support@velomoto.com">support@velomoto.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom text-center">
+        <p class="mb-0 text-muted small">&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Main Script -->
+  <script src="js/script.js"></script>
+
+  <script>
+    function detectGPSLocation() {
+      const input = document.getElementById('pickupLocationInput2');
+      if (input) {
+        input.value = 'Locating current GPS position...';
+        setTimeout(() => {
+          input.value = 'Current Location: Indiranagar Metro Station Gate 2';
+        }, 600);
+      }
+    }
+  </script>
+</body>
+</html>
