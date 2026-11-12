@@ -17,6 +17,7 @@
     (function() {
       const theme = localStorage.getItem('velomoto_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -77,7 +78,7 @@
             <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#contact">Contact</a>
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
           </li>
         </ul>
 
@@ -184,7 +185,7 @@
             </div>
 
             <!-- Peak Hours Toggle -->
-            <div class="p-3 rounded border border-secondary mb-4" style="background-color: #18181D !important;">
+            <div class="p-3 rounded border border-secondary mb-4" style="background-color: #18181D ;">
               <div class="form-check form-switch d-flex justify-content-between align-items-center ps-0">
                 <label class="form-check-label text-white fw-semibold" for="calcPeakCheck">
                   <i class="bi bi-clock-history text-warning me-2"></i>Peak Rush Hour Window (08:30-10:30 AM / 06:00-08:30 PM)
@@ -279,7 +280,7 @@
             <h4 class="text-white fw-bold mb-1">Standard Moto</h4>
             <p class="small text-muted mb-4">Reliable everyday commuter bikes (100cc - 150cc) for beating dense urban traffic.</p>
             
-            <div class="p-3 rounded border border-secondary mb-4" style="background-color: #18181D !important;">
+            <div class="p-3 rounded border border-secondary mb-4" style="background-color: #18181D ;">
               <div class="d-flex justify-content-between mb-2 small">
                 <span class="text-muted">Base Fare (incl. 1.5 km):</span>
                 <strong class="text-white">₹25.00</strong>
@@ -316,7 +317,7 @@
             <h4 class="text-white fw-bold mb-1">Eco Electric EV</h4>
             <p class="small text-muted mb-4">Silent, emission-free electric scooters. The most pocket-friendly and sustainable ride in town.</p>
             
-            <div class="p-3 rounded border border-secondary mb-4" style="background-color: #18181D !important;">
+            <div class="p-3 rounded border border-secondary mb-4" style="background-color: #18181D ;">
               <div class="d-flex justify-content-between mb-2 small">
                 <span class="text-muted">Base Fare (incl. 1.5 km):</span>
                 <strong class="text-white">₹20.00</strong>
@@ -353,7 +354,7 @@
             <h4 class="text-white fw-bold mb-1">Express Moto Pro</h4>
             <p class="small text-muted mb-4">High-performance sports commuters (160cc - 250cc) with top-rated veteran captains for long distances.</p>
             
-            <div class="p-3 rounded border border-secondary mb-4" style="background-color: #18181D !important;">
+            <div class="p-3 rounded border border-secondary mb-4" style="background-color: #18181D ;">
               <div class="d-flex justify-content-between mb-2 small">
                 <span class="text-muted">Base Fare (incl. 2.0 km):</span>
                 <strong class="text-white">₹35.00</strong>
@@ -399,7 +400,7 @@
       <div class="row g-4 justify-content-center">
         <!-- 1. Store / Hub Address -->
         <div class="col-12 col-sm-6 col-lg-3">
-          <div class="contact-card" style="background-color: #18181D !important;">
+          <div class="contact-card" style="background-color: #18181D ;">
             <div class="contact-card-icon">
               <i class="bi bi-geo-alt-fill"></i>
             </div>
@@ -413,7 +414,7 @@
 
         <!-- 2. Phone -->
         <div class="col-12 col-sm-6 col-lg-3">
-          <a href="tel:+919876543210" class="contact-card" style="background-color: #18181D !important;">
+          <a href="tel:+919876543210" class="contact-card" style="background-color: #18181D ;">
             <div class="contact-card-icon">
               <i class="bi bi-telephone-fill"></i>
             </div>
@@ -427,7 +428,7 @@
 
         <!-- 3. Email -->
         <div class="col-12 col-sm-6 col-lg-3">
-          <a href="mailto:support@velomoto.com" class="contact-card" style="background-color: #18181D !important;">
+          <a href="mailto:support@velomoto.com" class="contact-card" style="background-color: #18181D ;">
             <div class="contact-card-icon">
               <i class="bi bi-envelope-fill"></i>
             </div>
@@ -441,7 +442,7 @@
 
         <!-- 4. WhatsApp -->
         <div class="col-12 col-sm-6 col-lg-3">
-          <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="contact-card" style="background-color: #18181D !important;">
+          <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="contact-card" style="background-color: #18181D ;">
             <div class="contact-card-icon whatsapp-icon">
               <i class="bi bi-whatsapp"></i>
             </div>
@@ -456,19 +457,20 @@
     </div>
   </section>
 
-  <!-- ======================================================================
+    <!-- ======================================================================
        FOOTER
        ====================================================================== -->
   <footer class="footer-custom">
     <div class="container">
       <div class="row g-4 g-lg-5">
+        <!-- Brand Info -->
         <div class="col-lg-3 col-md-6">
           <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
-            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-dark">
-            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-light">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="38" class="logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="38" class="logo-light">
           </a>
           <p class="footer-brand-desc">
-            VeloMoto provides fast, tech-enabled, pocket-friendly urban bike taxi rides with top safety and hygiene standards.
+            VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
           </p>
           <div class="social-links">
             <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login" title="Log in to X (Twitter)"><i class="bi bi-twitter-x"></i></a>
@@ -478,39 +480,41 @@
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 ps-lg-4">
+        <!-- Platform Links -->
+        <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Platform</h6>
           <ul class="footer-links-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
-            <li><a href="fares.html">Fares</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="register.html">Sign Up</a></li>
+            <li><a href="fares.html">Fare Calculator</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-6 ps-lg-4">
-          <h6 class="footer-heading">Policies</h6>
+        <!-- Safety & Trust -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Safety &amp; Trust</h6>
           <ul class="footer-links-list">
-            <li><a href="#">Cancellation Policy</a></li>
-            <li><a href="#">Toll Charges</a></li>
-            <li><a href="#">Lost & Found</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="index.html#safety">Safety Standards</a></li>
+            <li><a href="index.html#safety">Captain Verification</a></li>
+            <li><a href="index.html#safety">Sanitized Helmets</a></li>
+            <li><a href="index.html#safety">24/7 SOS Support</a></li>
+            <li><a href="index.html#safety">Ride Insurance Coverage</a></li>
           </ul>
         </div>
 
-        <!-- Contact (Matches Reference Design) -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Contact</h6>
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
               <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
-              <span>Cyber Towers, 4th Floor, Tech Hub, Bangalore 560100</span>
+              <span>123 Tech Park, 100ft Road, Indiranagar, Bangalore 560038</span>
             </li>
             <li class="footer-contact-item">
               <i class="bi bi-telephone-fill footer-contact-icon"></i>
-              <a href="tel:+9118002458356">+91 1800-245-VELO (24x7)</a>
+              <a href="tel:+918008356668">+91 1800-245-VELO (24x7)</a>
             </li>
             <li class="footer-contact-item">
               <i class="bi bi-envelope-fill footer-contact-icon"></i>
@@ -520,9 +524,20 @@
         </div>
       </div>
 
-      <!-- Bottom Bar -->
-      <div class="footer-bottom text-center">
-        <p class="mb-0 text-muted small">&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</p>
+            <!-- HR Divider Line -->
+      <hr class="footer-divider my-4">
+
+      <!-- Bottom Bar: Single Centered Content -->
+      <div class="footer-bottom-single text-center pb-2">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
+          <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Security</a>
+        </div>
       </div>
     </div>
   </footer>

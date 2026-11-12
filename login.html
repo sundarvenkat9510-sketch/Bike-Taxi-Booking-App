@@ -17,6 +17,7 @@
     (function() {
       const theme = localStorage.getItem('velomoto_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -44,12 +45,15 @@
         <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="34">
         <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="34">
       </a>
-      <div class="d-flex align-items-center gap-3">
+      <div class="d-flex align-items-center gap-2">
         <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" style="width: 36px; height: 36px; min-width: 36px; min-height: 36px; font-size: 0.95rem;">
           <i class="bi bi-sun-fill"></i>
         </button>
-        <div class="small text-muted">
-          Don't have an account? <a href="register.html" class="fw-bold text-warning ms-1 text-decoration-none">Sign Up</a>
+        <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR" style="height: 36px; min-height: 36px; font-size: 0.82rem; padding: 0 0.65rem;">
+          <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+        </button>
+        <div class="small text-muted ms-1 text-end">
+          <span class="d-none d-sm-inline">Don't have an account? </span><a href="register.html" class="fw-bold text-warning ms-1 text-decoration-none">Sign Up</a>
         </div>
       </div>
     </div>
@@ -59,7 +63,7 @@
        LOGIN AUTH CARD (Perfect Viewport Center & Compact)
        ====================================================================== -->
   <main class="auth-wrapper">
-    <div class="auth-card login-card" style="background-color: #18181D !important;">
+    <div class="auth-card login-card">
       <div class="auth-header mb-3 text-center">
         <div class="stat-icon yellow mx-auto mb-2" style="width: 44px; height: 44px; font-size: 1.15rem;">
           <i class="bi bi-box-arrow-in-right"></i>
@@ -75,7 +79,7 @@
       <form id="loginForm" novalidate>
         <!-- Email -->
         <div class="mb-3">
-          <label class="form-label text-light small fw-bold mb-1" for="loginIdentifier">Email Address</label>
+          <label class="form-label login-label small fw-bold mb-1" for="loginIdentifier">Email Address</label>
           <div class="position-relative">
             <input type="email" id="loginIdentifier" class="custom-form-control ps-3 py-2" placeholder="alex@example.com" required>
           </div>
@@ -85,7 +89,7 @@
         <!-- Password -->
         <div class="mb-3">
           <div class="d-flex justify-content-between align-items-center mb-1">
-            <label class="form-label text-light small fw-bold mb-0" for="loginPassword">Password</label>
+            <label class="form-label login-label small fw-bold mb-0" for="loginPassword">Password</label>
           </div>
           <div class="position-relative">
             <input type="password" id="loginPassword" class="custom-form-control ps-3 pe-5 py-2" placeholder="Enter your password" required>
@@ -124,7 +128,7 @@
           <i class="bi bi-google text-danger"></i> Google
         </button>
         <button type="button" class="auth-social-btn" onclick="showToast('Apple Sign-In simulation: Click Demo Login above!', 'info')">
-          <i class="bi bi-apple text-white"></i> Apple
+          <i class="bi bi-apple auth-apple-icon"></i> Apple
         </button>
       </div>
 

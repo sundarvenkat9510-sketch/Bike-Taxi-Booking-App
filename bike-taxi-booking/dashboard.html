@@ -17,6 +17,7 @@
     (function() {
       const theme = localStorage.getItem('velomoto_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -60,7 +61,7 @@
         </button>
 
         <!-- Quick Wallet Balance Pill -->
-        <div class="d-flex align-items-center gap-2 border border-secondary px-3 py-1 rounded-pill" style="background-color: #18181D !important;">
+        <div class="d-flex align-items-center gap-2 border border-secondary px-3 py-1 rounded-pill" style="background-color: #18181D ;">
           <i class="bi bi-wallet2 text-warning"></i>
           <span class="small text-muted d-none d-md-inline">Wallet:</span>
           <strong class="text-white small" id="dashWalletBalance">₹120.00</strong>
@@ -274,7 +275,7 @@
                 </div>
 
                 <!-- Live Fare & Trip Estimates Preview -->
-                <div class="p-3 rounded border border-secondary mb-3" style="background-color: #18181D !important;">
+                <div class="p-3 rounded border border-secondary mb-3" style="background-color: #18181D ;">
                   <div class="d-flex justify-content-between mb-2 small">
                     <span class="text-muted">Estimated Distance:</span>
                     <strong class="text-white" id="dashEstDistance">5.8 km</strong>
@@ -406,7 +407,7 @@
             <div class="urban-card">
               <h5 class="fw-bold text-white mb-3"><i class="bi bi-credit-card text-warning me-2"></i>Saved Payment Modes</h5>
               
-              <div class="p-3 rounded border border-secondary d-flex justify-content-between align-items-center mb-2" style="background-color: #18181D !important;">
+              <div class="p-3 rounded border border-secondary d-flex justify-content-between align-items-center mb-2" style="background-color: #18181D ;">
                 <div class="d-flex align-items-center gap-3">
                   <i class="bi bi-qr-code text-warning fs-4"></i>
                   <div>
@@ -417,7 +418,7 @@
                 <span class="badge bg-success small">Active</span>
               </div>
 
-              <div class="p-3 rounded border border-secondary d-flex justify-content-between align-items-center" style="background-color: #18181D !important;">
+              <div class="p-3 rounded border border-secondary d-flex justify-content-between align-items-center" style="background-color: #18181D ;">
                 <div class="d-flex align-items-center gap-3">
                   <i class="bi bi-credit-card-2-front text-info fs-4"></i>
                   <div>

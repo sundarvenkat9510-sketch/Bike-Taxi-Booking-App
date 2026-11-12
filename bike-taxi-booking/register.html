@@ -17,6 +17,7 @@
     (function() {
       const theme = localStorage.getItem('velomoto_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -44,12 +45,15 @@
         <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark">
         <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light">
       </a>
-      <div class="d-flex align-items-center gap-3">
+      <div class="d-flex align-items-center gap-2">
         <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" style="width: 36px; height: 36px; min-width: 36px; min-height: 36px; font-size: 0.95rem;">
           <i class="bi bi-sun-fill"></i>
         </button>
-        <div class="small text-muted">
-          Already have an account? <a href="login.html" class="fw-bold text-warning ms-1">Sign In</a>
+        <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR" style="height: 36px; min-height: 36px; font-size: 0.82rem; padding: 0 0.65rem;">
+          <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+        </button>
+        <div class="small text-muted ms-1 text-end">
+          <span class="d-none d-sm-inline">Already have an account? </span><a href="login.html" class="fw-bold text-warning ms-1">Sign In</a>
         </div>
       </div>
     </div>
@@ -59,7 +63,7 @@
        REGISTRATION AUTH CARD
        ====================================================================== -->
   <main class="auth-wrapper">
-    <div class="auth-card" style="max-width: 520px; background-color: #18181D !important;">
+    <div class="auth-card" style="max-width: 520px;">
       <div class="auth-header mb-4">
         <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px;">
           <i class="bi bi-person-plus-fill fs-4"></i>

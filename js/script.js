@@ -385,14 +385,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 5. Contact Form submission handler (if on contact or home)
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+  const contactForms = document.querySelectorAll('#contactForm, #fullContactForm, #refContactForm');
+  contactForms.forEach(form => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      showToast('Thank you! Your message has been sent to VeloMoto Support.', 'success');
-      contactForm.reset();
+      const nameInput = form.querySelector('input[type="text"], input[name="name"]');
+      const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Commuter';
+      showToast(`Thank you, ${name}! Your inquiry has been submitted. Our team will contact you within 15 minutes.`, 'success');
+      form.reset();
     });
-  }
+  });
 
   // 6. Newsletter Form
   const newsletterForm = document.getElementById('newsletterForm');
@@ -546,8 +548,13 @@ function setSiteTheme(theme) {
   const isLight = theme === 'light';
   const targetTheme = isLight ? 'light' : 'dark';
 
-  // Apply data-theme attribute to <html>
+  // Apply data-theme and data-bs-theme attributes to <html> and <body>
   document.documentElement.setAttribute('data-theme', targetTheme);
+  document.documentElement.setAttribute('data-bs-theme', targetTheme);
+  if (document.body) {
+    document.body.setAttribute('data-theme', targetTheme);
+    document.body.setAttribute('data-bs-theme', targetTheme);
+  }
 
   // Update single-logo fallback images if present
   document.querySelectorAll('img.navbar-brand-logo, .footer-logo-link img').forEach(img => {

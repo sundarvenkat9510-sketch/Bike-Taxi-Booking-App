@@ -17,6 +17,7 @@
     (function() {
       const theme = localStorage.getItem('velomoto_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -77,7 +78,7 @@
             <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#contact">Contact</a>
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
           </li>
         </ul>
 
@@ -126,7 +127,7 @@
           </div>
         </div>
         <div class="col-lg-5 text-center">
-          <div class="p-4 rounded-4" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div class="p-4 rounded-4" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.08);">
             <img src="assets/images/about-hero.svg" alt="VeloMoto Urban Mobility Fleet & Network" class="img-fluid" style="max-height: 320px; width: 100%;">
             <div class="mt-3 text-center">
               <span class="badge badge-yellow px-3 py-2"><i class="bi bi-shield-fill-check me-1"></i> 100% Insured & GPS Tracked</span>
@@ -145,7 +146,7 @@
       <div class="row g-4 text-center">
         <!-- Stat 1 -->
         <div class="col-6 col-lg-3">
-          <div class="urban-card h-100 p-4" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D ;">
             <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.35rem;">
               <i class="bi bi-geo-alt-fill"></i>
             </div>
@@ -156,7 +157,7 @@
 
         <!-- Stat 2 -->
         <div class="col-6 col-lg-3">
-          <div class="urban-card h-100 p-4" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D ;">
             <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.35rem;">
               <i class="bi bi-person-check-fill"></i>
             </div>
@@ -167,7 +168,7 @@
 
         <!-- Stat 3 -->
         <div class="col-6 col-lg-3">
-          <div class="urban-card h-100 p-4" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D ;">
             <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.35rem;">
               <i class="bi bi-star-fill"></i>
             </div>
@@ -178,7 +179,7 @@
 
         <!-- Stat 4 -->
         <div class="col-6 col-lg-3">
-          <div class="urban-card h-100 p-4" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D ;">
             <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px; font-size: 1.35rem;">
               <i class="bi bi-clock-history"></i>
             </div>
@@ -204,7 +205,7 @@
       <div class="row g-4">
         <!-- Mission -->
         <div class="col-lg-6">
-          <div class="urban-card h-100 p-4 p-md-5" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4 p-md-5" style="background-color: #18181D ;">
             <div class="stat-icon yellow mb-3" style="width: 52px; height: 52px; font-size: 1.4rem;">
               <i class="bi bi-rocket-takeoff-fill"></i>
             </div>
@@ -222,7 +223,7 @@
 
         <!-- Vision -->
         <div class="col-lg-6">
-          <div class="urban-card h-100 p-4 p-md-5" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4 p-md-5" style="background-color: #18181D ;">
             <div class="stat-icon yellow mb-3" style="width: 52px; height: 52px; font-size: 1.4rem;">
               <i class="bi bi-eye-fill"></i>
             </div>
@@ -255,7 +256,7 @@
       <div class="row g-4">
         <!-- Pillar 1 -->
         <div class="col-md-6 col-lg-3">
-          <div class="urban-card h-100 p-4" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D ;">
             <div class="stat-icon yellow mb-3" style="width: 48px; height: 48px; font-size: 1.25rem;">
               <i class="bi bi-shield-lock-fill"></i>
             </div>
@@ -268,7 +269,7 @@
 
         <!-- Pillar 2 -->
         <div class="col-md-6 col-lg-3">
-          <div class="urban-card h-100 p-4" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D ;">
             <div class="stat-icon yellow mb-3" style="width: 48px; height: 48px; font-size: 1.25rem;">
               <i class="bi bi-cash-coin"></i>
             </div>
@@ -281,7 +282,7 @@
 
         <!-- Pillar 3 -->
         <div class="col-md-6 col-lg-3">
-          <div class="urban-card h-100 p-4" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D ;">
             <div class="stat-icon yellow mb-3" style="width: 48px; height: 48px; font-size: 1.25rem;">
               <i class="bi bi-heart-pulse-fill"></i>
             </div>
@@ -294,7 +295,7 @@
 
         <!-- Pillar 4 -->
         <div class="col-md-6 col-lg-3">
-          <div class="urban-card h-100 p-4" style="background-color: #18181D !important;">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D ;">
             <div class="stat-icon yellow mb-3" style="width: 48px; height: 48px; font-size: 1.25rem;">
               <i class="bi bi-tree-fill"></i>
             </div>
@@ -315,7 +316,7 @@
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-5 text-center">
-          <div class="p-4 rounded-4" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div class="p-4 rounded-4" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.08);">
             <img src="assets/images/safety.svg" alt="VeloMoto Rider Safety" class="img-fluid" style="max-height: 260px;">
           </div>
         </div>
@@ -328,7 +329,7 @@
 
           <div class="row g-3">
             <div class="col-sm-6">
-              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background-color: #18181D !important;">
+              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background-color: #18181D ;">
                 <i class="bi bi-shield-fill-check text-warning fs-4 mt-1"></i>
                 <div>
                   <h6 class="text-white fw-bold mb-1">Police Verified</h6>
@@ -338,7 +339,7 @@
             </div>
 
             <div class="col-sm-6">
-              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background-color: #18181D !important;">
+              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background-color: #18181D ;">
                 <i class="bi bi-geo-alt-fill text-warning fs-4 mt-1"></i>
                 <div>
                   <h6 class="text-white fw-bold mb-1">Live Location Sharing</h6>
@@ -348,7 +349,7 @@
             </div>
 
             <div class="col-sm-6">
-              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background-color: #18181D !important;">
+              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background-color: #18181D ;">
                 <i class="bi bi-telephone-outbound-fill text-warning fs-4 mt-1"></i>
                 <div>
                   <h6 class="text-white fw-bold mb-1">One-Touch SOS</h6>
@@ -358,7 +359,7 @@
             </div>
 
             <div class="col-sm-6">
-              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background-color: #18181D !important;">
+              <div class="d-flex align-items-start gap-3 p-3 rounded" style="background-color: #18181D ;">
                 <i class="bi bi-file-earmark-medical-fill text-warning fs-4 mt-1"></i>
                 <div>
                   <h6 class="text-white fw-bold mb-1">₹5 Lakh Insurance</h6>
@@ -377,7 +378,7 @@
        ====================================================================== -->
   <section class="py-5">
     <div class="container">
-      <div class="p-5 text-center rounded-4" style="background: radial-gradient(circle at 50% 50%, rgba(255, 193, 7, 0.12) 0%, rgba(24, 24, 29, 0.95) 75%), #18181D !important; border: 1px solid rgba(255, 193, 7, 0.25);">
+      <div class="p-5 text-center rounded-4 cta-banner-gradient">
         <span class="badge badge-yellow mb-3 px-3 py-2"><i class="bi bi-rocket-fill me-1"></i> Join The Movement</span>
         <h2 class="display-5 fw-bold text-white mb-3">Skip Traffic. Save Time. Ride VeloMoto.</h2>
         <p class="text-muted mx-auto mb-4" style="max-width: 620px;">
@@ -396,81 +397,27 @@
   </section>
 
   <!-- ======================================================================
-       CONTACT SECTION
+       CONTACT CTA SECTION
        ====================================================================== -->
-  <section class="section-padding bg-darker contact-section" id="contact">
-    <div class="container">
-      <!-- Section Header -->
-      <div class="contact-header">
-        <span class="contact-badge"><i class="bi bi-headset"></i> 24/7 Commuter Helpdesk</span>
-        <h2 class="contact-title">Contact VeloMoto</h2>
-        <p class="contact-subtitle">
-          We would love to hear from you. Visit our hub, give us a call, or send a message — our support team is here to help 24/7.
-        </p>
-      </div>
-
-      <!-- 4 Contact Cards Grid (Theme Oriented) -->
-      <div class="row g-4 justify-content-center">
-        <!-- 1. Store / Hub Address -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="contact-card" style="background-color: #18181D !important;">
-            <div class="contact-card-icon">
-              <i class="bi bi-geo-alt-fill"></i>
-            </div>
-            <h5 class="contact-card-title">Hub Address</h5>
-            <p class="contact-card-text">
-              123 Tech Park, Cyber City<br>Bangalore, KA 560100
-            </p>
-            <span class="contact-card-action">Visit Hub <i class="bi bi-arrow-right"></i></span>
-          </div>
-        </div>
-
-        <!-- 2. Phone -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <a href="tel:+919876543210" class="contact-card" style="background-color: #18181D !important;">
-            <div class="contact-card-icon">
-              <i class="bi bi-telephone-fill"></i>
-            </div>
-            <h5 class="contact-card-title">Phone</h5>
-            <p class="contact-card-text">
-              +91 98765 43210<br>(1800) VELO-MOTO
-            </p>
-            <span class="contact-card-action">Call Support <i class="bi bi-arrow-right"></i></span>
+  <section class="section-padding bg-darker">
+    <div class="container text-center">
+      <div class="urban-card p-5 mx-auto cta-contact-box" style="max-width: 860px;">
+        <span class="badge badge-yellow mb-3"><i class="bi bi-headset me-1"></i> 24/7 Commuter & Captain Support</span>
+        <h2 class="display-6 fw-bold text-white mb-3">Have Questions About VeloMoto?</h2>
+        <p class="text-muted fs-5 mb-4">— our dedicated support team is here to help.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="contact.html" class="ref-btn-send text-decoration-none">
+            <i class="bi bi-chat-dots-fill"></i> Go to Contact Page
           </a>
-        </div>
-
-        <!-- 3. Email -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <a href="mailto:support@velomoto.com" class="contact-card" style="background-color: #18181D !important;">
-            <div class="contact-card-icon">
-              <i class="bi bi-envelope-fill"></i>
-            </div>
-            <h5 class="contact-card-title">Email</h5>
-            <p class="contact-card-text">
-              support@velomoto.com<br>Instant Resolution
-            </p>
-            <span class="contact-card-action">Send Mail <i class="bi bi-arrow-right"></i></span>
-          </a>
-        </div>
-
-        <!-- 4. WhatsApp -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="contact-card" style="background-color: #18181D !important;">
-            <div class="contact-card-icon whatsapp-icon">
-              <i class="bi bi-whatsapp"></i>
-            </div>
-            <h5 class="contact-card-title">WhatsApp</h5>
-            <p class="contact-card-text">
-              Message us on WhatsApp<br>Online 24/7
-            </p>
-            <span class="contact-card-action">Chat on WhatsApp <i class="bi bi-arrow-right"></i></span>
+          <a href="tel:+918008356668" class="btn btn-dark-outline btn-lg">
+            <i class="bi bi-telephone-fill text-warning me-1"></i> Call Support
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======================================================================
+    <!-- ======================================================================
        FOOTER
        ====================================================================== -->
   <footer class="footer-custom">
@@ -479,8 +426,8 @@
         <!-- Brand Info -->
         <div class="col-lg-3 col-md-6">
           <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
-            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-dark">
-            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-light">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="38" class="logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="38" class="logo-light">
           </a>
           <p class="footer-brand-desc">
             VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
@@ -493,42 +440,41 @@
           </div>
         </div>
 
-        <!-- Quick Links -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
+        <!-- Platform Links -->
+        <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Platform</h6>
           <ul class="footer-links-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="fares.html">Fare Calculator</a></li>
-            <li><a href="login.html">Rider Login</a></li>
-            <li><a href="register.html">Sign Up</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Safety & Policies -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
-          <h6 class="footer-heading">Safety & Trust</h6>
+        <!-- Safety & Trust -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Safety &amp; Trust</h6>
           <ul class="footer-links-list">
             <li><a href="index.html#safety">Safety Standards</a></li>
-            <li><a href="#">Captain Verification</a></li>
-            <li><a href="#">Insurance Policy</a></li>
-            <li><a href="#">Community Guidelines</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="index.html#safety">Captain Verification</a></li>
+            <li><a href="index.html#safety">Sanitized Helmets</a></li>
+            <li><a href="index.html#safety">24/7 SOS Support</a></li>
+            <li><a href="index.html#safety">Ride Insurance Coverage</a></li>
           </ul>
         </div>
 
-        <!-- Contact (Matches Reference Design) -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Contact</h6>
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
               <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
-              <span>Cyber Towers, 4th Floor, Tech Hub, Bangalore 560100</span>
+              <span>123 Tech Park, 100ft Road, Indiranagar, Bangalore 560038</span>
             </li>
             <li class="footer-contact-item">
               <i class="bi bi-telephone-fill footer-contact-icon"></i>
-              <a href="tel:+9118002458356">+91 1800-245-VELO (24x7)</a>
+              <a href="tel:+918008356668">+91 1800-245-VELO (24x7)</a>
             </li>
             <li class="footer-contact-item">
               <i class="bi bi-envelope-fill footer-contact-icon"></i>
@@ -538,9 +484,20 @@
         </div>
       </div>
 
-      <!-- Bottom Bar (Borderless) -->
-      <div class="footer-bottom text-center">
-        <p class="mb-0 text-muted small">&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</p>
+            <!-- HR Divider Line -->
+      <hr class="footer-divider my-4">
+
+      <!-- Bottom Bar: Single Centered Content -->
+      <div class="footer-bottom-single text-center pb-2">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
+          <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Security</a>
+        </div>
       </div>
     </div>
   </footer>

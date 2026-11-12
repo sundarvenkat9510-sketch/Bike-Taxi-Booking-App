@@ -17,6 +17,7 @@
     (function() {
       const theme = localStorage.getItem('velomoto_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -77,7 +78,7 @@
             <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#contact">Contact</a>
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
           </li>
         </ul>
 
@@ -105,7 +106,7 @@
   <!-- ======================================================================
        HOME 2 HERO SECTION: VELOMOTO EXPRESS (Alternate Dynamic Design)
        ====================================================================== -->
-  <section class="hero-section py-5" style="background-color: #0B0B0D !important;">
+  <section class="hero-section py-5" style="background-color: #0B0B0D ;">
     <div class="container">
       <div class="row align-items-center g-5">
         
@@ -255,7 +256,7 @@
   <!-- ======================================================================
        LIVE METRICS COUNTER (Proof of Scale)
        ====================================================================== -->
-  <section class="py-4 border-top border-bottom" style="background-color: #121216 !important; border-color: rgba(255, 255, 255, 0.08) !important;">
+  <section class="py-4 border-top border-bottom" style="background-color: #121216 ; border-color: rgba(255, 255, 255, 0.08) !important;">
     <div class="container">
       <div class="row g-4 text-center">
         <div class="col-6 col-md-3">
@@ -289,7 +290,7 @@
   <!-- ======================================================================
        THREE RIDE FLEET CATEGORIES (Home 2 Feature)
        ====================================================================== -->
-  <section class="py-5" style="background-color: #0B0B0D !important;">
+  <section class="py-5" style="background-color: #0B0B0D ;">
     <div class="container">
       <div class="text-center max-w-700 mx-auto mb-5">
         <span class="badge badge-yellow mb-2"><i class="bi bi-grid-fill"></i> Ride Categories</span>
@@ -300,7 +301,7 @@
       <div class="row g-4">
         <!-- VeloClassic -->
         <div class="col-lg-4 col-md-6">
-          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D !important; border: 1.5px solid rgba(255, 193, 7, 0.3);">
+          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D ; border: 1.5px solid rgba(255, 193, 7, 0.3);">
             <div class="d-flex justify-content-between align-items-center mb-3">
               <span class="badge bg-warning text-dark fw-bold">POPULAR</span>
               <span class="text-warning fw-bold fs-5">₹19 <small class="text-muted fs-6">Base</small></span>
@@ -321,7 +322,7 @@
 
         <!-- VeloElectric -->
         <div class="col-lg-4 col-md-6">
-          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D !important; border: 1.5px solid rgba(16, 185, 129, 0.4);">
+          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D ; border: 1.5px solid rgba(16, 185, 129, 0.4);">
             <div class="d-flex justify-content-between align-items-center mb-3">
               <span class="badge bg-success text-white fw-bold">ZERO EMISSIONS</span>
               <span class="text-success fw-bold fs-5">₹22 <small class="text-muted fs-6">Base</small></span>
@@ -342,7 +343,7 @@
 
         <!-- VeloExpress -->
         <div class="col-lg-4 col-md-6 mx-auto">
-          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D !important; border: 1.5px solid rgba(255, 255, 255, 0.15);">
+          <div class="urban-card h-100 p-4 rounded-4" style="background-color: #18181D ; border: 1.5px solid rgba(255, 255, 255, 0.15);">
             <div class="d-flex justify-content-between align-items-center mb-3">
               <span class="badge bg-secondary text-white fw-bold">HIGHWAY & EXPRESS</span>
               <span class="text-white fw-bold fs-5">₹29 <small class="text-muted fs-6">Base</small></span>
@@ -367,7 +368,7 @@
   <!-- ======================================================================
        TIME & COST COMPARISON MATRIX (Why Us in Home 2)
        ====================================================================== -->
-  <section class="py-5" style="background-color: #121216 !important;">
+  <section class="py-5" style="background-color: #121216 ;">
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-5">
@@ -397,7 +398,7 @@
 
         <!-- Comparison Table Card (Clean Grid & Visible High Contrast Alignment) -->
         <div class="col-lg-7">
-          <div class="p-3 p-md-4 rounded-4" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.1);">
+          <div class="p-3 p-md-4 rounded-4" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.1);">
             <div class="compare-scroll-container">
               <div class="compare-table-wrapper">
                 <!-- Header Row -->
@@ -503,7 +504,7 @@
   <!-- ======================================================================
        THREE-STEP SIMPLE BOOKING PROCESS
        ====================================================================== -->
-  <section class="py-5" style="background-color: #0B0B0D !important;">
+  <section class="py-5" style="background-color: #0B0B0D ;">
     <div class="container">
       <div class="text-center max-w-700 mx-auto mb-5">
         <span class="badge badge-yellow mb-2"><i class="bi bi-bezier2"></i> Seamless Experience</span>
@@ -513,7 +514,7 @@
 
       <div class="row g-4">
         <div class="col-md-4 text-center">
-          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.08);">
             <div class="stat-icon yellow mx-auto mb-3" style="width: 56px; height: 56px;">
               <i class="bi bi-geo-alt-fill fs-3"></i>
             </div>
@@ -523,7 +524,7 @@
         </div>
 
         <div class="col-md-4 text-center">
-          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.08);">
             <div class="stat-icon yellow mx-auto mb-3" style="width: 56px; height: 56px;">
               <i class="bi bi-person-badge-fill fs-3"></i>
             </div>
@@ -533,7 +534,7 @@
         </div>
 
         <div class="col-md-4 text-center">
-          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.08);">
             <div class="stat-icon yellow mx-auto mb-3" style="width: 56px; height: 56px;">
               <i class="bi bi-shield-fill-check fs-3"></i>
             </div>
@@ -548,7 +549,7 @@
   <!-- ======================================================================
        RIDER TESTIMONIALS (Home 2 Social Proof)
        ====================================================================== -->
-  <section class="py-5" style="background-color: #121216 !important;">
+  <section class="py-5" style="background-color: #121216 ;">
     <div class="container">
       <div class="text-center max-w-700 mx-auto mb-5">
         <span class="badge badge-yellow mb-2"><i class="bi bi-chat-quote-fill"></i> Rider Reviews</span>
@@ -558,7 +559,7 @@
 
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
-          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.08);">
             <div>
               <div class="text-warning mb-3">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -576,7 +577,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6">
-          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.08);">
             <div>
               <div class="text-warning mb-3">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -594,7 +595,7 @@
         </div>
 
         <div class="col-lg-4 col-md-6 mx-auto">
-          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D !important; border: 1px solid rgba(255, 255, 255, 0.08);">
+          <div class="urban-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between" style="background-color: #18181D ; border: 1px solid rgba(255, 255, 255, 0.08);">
             <div>
               <div class="text-warning mb-3">
                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
@@ -617,9 +618,9 @@
   <!-- ======================================================================
        APP PROMO CTA BANNER (Home 2 Download Callout)
        ====================================================================== -->
-  <section class="py-5" style="background-color: #0B0B0D !important;">
+  <section class="py-5" style="background-color: #0B0B0D ;">
     <div class="container">
-      <div class="p-5 rounded-4 position-relative overflow-hidden" style="background: linear-gradient(135deg, #18181D 0%, #25252E 100%); border: 1.5px solid rgba(255, 193, 7, 0.35);">
+      <div class="p-5 rounded-4 position-relative overflow-hidden" class="cta-banner-gradient">
         <div class="row align-items-center g-4">
           <div class="col-lg-8">
             <span class="badge badge-yellow mb-2"><i class="bi bi-gift-fill"></i> Special Launch Promo</span>
@@ -648,63 +649,64 @@
   <!-- ======================================================================
        CONTACT & FOOTER
        ====================================================================== -->
-  <footer class="footer-custom" id="contact">
+    <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer-custom">
     <div class="container">
       <div class="row g-4 g-lg-5">
         <!-- Brand Info -->
         <div class="col-lg-3 col-md-6">
           <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
-            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-dark">
-            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-light">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="38" class="logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="38" class="logo-light">
           </a>
           <p class="footer-brand-desc">
             VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
           </p>
           <div class="social-links">
-            <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login"><i class="bi bi-twitter-x"></i></a>
-            <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Login"><i class="bi bi-facebook"></i></a>
-            <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Login"><i class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Login"><i class="bi bi-linkedin"></i></a>
+            <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login" title="Log in to X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Login" title="Log in to Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Login" title="Log in to Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Login" title="Log in to LinkedIn"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 
-        <!-- Quick Links -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
+        <!-- Platform Links -->
+        <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Platform</h6>
           <ul class="footer-links-list">
             <li><a href="index.html">Home</a></li>
-            <li><a href="home-2.html">Home 2 (Express)</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="fares.html">Fare Calculator</a></li>
-            <li><a href="login.html">Rider Login</a></li>
-            <li><a href="register.html">Sign Up</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Safety & Policies -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
-          <h6 class="footer-heading">Safety & Trust</h6>
+        <!-- Safety & Trust -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Safety &amp; Trust</h6>
           <ul class="footer-links-list">
             <li><a href="index.html#safety">Safety Standards</a></li>
-            <li><a href="#">Captain Verification</a></li>
-            <li><a href="#">Insurance Policy</a></li>
-            <li><a href="#">Community Guidelines</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="index.html#safety">Captain Verification</a></li>
+            <li><a href="index.html#safety">Sanitized Helmets</a></li>
+            <li><a href="index.html#safety">24/7 SOS Support</a></li>
+            <li><a href="index.html#safety">Ride Insurance Coverage</a></li>
           </ul>
         </div>
 
-        <!-- Contact (Matches Reference Design) -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Contact</h6>
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
               <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
-              <span>Cyber Towers, 4th Floor, Tech Hub, Bangalore 560100</span>
+              <span>123 Tech Park, 100ft Road, Indiranagar, Bangalore 560038</span>
             </li>
             <li class="footer-contact-item">
               <i class="bi bi-telephone-fill footer-contact-icon"></i>
-              <a href="tel:+9118002458356">+91 1800-245-VELO (24x7)</a>
+              <a href="tel:+918008356668">+91 1800-245-VELO (24x7)</a>
             </li>
             <li class="footer-contact-item">
               <i class="bi bi-envelope-fill footer-contact-icon"></i>
@@ -714,9 +716,20 @@
         </div>
       </div>
 
-      <!-- Bottom Bar -->
-      <div class="footer-bottom text-center">
-        <p class="mb-0 text-muted small">&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</p>
+            <!-- HR Divider Line -->
+      <hr class="footer-divider my-4">
+
+      <!-- Bottom Bar: Single Centered Content -->
+      <div class="footer-bottom-single text-center pb-2">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
+          <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Security</a>
+        </div>
       </div>
     </div>
   </footer>

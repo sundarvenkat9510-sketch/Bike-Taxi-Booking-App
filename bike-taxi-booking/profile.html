@@ -17,6 +17,7 @@
     (function() {
       const theme = localStorage.getItem('velomoto_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -238,7 +239,7 @@
 
   <!-- Footer -->
   <footer class="footer-custom py-4">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+    <div class="container d-flex flex-row justify-content-between align-items-center flex-nowrap">
       <div class="text-muted small">&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</div>
       <div class="social-links">
         <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login" title="Log in to X (Twitter)"><i class="bi bi-twitter-x"></i></a>

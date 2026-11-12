@@ -17,6 +17,7 @@
     (function() {
       const theme = localStorage.getItem('velomoto_theme') || 'dark';
       document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
       const dir = localStorage.getItem('velomoto_direction');
       if (dir === 'rtl') {
         document.documentElement.setAttribute('dir', 'rtl');
@@ -77,7 +78,7 @@
             <a class="nav-link nav-link-custom" href="#safety">Safety</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="#contact">Contact</a>
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
           </li>
         </ul>
 
@@ -105,7 +106,7 @@
   <!-- ======================================================================
        HERO SECTION WITH QUICK RIDE BOOKING
        ====================================================================== -->
-  <section class="hero-section" style="background-color: #0B0B0D !important;">
+  <section class="hero-section" style="background-color: #0B0B0D ;">
     <div class="container">
       <div class="row align-items-center g-5">
         
@@ -126,7 +127,7 @@
           </p>
 
           <!-- Hero Booking Widget -->
-          <div class="hero-booking-widget" style="background-color: #18181D !important;">
+          <div class="hero-booking-widget" style="background-color: #18181D ;">
             <form id="heroBookingForm">
               <h5 class="fw-bold text-white mb-3 d-flex align-items-center gap-2">
                 <i class="bi bi-pin-map text-warning"></i> Quick Ride Booking
@@ -148,7 +149,7 @@
 
               <!-- Live Fare & ETA preview container (Immediately Visible) -->
               <div id="heroQuickEstimate">
-                <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary mb-3" style="background-color: #202026 !important;">
+                <div class="d-flex align-items-center justify-content-between p-2 rounded border border-secondary mb-3" style="background-color: #202026 ;">
                   <div class="d-flex align-items-center gap-2">
                     <span class="badge badge-yellow"><i class="bi bi-clock"></i> ~15 mins</span>
                     <span class="small text-light">• ~5.8 km</span>
@@ -506,119 +507,248 @@
     </div>
   </section>
 
-  <!-- ======================================================================
-       CALL TO ACTION / CONTACT
+    <!-- ======================================================================
+       DRIVE & EARN WITH VELOMOTO (CAPTAIN PARTNER ONBOARDING)
        ====================================================================== -->
-  <section class="section-padding bg-darker contact-section" id="contact">
+  <section class="section-padding bg-darker" id="drive">
     <div class="container">
-      <!-- Section Header based on reference design -->
-      <div class="contact-header">
-        <span class="contact-badge"><i class="bi bi-headset"></i> 24/7 Commuter Helpdesk</span>
-        <h2 class="contact-title">Contact VeloMoto</h2>
-        <p class="contact-subtitle">
-          We would love to hear from you. Visit our hub, give us a call, or send a message — our support team is here to help 24/7.
+      <div class="text-center mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-bicycle me-1"></i> Earn With Your Two-Wheeler</span>
+        <h2 class="section-title">Drive With VeloMoto &amp; Earn Daily</h2>
+        <p class="section-subtitle">
+          Turn your two-wheeler into an income engine. Join 50,000+ happy Captains across India with instant daily payouts, flexible hours, and complete trip insurance.
         </p>
       </div>
 
-      <!-- 4 Contact Cards Grid (Theme Oriented) -->
-      <div class="row g-4 justify-content-center mb-5">
-        <!-- 1. Store / Hub Address -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="contact-card" style="background-color: #18181D !important;">
-            <div class="contact-card-icon">
-              <i class="bi bi-geo-alt-fill"></i>
+      <div class="row g-4 mb-5">
+        <!-- Benefit 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="urban-card h-100 p-4 d-flex flex-column justify-content-between">
+            <div>
+              <div class="stat-icon yellow mb-3">
+                <i class="bi bi-wallet2 fs-4"></i>
+              </div>
+              <h5 class="text-white fw-bold mb-2">Instant Daily Payouts</h5>
+              <p class="small text-muted mb-3">
+                Withdraw your ride earnings directly to your bank account or UPI after every shift. Zero withdrawal fees and complete earnings transparency.
+              </p>
             </div>
-            <h5 class="contact-card-title">Hub Address</h5>
-            <p class="contact-card-text">
-              123 Tech Park, Cyber City<br>Bangalore, KA 560100
-            </p>
-            <span class="contact-card-action">Visit Hub <i class="bi bi-arrow-right"></i></span>
+            <div>
+              <span class="badge bg-success bg-opacity-20 text-success border border-success border-opacity-25 small">
+                <i class="bi bi-check-circle-fill me-1"></i>Direct Bank/UPI
+              </span>
+            </div>
           </div>
         </div>
 
-        <!-- 2. Phone -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <a href="tel:+919876543210" class="contact-card" style="background-color: #18181D !important;">
-            <div class="contact-card-icon">
-              <i class="bi bi-telephone-fill"></i>
+        <!-- Benefit 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="urban-card h-100 p-4 d-flex flex-column justify-content-between">
+            <div>
+              <div class="stat-icon yellow mb-3">
+                <i class="bi bi-percent fs-4"></i>
+              </div>
+              <h5 class="text-white fw-bold mb-2">0% Commission Period</h5>
+              <p class="small text-muted mb-3">
+                Keep 100% of customer fares in your pocket during your first 50 rides. Start earning from day one with maximum take-home profit.
+              </p>
             </div>
-            <h5 class="contact-card-title">Phone</h5>
-            <p class="contact-card-text">
-              +91 98765 43210<br>(1800) VELO-MOTO
-            </p>
-            <span class="contact-card-action">Call Support <i class="bi bi-arrow-right"></i></span>
-          </a>
+            <div>
+              <span class="badge bg-warning bg-opacity-20 text-warning border border-warning border-opacity-25 small">
+                <i class="bi bi-lightning-charge-fill me-1"></i>First 50 Rides Free
+              </span>
+            </div>
+          </div>
         </div>
 
-        <!-- 3. Email -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <a href="mailto:support@velomoto.com" class="contact-card" style="background-color: #18181D !important;">
-            <div class="contact-card-icon">
-              <i class="bi bi-envelope-fill"></i>
+        <!-- Benefit 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="urban-card h-100 p-4 d-flex flex-column justify-content-between">
+            <div>
+              <div class="stat-icon yellow mb-3">
+                <i class="bi bi-clock-history fs-4"></i>
+              </div>
+              <h5 class="text-white fw-bold mb-2">100% Flexible Hours</h5>
+              <p class="small text-muted mb-3">
+                Drive full-time, part-time during peak rush, or pick up rides on your daily office commute. You are your own boss with zero login penalties.
+              </p>
             </div>
-            <h5 class="contact-card-title">Email</h5>
-            <p class="contact-card-text">
-              support@velomoto.com<br>Instant Resolution
-            </p>
-            <span class="contact-card-action">Send Mail <i class="bi bi-arrow-right"></i></span>
-          </a>
+            <div>
+              <span class="badge bg-info bg-opacity-20 text-info border border-info border-opacity-25 small">
+                <i class="bi bi-award-fill me-1"></i>No Minimum Hours
+              </span>
+            </div>
+          </div>
         </div>
 
-        <!-- 4. WhatsApp -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="contact-card" style="background-color: #18181D !important;">
-            <div class="contact-card-icon whatsapp-icon">
-              <i class="bi bi-whatsapp"></i>
+        <!-- Benefit 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="urban-card h-100 p-4 d-flex flex-column justify-content-between">
+            <div>
+              <div class="stat-icon yellow mb-3">
+                <i class="bi bi-shield-fill-check fs-4"></i>
+              </div>
+              <h5 class="text-white fw-bold mb-2">Free Kit &amp; ₹5L Cover</h5>
+              <p class="small text-muted mb-3">
+                Complimentary ISI dual helmets, branded high-visibility jacket, and comprehensive accidental coverage for complete peace of mind.
+              </p>
             </div>
-            <h5 class="contact-card-title">WhatsApp</h5>
-            <p class="contact-card-text">
-              Message us on WhatsApp<br>Online 24/7
-            </p>
-            <span class="contact-card-action">Chat on WhatsApp <i class="bi bi-arrow-right"></i></span>
-          </a>
+            <div>
+              <span class="badge bg-danger bg-opacity-20 text-danger border border-danger border-opacity-25 small">
+                <i class="bi bi-heart-pulse-fill me-1"></i>₹5 Lakh Accidental Cover
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Quick Support Inquiry & CTA Box -->
-      <div class="urban-card p-4 p-lg-5" style="background: #18181D; border-color: rgba(255, 193, 7, 0.3);">
+      <!-- Captain Onboarding Steps CTA Box -->
+      <div class="urban-card p-4 p-lg-5 rounded-4" style="background-color: #18181D; border: 1.5px solid rgba(255, 193, 7, 0.35);">
         <div class="row align-items-center g-4">
-          <div class="col-lg-7">
-            <span class="badge badge-yellow mb-2">Get Started in 60 Seconds</span>
-            <h2 class="text-white fw-bold mb-3">Ready to Experience Urban Speed?</h2>
-            <p class="text-muted mb-4">
-              Sign up today and get ₹50 free wallet balance added instantly to your account for your first ride.
+          <div class="col-lg-8">
+            <span class="badge badge-yellow mb-2"><i class="bi bi-speedometer2 me-1"></i> 3-Minute Quick Onboarding</span>
+            <h3 class="text-white fw-bold mb-2">Ready to Earn Up to ₹35,000 / Month?</h3>
+            <p class="text-muted mb-0 small">
+              All you need is a valid Driving License, two-wheeler RC, and a smartphone. Start receiving ride requests right after instant KYC verification.
             </p>
-            <div class="d-flex flex-wrap gap-3">
-              <a href="register.html" class="btn btn-yellow btn-lg">
-                <i class="bi bi-person-plus-fill"></i> Create Free Account
-              </a>
-              <a href="how-it-works.html" class="btn btn-dark-outline btn-lg">
-                <i class="bi bi-info-circle"></i> Learn How It Works
-              </a>
-            </div>
           </div>
-          <div class="col-lg-5">
-            <!-- Contact Quick Inquiries Box -->
-            <div class="p-3 rounded border border-secondary" style="background-color: #18181D !important;">
-              <h6 class="text-white fw-bold mb-3"><i class="bi bi-envelope-paper text-warning me-2"></i>Quick Support Inquiry</h6>
-              <form id="contactForm">
-                <div class="mb-2">
-                  <input type="text" class="custom-form-control py-2 ps-3" placeholder="Your Name" required>
-                </div>
-                <div class="mb-2">
-                  <input type="email" class="custom-form-control py-2 ps-3" placeholder="Your Email" required>
-                </div>
-                <div class="mb-3">
-                  <textarea class="custom-form-control py-2 ps-3" rows="2" placeholder="How can we help you?" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-yellow btn-sm w-100">Send Message</button>
-              </form>
+          <div class="col-lg-4 text-lg-end">
+            <div class="d-flex flex-wrap gap-2 justify-content-lg-end">
+              <a href="register.html" class="btn btn-yellow fw-bold px-4 py-2">
+                <i class="bi bi-person-plus-fill me-1"></i> Register as Captain
+              </a>
+              <a href="how-it-works.html" class="btn btn-dark-outline fw-bold px-3 py-2">
+                <i class="bi bi-info-circle me-1"></i> How It Works
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ======================================================================
+       APP PROMO CTA BANNER (DOWNLOAD CALLOUT & PROMO)
+       ====================================================================== -->
+  <section class="section-padding" id="app-download">
+    <div class="container">
+      <div class="p-4 p-lg-5 rounded-4 position-relative overflow-hidden cta-banner-gradient" style="background-color: #18181D; border: 1.5px solid rgba(255, 193, 7, 0.3);">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="badge badge-yellow mb-2"><i class="bi bi-phone-fill me-1"></i> Mobile Experience</span>
+            <h2 class="display-6 fw-bold mb-2">Skip Traffic Every Day. Ride VeloMoto.</h2>
+            <p class="mb-3 lead" style="font-size: 1.05rem;">
+              Book rides in under 15 seconds, track your captain live on GPS, share trips with loved ones, and pay cashlessly via UPI.
+            </p>
+            
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-3 mb-4" style="background: rgba(255, 193, 7, 0.15); border: 1px dashed var(--yellow-primary);">
+              <i class="bi bi-gift-fill text-warning fs-5"></i>
+              <span class="small text-white">Use code <strong class="text-warning">FAST50</strong> for 50% OFF your first 3 rides!</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="javascript:void(0)" onclick="showToast('Redirecting to Google Play Store...', 'info')" class="btn btn-yellow fw-bold px-4 py-2.5">
+                <i class="bi bi-google-play me-2"></i> Google Play
+              </a>
+              <a href="javascript:void(0)" onclick="showToast('Redirecting to Apple App Store...', 'info')" class="btn btn-dark-outline fw-bold px-4 py-2.5">
+                <i class="bi bi-apple me-2"></i> App Store
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 text-center">
+            <div class="d-inline-flex flex-column align-items-center p-3 rounded-4" style="background: rgba(11, 11, 13, 0.85); border: 1.5px solid rgba(255, 193, 7, 0.35); max-width: 260px;">
+              <i class="bi bi-qr-code text-warning display-3 mb-2"></i>
+              <span class="text-white fw-bold small mb-1">Scan to Download App</span>
+              <small class="text-muted" style="font-size: 0.76rem;">iOS &amp; Android Compatible</small>
+              <div class="d-flex justify-content-center align-items-center gap-1 text-warning mt-2 small">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span class="text-white ms-1 fw-bold" style="font-size: 0.78rem;">4.8 (250K+ Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FREQUENTLY ASKED QUESTIONS (RIDER & COMMUTER FAQ)
+       ====================================================================== -->
+  <section class="section-padding bg-darker" id="faq">
+    <div class="container" style="max-width: 860px;">
+      <div class="text-center mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-question-circle me-1"></i> Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Everything you need to know about booking, passenger safety, and fares on VeloMoto.
+        </p>
+      </div>
+
+      <div class="accordion accordion-flush" id="homeFaqAccordion">
+        <!-- FAQ 1 -->
+        <div class="accordion-item urban-card mb-3 p-0">
+          <h2 class="accordion-header" id="faqHead1">
+            <button class="accordion-button collapsed bg-transparent text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol1" aria-expanded="false" aria-controls="faqCol1">
+              <i class="bi bi-clock-history text-warning me-2"></i> How fast does a VeloMoto bike taxi arrive after booking?
+            </button>
+          </h2>
+          <div id="faqCol1" class="accordion-collapse collapse" aria-labelledby="faqHead1" data-bs-parent="#homeFaqAccordion">
+            <div class="accordion-body text-muted small pt-0">
+              Average captain arrival time is just 2 to 4 minutes across all major urban zones. Our smart dispatch algorithm instantly pairs you with the closest active captain on the road, so you never have to wait in the heat or rain.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="accordion-item urban-card mb-3 p-0">
+          <h2 class="accordion-header" id="faqHead2">
+            <button class="accordion-button collapsed bg-transparent text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol2" aria-expanded="false" aria-controls="faqCol2">
+              <i class="bi bi-shield-check text-warning me-2"></i> Do I get a clean, sanitized helmet for my ride?
+            </button>
+          </h2>
+          <div id="faqCol2" class="accordion-collapse collapse" aria-labelledby="faqHead2" data-bs-parent="#homeFaqAccordion">
+            <div class="accordion-body text-muted small pt-0">
+              Yes, 100%! Passenger safety is our topmost priority. Every VeloMoto Captain is strictly required to provide an ISI-certified dual helmet along with fresh, disposable hairnets before every trip. If a captain fails to offer a helmet, you can instantly flag it in the app.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="accordion-item urban-card mb-3 p-0">
+          <h2 class="accordion-header" id="faqHead3">
+            <button class="accordion-button collapsed bg-transparent text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol3" aria-expanded="false" aria-controls="faqCol3">
+              <i class="bi bi-backpack text-warning me-2"></i> Can I carry luggage or a backpack on a bike taxi?
+            </button>
+          </h2>
+          <div id="faqCol3" class="accordion-collapse collapse" aria-labelledby="faqHead3" data-bs-parent="#homeFaqAccordion">
+            <div class="accordion-body text-muted small pt-0">
+              You can comfortably travel with everyday commuter baggage such as standard backpacks, office laptop bags, gym duffel bags, or grocery bags. For large heavy suitcases or airport bulk luggage, we recommend our four-wheeler partner options.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="accordion-item urban-card mb-3 p-0">
+          <h2 class="accordion-header" id="faqHead4">
+            <button class="accordion-button collapsed bg-transparent text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCol4" aria-expanded="false" aria-controls="faqCol4">
+              <i class="bi bi-cash-coin text-warning me-2"></i> How are ride fares calculated? Are there hidden surge charges?
+            </button>
+          </h2>
+          <div id="faqCol4" class="accordion-collapse collapse" aria-labelledby="faqHead4" data-bs-parent="#homeFaqAccordion">
+            <div class="accordion-body text-muted small pt-0">
+              VeloMoto uses 100% upfront, transparent pricing. You see the exact fare breakdown (base fare + fixed per-km distance) before you confirm your ride. Zero hidden charges or surprise deductions. You can pay seamlessly via UPI, Paytm, PhonePe, Debit/Credit Cards, or direct Cash.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ======================================================================
        FOOTER
@@ -629,8 +759,8 @@
         <!-- Brand Info -->
         <div class="col-lg-3 col-md-6">
           <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
-            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-dark">
-            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="42" class="mb-2 logo-light">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="38" class="logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="38" class="logo-light">
           </a>
           <p class="footer-brand-desc">
             VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
@@ -643,43 +773,41 @@
           </div>
         </div>
 
-        <!-- Quick Links -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
+        <!-- Platform Links -->
+        <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Platform</h6>
           <ul class="footer-links-list">
             <li><a href="index.html">Home</a></li>
-            <li><a href="home-2.html">Home 2 (Express)</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="fares.html">Fare Calculator</a></li>
-            <li><a href="login.html">Rider Login</a></li>
-            <li><a href="register.html">Sign Up</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Safety & Policies -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
-          <h6 class="footer-heading">Safety & Trust</h6>
+        <!-- Safety & Trust -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Safety &amp; Trust</h6>
           <ul class="footer-links-list">
-            <li><a href="#safety">Safety Standards</a></li>
-            <li><a href="#">Captain Verification</a></li>
-            <li><a href="#">Insurance Policy</a></li>
-            <li><a href="#">Community Guidelines</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="index.html#safety">Safety Standards</a></li>
+            <li><a href="index.html#safety">Captain Verification</a></li>
+            <li><a href="index.html#safety">Sanitized Helmets</a></li>
+            <li><a href="index.html#safety">24/7 SOS Support</a></li>
+            <li><a href="index.html#safety">Ride Insurance Coverage</a></li>
           </ul>
         </div>
 
-        <!-- Contact (Matches Reference Design) -->
-        <div class="col-lg-3 col-md-6 ps-lg-4">
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Contact</h6>
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
               <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
-              <span>Cyber Towers, 4th Floor, Tech Hub, Bangalore 560100</span>
+              <span>123 Tech Park, 100ft Road, Indiranagar, Bangalore 560038</span>
             </li>
             <li class="footer-contact-item">
               <i class="bi bi-telephone-fill footer-contact-icon"></i>
-              <a href="tel:+9118002458356">+91 1800-245-VELO (24x7)</a>
+              <a href="tel:+918008356668">+91 1800-245-VELO (24x7)</a>
             </li>
             <li class="footer-contact-item">
               <i class="bi bi-envelope-fill footer-contact-icon"></i>
@@ -689,9 +817,20 @@
         </div>
       </div>
 
-      <!-- Bottom Bar -->
-      <div class="footer-bottom text-center">
-        <p class="mb-0 text-muted small">&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</p>
+            <!-- HR Divider Line -->
+      <hr class="footer-divider my-4">
+
+      <!-- Bottom Bar: Single Centered Content -->
+      <div class="footer-bottom-single text-center pb-2">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
+          <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Security</a>
+        </div>
       </div>
     </div>
   </footer>
