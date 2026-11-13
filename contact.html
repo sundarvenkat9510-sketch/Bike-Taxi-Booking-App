@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | VeloMoto - India's Fast & Affordable Bike Taxi Network</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='veloYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23FF9100'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23121214' stroke='%23FFC107' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='45' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='19' cy='42' r='2.5' fill='%23FFC107'/%3E%3Ccircle cx='45' cy='42' r='2.5' fill='%23FFC107'/%3E%3Cpath d='M19 42 L28 28 L39 28 L45 42 M28 28 L32 42 L45 42 M31 23 L25 23 M37 21 L43 28' stroke='%23FFFFFF' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M33 13 L27 23 L34 23 L29 33' stroke='url(%23veloYellow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
   <meta name="description" content="Get in touch with VeloMoto. Reach our 24/7 commuter and captain support team via phone, email, WhatsApp, or visit our central hub in Indiranagar, Bangalore.">
   
   <!-- Google Fonts -->
@@ -39,40 +43,52 @@
   <!-- ======================================================================
        NAVIGATION BAR
        ====================================================================== -->
-  <nav class="navbar navbar-expand-lg navbar-custom">
+    <!-- ======================================================================
+       HEADER / NAVBAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
     <div class="container">
+      <!-- Brand Logo -->
       <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark">
-        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
       </a>
       
+      <!-- Mobile Hamburger Toggle -->
       <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
         <i class="bi bi-list fs-2 text-warning"></i>
       </button>
 
+      <!-- Nav Links & Action Buttons -->
       <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <!-- Home Dropdown Menu (Home 1 & Home 2) -->
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Home
+            <a class="nav-link nav-link-custom dropdown-toggle " href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home <i class="bi bi-chevron-down ms-1"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
-              <li><a class="dropdown-item" href="index.html">HOME</a></li>
-              <li><a class="dropdown-item" href="home-2.html">HOME 2</a></li>
+              <li><a class="dropdown-item " href="index.html">HOME</a></li>
+              <li><a class="dropdown-item " href="home-2.html">HOME 2</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="about.html">About</a>
+            <a class="nav-link nav-link-custom " href="about.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="how-it-works.html">How It Works</a>
+            <a class="nav-link nav-link-custom " href="services.html">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="fares.html">Fares</a>
+            <a class="nav-link nav-link-custom " href="how-it-works.html">How It Works</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="index.html#why-us">Why Us</a>
+            <a class="nav-link nav-link-custom " href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="why-us.html">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="gallery.html">Gallery</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
@@ -84,6 +100,9 @@
 
         <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
         <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
+          <a href="dashboard.html" class="btn-dashboard-icon" id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard">
+            <i class="bi bi-speedometer2"></i>
+          </a>
           <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
             <i class="bi bi-sun-fill"></i>
           </button>
@@ -132,7 +151,7 @@
             <p class="ref-contact-detail">
               123 Tech Park, 100ft Road<br>Indiranagar, Bangalore 560038
             </p>
-            <span class="badge bg-warning text-dark mt-2" style="font-size: 0.75rem;">Walk-in &amp; KYC Center</span>
+            <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50 mt-auto" style="font-size: 0.75rem;">Walk-in &amp; KYC Center</span>
           </div>
         </div>
 
@@ -146,7 +165,7 @@
             <p class="ref-contact-detail">
               1800-245-VELO (24x7 Toll-Free)<br>(080) 4567-8900 (Captain Line)
             </p>
-            <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-50 mt-2" style="font-size: 0.75rem;">Instant SOS Active</span>
+            <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-50 mt-auto" style="font-size: 0.75rem;">Instant SOS Active</span>
           </a>
         </div>
 
@@ -160,7 +179,7 @@
             <p class="ref-contact-detail">
               support@velomoto.in<br>captains@velomoto.in
             </p>
-            <span class="badge bg-primary bg-opacity-25 text-info border border-primary border-opacity-50 mt-2" style="font-size: 0.75rem;">Avg Reply &lt; 15 Mins</span>
+            <span class="badge bg-primary bg-opacity-25 text-info border border-primary border-opacity-50 mt-auto" style="font-size: 0.75rem;">Avg Reply &lt; 15 Mins</span>
           </a>
         </div>
 
@@ -174,7 +193,7 @@
             <p class="ref-contact-detail">
               Instant Ride Booking &amp; Help<br>+91 98765 43210
             </p>
-            <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-50 mt-2" style="font-size: 0.75rem;">Online 24/7</span>
+            <span class="badge bg-success bg-opacity-25 text-success border border-success border-opacity-50 mt-auto" style="font-size: 0.75rem;">Online 24/7</span>
           </a>
         </div>
       </div>
@@ -188,7 +207,7 @@
             <h3 class="ref-section-title mb-0">
               <i class="bi bi-chat-left-dots-fill text-warning me-2"></i>Send Us a Message
             </h3>
-            <span class="badge bg-warning bg-opacity-15 text-warning border border-warning border-opacity-25 px-2.5 py-1 small">
+            <span class="badge bg-warning bg-opacity-25 text-warning border border-warning border-opacity-50 px-3 py-1.5 small">
               <i class="bi bi-lightning-charge-fill me-1"></i>Quick Response
             </span>
           </div>
@@ -420,8 +439,11 @@
           <ul class="footer-links-list">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
             <li><a href="fares.html">Fare Calculator</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
@@ -480,6 +502,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   
   <!-- Custom Script -->
+  <script src="js/auth.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>

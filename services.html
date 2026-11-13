@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | VeloMoto Bike Taxi - City Commutes, EV Rides & Express Delivery</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='veloYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23FF9100'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23121214' stroke='%23FFC107' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='45' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='19' cy='42' r='2.5' fill='%23FFC107'/%3E%3Ccircle cx='45' cy='42' r='2.5' fill='%23FFC107'/%3E%3Cpath d='M19 42 L28 28 L39 28 L45 42 M28 28 L32 42 L45 42 M31 23 L25 23 M37 21 L43 28' stroke='%23FFFFFF' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M33 13 L27 23 L34 23 L29 33' stroke='url(%23veloYellow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+  <meta name="description" content="Explore VeloMoto's full suite of urban two-wheeler mobility services: Standard Bike Taxi, Eco Electric Scooters, Express Moto Pro, 15-Minute Parcel Delivery, and Metro Feeders.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link id="bootstrapCSS" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('velomoto_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      const dir = localStorage.getItem('velomoto_direction');
+      if (dir === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+        const bs = document.getElementById('bootstrapCSS');
+        if (bs) bs.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css';
+      }
+    })();
+  </script>
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Urban Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ======================================================================
+       HEADER / NAVBAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
+      </a>
+      
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-warning"></i>
+      </button>
+
+      <!-- Nav Links & Action Buttons -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <!-- Home Dropdown Menu (Home 1 & Home 2) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle " href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item " href="index.html">HOME</a></li>
+              <li><a class="dropdown-item " href="home-2.html">HOME 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" aria-current="page" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="how-it-works.html">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="why-us.html">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
+          <a href="dashboard.html" class="btn-dashboard-icon" id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard">
+            <i class="bi bi-speedometer2"></i>
+          </a>
+          <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR">
+            <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+          </button>
+          <div id="navbarAuthButtons" class="d-flex align-items-center gap-2">
+            <a href="login.html" class="btn btn-dark-outline btn-sm">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+            <a href="register.html" class="btn btn-yellow btn-sm">
+              <i class="bi bi-person-plus-fill"></i> Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       PAGE HERO SECTION
+       ====================================================================== -->
+  <section class="hero-section py-5">
+    <div class="container py-3">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <span class="badge badge-yellow mb-3"><i class="bi bi-bicycle me-1"></i> Comprehensive Urban Mobility</span>
+          <h1 class="display-4 fw-bold text-white mb-3">
+            On-Demand Two-Wheeler Services Designed for City Life
+          </h1>
+          <p class="hero-subtitle mb-4 text-muted">
+            Whether you need a solo bike taxi to escape bumper-to-bumper traffic, a green zero-emission EV scooter, an express delivery for an urgent package, or a flat-rate metro feeder, VeloMoto has you covered 24/7.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="index.html" class="btn btn-yellow btn-lg px-4 fw-bold">
+              <i class="bi bi-lightning-charge-fill me-1"></i> Book a Ride Now
+            </a>
+            <a href="fares.html" class="btn btn-dark-outline btn-lg px-4 fw-bold">
+              <i class="bi bi-calculator me-1"></i> View Fare Rates
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <div class="p-4 rounded-4" style="background-color: #18181D; border: 1.5px solid rgba(255, 193, 7, 0.3);">
+            <img src="assets/images/about-hero.svg" alt="VeloMoto Services" class="img-fluid" style="max-height: 280px; width: 100%;">
+            <div class="mt-3 text-center">
+              <span class="badge badge-yellow px-3 py-2"><i class="bi bi-shield-fill-check me-1"></i> 6 Dedicated Mobility Solutions • 100% Insured</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SERVICES CORE GRID (6 HIGH-IMPACT SERVICES)
+       ====================================================================== -->
+  <section class="section-padding bg-darker">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-grid-fill"></i> What We Offer</span>
+        <h2 class="section-title">Explore Our Urban Mobility Services</h2>
+        <p class="section-subtitle">
+          Engineered for urban speed, unmatched affordability, and rider safety across India's busiest metropolitan streets.
+        </p>
+      </div>
+
+                  <div class="row g-4">
+        <!-- Service 1: Standard Moto Taxi -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="service-feature-card w-100">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&h=500&q=80" alt="Standard Moto Bike Taxi" loading="lazy">
+              <span class="badge bg-warning text-dark service-card-badge">MOST POPULAR</span>
+            </div>
+            <div class="service-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-dark-subtle text-warning border border-warning border-opacity-25 px-2.5 py-1">SOLO COMMUTE</span>
+                <span class="text-warning fw-bold fs-5">₹19 <small class="text-muted fs-6">Base</small></span>
+              </div>
+              <h3 class="text-white fw-bold mb-2 fs-4">Standard Moto Taxi</h3>
+              <p class="text-muted small mb-3">
+                Solo 100-125cc commuter motorbikes for everyday office commutes, metro transfers, and slipping through peak traffic bottlenecks effortlessly.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> 2.5x faster than cabs during rush hours</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Free sanitized dual helmet + hygiene net</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> ₹9.50 per additional kilometer</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> ₹5 Lakh personal accidental insurance</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="index.html" class="btn btn-yellow btn-sm fw-bold px-3">
+                  <i class="bi bi-lightning-charge-fill me-1"></i> Book Ride
+                </a>
+                <span class="text-muted small"><i class="bi bi-clock-history me-1"></i> 2–3 min pickup</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2: Eco Electric Scooter -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="service-feature-card w-100">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&h=500&q=80" alt="Eco Electric Bike Taxi" loading="lazy">
+              <span class="badge bg-success text-white service-card-badge">100% ECO GREEN</span>
+            </div>
+            <div class="service-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-dark-subtle text-success border border-success border-opacity-25 px-2.5 py-1">ZERO EMISSION</span>
+                <span class="text-warning fw-bold fs-5">₹20 <small class="text-muted fs-6">Base</small></span>
+              </div>
+              <h3 class="text-white fw-bold mb-2 fs-4">Eco Electric Scooter</h3>
+              <p class="text-muted small mb-3">
+                Silent, smooth, zero-tailpipe emission EV rides. Ideal for environmentally conscious city riders seeking a tranquil, vibration-free commute.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> 100% Zero carbon tailpipe emissions</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Whisper-quiet, vibration-free motor</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Eco tariff: just ₹7.50 per km</li>
+                <li><i class="bi bi-check-circle-fill text-success me-2"></i> Verified Green Captains</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="index.html" class="btn btn-yellow btn-sm fw-bold px-3">
+                  <i class="bi bi-lightning-charge-fill me-1"></i> Book Ride
+                </a>
+                <span class="text-muted small"><i class="bi bi-battery-charging me-1"></i> High battery EV</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3: Express Moto Pro -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="service-feature-card w-100">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&h=500&q=80" alt="Express Moto Pro" loading="lazy">
+              <span class="badge bg-danger text-white service-card-badge">FASTEST PICKUP</span>
+            </div>
+            <div class="service-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-dark-subtle text-danger border border-danger border-opacity-25 px-2.5 py-1">PRIORITY FLEET</span>
+                <span class="text-warning fw-bold fs-5">₹35 <small class="text-muted fs-6">Base</small></span>
+              </div>
+              <h3 class="text-white fw-bold mb-2 fs-4">Express Moto Pro</h3>
+              <p class="text-muted small mb-3">
+                Guaranteed priority matching in under 2 minutes with our highest-rated 4.9+ star captains. Perfect for urgent flights, interviews, or emergency meetings.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Guaranteed &lt; 2-minute captain pickup</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Top 5% elite-rated veteran captains</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Express corridor routing for zero lag</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Priority customer support desk</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="index.html" class="btn btn-yellow btn-sm fw-bold px-3">
+                  <i class="bi bi-lightning-charge-fill me-1"></i> Book Ride
+                </a>
+                <span class="text-muted small"><i class="bi bi-star-fill text-warning me-1"></i> 4.9+ Star Captains</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4: VeloParcel Express Courier -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="service-feature-card w-100">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=800&h=500&q=80" alt="VeloParcel Courier" loading="lazy">
+              <span class="badge bg-info text-dark service-card-badge">15-MIN DELIVERY</span>
+            </div>
+            <div class="service-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-dark-subtle text-info border border-info border-opacity-25 px-2.5 py-1">ON-DEMAND PARCEL</span>
+                <span class="text-warning fw-bold fs-5">₹29 <small class="text-muted fs-6">Base</small></span>
+              </div>
+              <h3 class="text-white fw-bold mb-2 fs-4">VeloParcel Courier</h3>
+              <p class="text-muted small mb-3">
+                Lightning-fast point-to-point intra-city delivery for urgent documents, forgotten keys, laptops, medicines, gifts, or packages up to 10 kg.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Average 15–25 min doorstep delivery</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Secure OTP verification at drop-off</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Real-time GPS live parcel tracking</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Weatherproof tamper-evident pouches</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="index.html" class="btn btn-yellow btn-sm fw-bold px-3">
+                  <i class="bi bi-box-seam me-1"></i> Send Parcel
+                </a>
+                <span class="text-muted small"><i class="bi bi-shield-check me-1"></i> OTP Protected</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5: Metro & Transit Feeder -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="service-feature-card w-100">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?auto=format&fit=crop&w=800&h=500&q=80" alt="Metro Station Feeder" loading="lazy">
+              <span class="badge bg-primary text-white service-card-badge">LAST-MILE FEEDER</span>
+            </div>
+            <div class="service-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-dark-subtle text-primary border border-primary border-opacity-25 px-2.5 py-1">METRO TRANSIT</span>
+                <span class="text-warning fw-bold fs-5">Flat ₹25 <small class="text-muted fs-6">Zone</small></span>
+              </div>
+              <h3 class="text-white fw-bold mb-2 fs-4">Metro &amp; Transit Feeder</h3>
+              <p class="text-muted small mb-3">
+                Seamless first-and-last-mile connectivity between metro stations, railway terminals, tech park gates, and your front door without waiting in lines.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Dedicated pickup zones at Metro Pillars</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Pre-book while your train is arriving</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Monthly metro feeder pass discounts</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Zero parking hassle at stations</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="index.html" class="btn btn-yellow btn-sm fw-bold px-3">
+                  <i class="bi bi-train-front me-1"></i> Book Feeder
+                </a>
+                <span class="text-muted small"><i class="bi bi-geo-alt-fill me-1"></i> Metro Zones</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 6: Corporate Commutes -->
+        <div class="col-md-6 col-lg-4 d-flex">
+          <div class="service-feature-card w-100">
+            <div class="service-img-wrap">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&h=500&q=80" alt="Corporate Commute Fleet" loading="lazy">
+              <span class="badge bg-secondary text-white service-card-badge">ENTERPRISE PASS</span>
+            </div>
+            <div class="service-card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="badge bg-dark-subtle text-secondary border border-secondary border-opacity-25 px-2.5 py-1">B2B COMMUTE</span>
+                <span class="text-warning fw-bold fs-5">Custom <small class="text-muted fs-6">Billing</small></span>
+              </div>
+              <h3 class="text-white fw-bold mb-2 fs-4">Corporate Commutes</h3>
+              <p class="text-muted small mb-3">
+                Turnkey employee commute solutions for tech parks, BPOs, and university campuses. Consolidated monthly invoicing with corporate admin portals.
+              </p>
+              <ul class="list-unstyled d-flex flex-column gap-2 text-muted small mb-4">
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Centralized company billing &amp; GST claims</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Geo-fenced campus pickup &amp; drop pins</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> Up to 25% corporate volume savings</li>
+                <li><i class="bi bi-check-circle-fill text-warning me-2"></i> 24/7 dedicated enterprise account desk</li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="contact.html" class="btn btn-yellow btn-sm fw-bold px-3">
+                  <i class="bi bi-building me-1"></i> Partner with Us
+                </a>
+                <span class="text-muted small"><i class="bi bi-receipt me-1"></i> GST Invoices</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SERVICE STANDARDS & SAFETY PLEDGE
+       ====================================================================== -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center max-w-700 mx-auto mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-shield-check"></i> Standard On Every Ride</span>
+        <h2 class="section-title">The VeloMoto Service Guarantee</h2>
+        <p class="section-subtitle">
+          No matter which service you choose, these core safety and quality standards come automatically attached.
+        </p>
+      </div>
+
+      <div class="row g-4 text-center">
+        <!-- Feature 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D;">
+            <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px;">
+              <i class="bi bi-shield-shaded fs-4"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">Sanitized Dual Helmets</h5>
+            <p class="text-muted small mb-0">Every captain carries an ISI certified passenger helmet and disposable hygienic headnets.</p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D;">
+            <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px;">
+              <i class="bi bi-heart-pulse-fill fs-4"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">₹5 Lakh Insurance</h5>
+            <p class="text-muted small mb-0">Every meter is covered by leading accidental and emergency medical insurance.</p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D;">
+            <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px;">
+              <i class="bi bi-broadcast fs-4"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">Live GPS Route Guard</h5>
+            <p class="text-muted small mb-0">24/7 central control center flags abnormal deviations or unscheduled stops instantly.</p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="urban-card h-100 p-4" style="background-color: #18181D;">
+            <div class="stat-icon yellow mx-auto mb-3" style="width: 52px; height: 52px;">
+              <i class="bi bi-currency-rupee fs-4"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">Zero Hidden Surge</h5>
+            <p class="text-muted small mb-0">Transparent metered pricing with upfront fare estimates before you hit confirm.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       APP PROMO CTA BANNER (#18181D Solid Card Box)
+       ====================================================================== -->
+  <section class="section-padding bg-darker" id="app-download">
+    <div class="container">
+      <div class="p-4 p-lg-5 rounded-4 position-relative overflow-hidden cta-banner-gradient" style="background-color: #18181D; border: 1.5px solid rgba(255, 193, 7, 0.3);">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="badge badge-yellow mb-2"><i class="bi bi-phone-fill me-1"></i> Mobile Experience</span>
+            <h2 class="display-6 fw-bold mb-2">Skip Traffic Every Day. Ride VeloMoto.</h2>
+            <p class="mb-3 lead" style="font-size: 1.05rem;">
+              Book rides in under 15 seconds, track your captain live on GPS, share trips with loved ones, and pay cashlessly via UPI.
+            </p>
+            
+            <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-3 mb-4" style="background: rgba(255, 193, 7, 0.15); border: 1px dashed var(--yellow-primary);">
+              <i class="bi bi-gift-fill text-warning fs-5"></i>
+              <span class="small text-white">Use code <strong class="text-warning">FAST50</strong> for 50% OFF your first 3 rides!</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="javascript:void(0)" onclick="showToast('Redirecting to Google Play Store...', 'info')" class="btn btn-yellow fw-bold px-4 py-2.5">
+                <i class="bi bi-google-play me-2"></i> Google Play
+              </a>
+              <a href="javascript:void(0)" onclick="showToast('Redirecting to Apple App Store...', 'info')" class="btn btn-dark-outline fw-bold px-4 py-2.5">
+                <i class="bi bi-apple me-2"></i> App Store
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 text-center">
+            <div class="d-inline-flex flex-column align-items-center p-3 rounded-4" style="background-color: #121216; border: 1.5px solid rgba(255, 193, 7, 0.35); max-width: 260px;">
+              <i class="bi bi-qr-code text-warning display-3 mb-2"></i>
+              <span class="text-white fw-bold small mb-1">Scan to Download App</span>
+              <small class="text-muted" style="font-size: 0.76rem;">iOS &amp; Android Compatible</small>
+              <div class="d-flex justify-content-center align-items-center gap-1 text-warning mt-2 small">
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-fill"></i>
+                <i class="bi bi-star-half"></i>
+                <span class="text-white ms-1 fw-bold" style="font-size: 0.78rem;">4.8 (250K+ Reviews)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       SERVICES FAQ ACCORDION
+       ====================================================================== -->
+  <section class="section-padding" id="faq">
+    <div class="container" style="max-width: 860px;">
+      <div class="text-center mb-5">
+        <span class="badge badge-yellow mb-2"><i class="bi bi-question-circle me-1"></i> Service Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Common queries regarding ride options, parcel couriers, and booking rules.
+        </p>
+      </div>
+
+      <div class="accordion accordion-flush" id="serviceFaqAccordion">
+        <!-- FAQ 1 -->
+        <div class="accordion-item urban-card mb-3 p-0">
+          <h2 class="accordion-header" id="faqServHead1">
+            <button class="accordion-button collapsed bg-transparent text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqServCol1" aria-expanded="false" aria-controls="faqServCol1">
+              <i class="bi bi-box-seam text-warning me-2"></i> What items can I send using VeloParcel courier?
+            </button>
+          </h2>
+          <div id="faqServCol1" class="accordion-collapse collapse" aria-labelledby="faqServHead1" data-bs-parent="#serviceFaqAccordion">
+            <div class="accordion-body text-muted small pt-0">
+              You can send documents, office keys, laptops, medicines, gifts, clothing, and packaged food items up to 10 kg. Prohibited items include hazardous chemicals, liquids without sealed packaging, and illegal contraband.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="accordion-item urban-card mb-3 p-0">
+          <h2 class="accordion-header" id="faqServHead2">
+            <button class="accordion-button collapsed bg-transparent text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqServCol2" aria-expanded="false" aria-controls="faqServCol2">
+              <i class="bi bi-lightning-charge text-warning me-2"></i> Are Eco EV scooters available in all locations?
+            </button>
+          </h2>
+          <div id="faqServCol2" class="accordion-collapse collapse" aria-labelledby="faqServHead2" data-bs-parent="#serviceFaqAccordion">
+            <div class="accordion-body text-muted small pt-0">
+              Eco Electric rides are active across major city IT corridors, central business districts, and university hubs. If an EV captain is not currently near your pin, our algorithm automatically surfaces Standard Moto options to ensure you are never stranded.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="accordion-item urban-card mb-3 p-0">
+          <h2 class="accordion-header" id="faqServHead3">
+            <button class="accordion-button collapsed bg-transparent text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqServCol3" aria-expanded="false" aria-controls="faqServCol3">
+              <i class="bi bi-buildings text-warning me-2"></i> How do companies set up Corporate Commute billing?
+            </button>
+          </h2>
+          <div id="faqServCol3" class="accordion-collapse collapse" aria-labelledby="faqServHead3" data-bs-parent="#serviceFaqAccordion">
+            <div class="accordion-body text-muted small pt-0">
+              Organizations can submit an inquiry through our Contact Us page or email enterprise@velomoto.in. We provide a customized employer dashboard where HR/Admin teams can add employee phone numbers, set ride allowances, and download consolidated monthly GST invoices.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="accordion-item urban-card mb-3 p-0">
+          <h2 class="accordion-header" id="faqServHead4">
+            <button class="accordion-button collapsed bg-transparent text-white fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#faqServCol4" aria-expanded="false" aria-controls="faqServCol4">
+              <i class="bi bi-credit-card text-warning me-2"></i> What payment methods are supported across all services?
+            </button>
+          </h2>
+          <div id="faqServCol4" class="accordion-collapse collapse" aria-labelledby="faqServHead4" data-bs-parent="#serviceFaqAccordion">
+            <div class="accordion-body text-muted small pt-0">
+              We support UPI (GPay, PhonePe, Paytm, BHIM), Credit/Debit Cards, Net Banking, VeloMoto In-App Wallet, and direct Cash payment to the captain.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand Info -->
+        <div class="col-lg-3 col-md-6">
+          <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="38" class="logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="38" class="logo-light">
+          </a>
+          <p class="footer-brand-desc">
+            VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
+          </p>
+          <div class="social-links">
+            <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login" title="Log in to X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Login" title="Log in to Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Login" title="Log in to Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Login" title="Log in to LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Platform Links -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Platform</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="fares.html">Fare Calculator</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Safety & Trust -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Safety &amp; Trust</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html#safety">Safety Standards</a></li>
+            <li><a href="index.html#safety">Captain Verification</a></li>
+            <li><a href="index.html#safety">Sanitized Helmets</a></li>
+            <li><a href="index.html#safety">24/7 SOS Support</a></li>
+            <li><a href="index.html#safety">Ride Insurance Coverage</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Contact</h6>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
+              <span>123 Tech Park, 100ft Road, Indiranagar, Bangalore 560038</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-telephone-fill footer-contact-icon"></i>
+              <a href="tel:+918008356668">+91 1800-245-VELO (24x7)</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-envelope-fill footer-contact-icon"></i>
+              <a href="mailto:support@velomoto.com">support@velomoto.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HR Divider Line -->
+      <hr class="footer-divider my-4">
+
+      <!-- Bottom Bar: Single Centered Content -->
+      <div class="footer-bottom-single text-center pb-2">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
+          <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container-custom"></div>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom Logic Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

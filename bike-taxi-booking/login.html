@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rider Login | VeloMoto Bike Taxi</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='veloYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23FF9100'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23121214' stroke='%23FFC107' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='45' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='19' cy='42' r='2.5' fill='%23FFC107'/%3E%3Ccircle cx='45' cy='42' r='2.5' fill='%23FFC107'/%3E%3Cpath d='M19 42 L28 28 L39 28 L45 42 M28 28 L32 42 L45 42 M31 23 L25 23 M37 21 L43 28' stroke='%23FFFFFF' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M33 13 L27 23 L34 23 L29 33' stroke='url(%23veloYellow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
   <meta name="description" content="Sign in to your VeloMoto rider account to manage rides, track active bookings, and view ride history.">
   
   <!-- Google Fonts -->
@@ -41,11 +45,14 @@
        ====================================================================== -->
   <nav class="navbar navbar-custom py-2">
     <div class="container d-flex justify-content-between align-items-center">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
         <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="34">
         <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="34">
       </a>
       <div class="d-flex align-items-center gap-2">
+          <a href="dashboard.html" class="btn-dashboard-icon" id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard" style="width: 36px; height: 36px; min-width: 36px; min-height: 36px; font-size: 0.95rem;">
+          <i class="bi bi-speedometer2"></i>
+        </a>
         <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode" style="width: 36px; height: 36px; min-width: 36px; min-height: 36px; font-size: 0.95rem;">
           <i class="bi bi-sun-fill"></i>
         </button>

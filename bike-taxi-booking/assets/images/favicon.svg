@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="veloYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FF9100"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#121214" stroke="#FFC107" stroke-width="2.5"/>
+  <!-- Bike Wheels -->
+  <circle cx="19" cy="42" r="9" stroke="url(#veloYellow)" stroke-width="3.2" fill="none"/>
+  <circle cx="45" cy="42" r="9" stroke="url(#veloYellow)" stroke-width="3.2" fill="none"/>
+  <circle cx="19" cy="42" r="2.5" fill="#FFC107"/>
+  <circle cx="45" cy="42" r="2.5" fill="#FFC107"/>
+  <!-- Bike Frame -->
+  <path d="M19 42 L28 28 L39 28 L45 42 M28 28 L32 42 L45 42 M31 23 L25 23 M37 21 L43 28" 
+        stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Speed Flash / Lightning Bolt -->
+  <path d="M33 13 L27 23 L34 23 L29 33" 
+        stroke="url(#veloYellow)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

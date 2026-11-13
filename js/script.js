@@ -652,3 +652,82 @@ window.toggleSiteTheme = toggleSiteTheme;
 window.initThemeSwitcher = initThemeSwitcher;
 window.detectGPSLocation = detectGPSLocation;
 
+
+
+/**
+ * ============================================================================
+ * Smooth Navbar Experience & Instant Prefetch Navigation
+ * ============================================================================
+ * - Eliminates hang / lag when clicking navbar links ("gang aagama ore smooth")
+ * - Prefetches target pages on mouse hover / touch start for 0ms instant loading
+ * - Smooth in-page anchor scrolling with sticky header offset (Safety, etc.)
+ * - Prevents default jump on dropdown toggle (#)
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Remove hash jump on Home dropdown toggle
+  const homeDropdown = document.getElementById('homeDropdown');
+  if (homeDropdown) {
+    homeDropdown.addEventListener('click', (e) => {
+      if (homeDropdown.getAttribute('href') === '#') {
+        e.preventDefault();
+      }
+    });
+  }
+
+  // 2. Instant Navbar Hover Prefetching (0ms latency transition between pages)
+  const prefetchedUrls = new Set();
+  function prefetchPage(url) {
+    if (!url || url.startsWith('#') || url.startsWith('javascript') || prefetchedUrls.has(url)) return;
+    prefetchedUrls.add(url);
+    const linkEl = document.createElement('link');
+    linkEl.rel = 'prefetch';
+    linkEl.href = url;
+    document.head.appendChild(linkEl);
+  }
+
+  document.querySelectorAll('.navbar-custom a[href]').forEach(navLink => {
+    const targetHref = navLink.getAttribute('href');
+    if (targetHref && !targetHref.startsWith('#') && !targetHref.startsWith('javascript')) {
+      navLink.addEventListener('mouseenter', () => prefetchPage(targetHref), { once: true, passive: true });
+      navLink.addEventListener('touchstart', () => prefetchPage(targetHref), { once: true, passive: true });
+    }
+  });
+
+  // 3. Smooth in-page scrolling for #safety and other section anchors
+  document.querySelectorAll('.navbar-custom a[href*="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const rawHref = this.getAttribute('href');
+      if (!rawHref || rawHref === '#') return;
+
+      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      const isIndex = currentPath === 'index.html' || currentPath === '';
+
+      if (isIndex && (rawHref.startsWith('#') || rawHref.startsWith('index.html#'))) {
+        const hash = rawHref.includes('#') ? rawHref.split('#')[1] : '';
+        const targetElement = document.getElementById(hash);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', '#' + hash);
+
+          const navbarCollapse = document.getElementById('navbarMain');
+          if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) bsCollapse.hide();
+          }
+        }
+      }
+    });
+  });
+
+  // 4. Handle smooth landing if page loaded with a #hash (e.g. index.html#safety)
+  if (window.location.hash) {
+    const hash = window.location.hash.substring(1);
+    const targetElement = document.getElementById(hash);
+    if (targetElement) {
+      setTimeout(() => {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+    }
+  }
+});

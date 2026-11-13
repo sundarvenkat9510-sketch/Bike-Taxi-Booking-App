@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery & Fleet Highlights | VeloMoto Bike Taxi</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='veloYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23FF9100'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23121214' stroke='%23FFC107' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='45' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='19' cy='42' r='2.5' fill='%23FFC107'/%3E%3Ccircle cx='45' cy='42' r='2.5' fill='%23FFC107'/%3E%3Cpath d='M19 42 L28 28 L39 28 L45 42 M28 28 L32 42 L45 42 M31 23 L25 23 M37 21 L43 28' stroke='%23FFFFFF' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M33 13 L27 23 L34 23 L29 33' stroke='url(%23veloYellow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+  <meta name="description" content="Explore VeloMoto's bike taxi fleet, certified captains, green EV scooters, safety gear, and daily urban commuters in action.">
+
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link id="bootstrapCSS" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('velomoto_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      const dir = localStorage.getItem('velomoto_direction');
+      if (dir === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+        const bs = document.getElementById('bootstrapCSS');
+        if (bs) bs.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css';
+      }
+    })();
+  </script>
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Urban Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVBAR
+       ====================================================================== -->
+    <!-- ======================================================================
+       HEADER / NAVBAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
+      </a>
+      
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-warning"></i>
+      </button>
+
+      <!-- Nav Links & Action Buttons -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <!-- Home Dropdown Menu (Home 1 & Home 2) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle " href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item " href="index.html">HOME</a></li>
+              <li><a class="dropdown-item " href="home-2.html">HOME 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="how-it-works.html">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="why-us.html">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" aria-current="page" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
+          <a href="dashboard.html" class="btn-dashboard-icon" id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard">
+            <i class="bi bi-speedometer2"></i>
+          </a>
+          <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR">
+            <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+          </button>
+          <div id="navbarAuthButtons" class="d-flex align-items-center gap-2">
+            <a href="login.html" class="btn btn-dark-outline btn-sm">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+            <a href="register.html" class="btn btn-yellow btn-sm">
+              <i class="bi bi-person-plus-fill"></i> Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       HERO / HEADER SECTION
+       ====================================================================== -->
+  <section class="gallery-hero py-5 position-relative overflow-hidden" style="background: radial-gradient(circle at 50% 10%, rgba(255,193,7,0.12), transparent 70%);">
+    <div class="container py-lg-4 text-center">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center mb-3">
+          <li class="breadcrumb-item"><a href="index.html" class="text-secondary text-decoration-none">Home</a></li>
+          <li class="breadcrumb-item active text-warning fw-bold" aria-current="page">Gallery</li>
+        </ol>
+      </nav>
+      <span class="badge badge-yellow mb-3">
+        <i class="bi bi-camera-fill me-1"></i> Fleet & Moments
+      </span>
+      <h1 class="display-4 fw-extrabold text-white mb-3">
+        VeloMoto In Action: <span class="text-warning">Real Rides, Real Speed</span>
+      </h1>
+      <p class="lead text-secondary mx-auto mb-4" style="max-width: 760px;">
+        Explore our agile bike taxi fleet, certified captains, green electric scooters, and daily commuters beating peak city traffic every single day.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div class="d-flex flex-wrap justify-content-center gap-2 pt-2" id="galleryFilters">
+        <button type="button" class="btn gallery-filter-btn active" data-filter="all">
+          <i class="bi bi-grid-fill me-1"></i> All Photos
+        </button>
+        <button type="button" class="btn gallery-filter-btn" data-filter="fleet">
+          <i class="bi bi-bicycle me-1"></i> Moto Fleet
+        </button>
+        <button type="button" class="btn gallery-filter-btn" data-filter="captains">
+          <i class="bi bi-person-badge-fill me-1"></i> Captains & Training
+        </button>
+        <button type="button" class="btn gallery-filter-btn" data-filter="commute">
+          <i class="bi bi-geo-alt-fill me-1"></i> Urban Commutes
+        </button>
+        <button type="button" class="btn gallery-filter-btn" data-filter="ev">
+          <i class="bi bi-lightning-charge-fill me-1"></i> Green EV Fleet
+        </button>
+        <button type="button" class="btn gallery-filter-btn" data-filter="safety">
+          <i class="bi bi-shield-check me-1"></i> Safety & Helmets
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       GALLERY GRID SECTION
+       ====================================================================== -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4" id="galleryGrid">
+
+        <!-- Item 1: Fleet -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="fleet">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-warning text-dark gallery-badge">MOTO FLEET</span>
+              <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&h=500&q=80" alt="Standard Commuter Moto Taxi" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Standard Commuter Bike Fleet</h5>
+                <p class="text-secondary small mb-0">Agile 100-125cc motorcycles tuned for tight city lanes, smooth navigation, and prompt arrivals.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-speedometer2 me-1"></i> Avg Pickup: 2.4 Mins</span>
+                <span class="text-secondary small"><i class="bi bi-check2-circle text-success me-1"></i> Inspected</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: Captains -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="captains">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-warning text-dark gallery-badge">VERIFIED CAPTAIN</span>
+              <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?auto=format&fit=crop&w=800&h=500&q=80" alt="Certified Captain in High-Viz Gear" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Captain Briefing & Safety Gear</h5>
+                <p class="text-secondary small mb-0">Every VeloMoto pilot wears reflective high-viz vests, safety straps, and sanitized protective helmets.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> 4.9+ Captains</span>
+                <span class="text-secondary small"><i class="bi bi-shield-lock-fill text-success me-1"></i> Background Checked</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: EV -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="ev">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-success text-white gallery-badge">GREEN EV</span>
+              <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&h=500&q=80" alt="Electric Scooter Charging Station" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Clean Battery Swap Hubs</h5>
+                <p class="text-secondary small mb-0">Our zero-emission electric scooters utilize 90-second battery swaps across major metro charging clusters.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-success small fw-bold"><i class="bi bi-lightning-fill me-1"></i> 100% Eco Rides</span>
+                <span class="text-secondary small">0g Carbon / Km</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4: Commute -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="commute">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-warning text-dark gallery-badge">URBAN COMMUTE</span>
+              <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&h=500&q=80" alt="Lane Filtering During Peak Traffic" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Rush Hour Traffic Bypass</h5>
+                <p class="text-secondary small mb-0">Two-wheel agility lets passengers cruise past gridlocked intersections, slashing commute times by 55%.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-clock-history me-1"></i> Save 35+ Mins</span>
+                <span class="text-secondary small">Express Corridors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 5: Safety -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="safety">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-danger text-white gallery-badge">SAFETY PROTOCOL</span>
+              <img src="https://images.unsplash.com/photo-1571607388263-1044f9ea01dd?auto=format&fit=crop&w=800&h=500&q=80" alt="Sanitized Helmets with Disposable Caps" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Sanitized Passenger Helmets</h5>
+                <p class="text-secondary small mb-0">Every single ride includes an ISI-certified passenger helmet and fresh disposable hygiene hair caps.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-shield-fill-check me-1"></i> Dual Helmet Policy</span>
+                <span class="text-secondary small">100% Compliant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 6: Fleet -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="fleet">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-warning text-dark gallery-badge">MOTO FLEET</span>
+              <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&h=500&q=80" alt="Express Moto Pro 160cc Fleet" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Express Moto Pro Cruisers</h5>
+                <p class="text-secondary small mb-0">Top-tier 160cc+ bikes reserved for highway bypasses, tech park hops, and VIP airport terminal drops.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-lightning-charge me-1"></i> Priority Dispatch</span>
+                <span class="text-secondary small">Premium Seats</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 7: Captains -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="captains">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-warning text-dark gallery-badge">TRAINING HUB</span>
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&h=500&q=80" alt="Captain Training and Induction Workshop" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Driver Onboarding & First-Aid Training</h5>
+                <p class="text-secondary small mb-0">In-person training sessions covering safe riding speeds, customer etiquette, and emergency medical response.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-award-fill me-1"></i> Certified Pilots</span>
+                <span class="text-secondary small">KYC Cleared</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 8: EV -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="ev">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-success text-white gallery-badge">GREEN EV</span>
+              <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&h=500&q=80" alt="Quiet City Electric Scooter Fleet" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Ultra-Quiet Electric Scooter Fleet</h5>
+                <p class="text-secondary small mb-0">Vibration-free rides engineered for quiet, comfortable short commutes across bustling corporate hubs.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-success small fw-bold"><i class="bi bi-tree-fill me-1"></i> 65% Noise Reduction</span>
+                <span class="text-secondary small">Ather & Ola Fleets</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 9: Commute -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="commute">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-info text-dark gallery-badge">NIGHT TRANSIT</span>
+              <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&h=500&q=80" alt="Evening City Rides and Night Safety" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">24/7 Night Commuter Coverage</h5>
+                <p class="text-secondary small mb-0">Active continuous live GPS ride tracking, female-rider priority dispatch, and dedicated 24x7 SOS teams.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-moon-stars-fill me-1"></i> 24x7 Active</span>
+                <span class="text-secondary small">Live SOS Team</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 10: Safety -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="safety">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-warning text-dark gallery-badge">TRANSIT HUB</span>
+              <img src="https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?auto=format&fit=crop&w=800&h=500&q=80" alt="Metro Station Last Mile Feeder Pickups" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">Metro & Transit Station Pickups</h5>
+                <p class="text-secondary small mb-0">Designated VeloMoto pickup bays right outside metro stations for hassle-free first and last mile hops.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-train-front me-1"></i> Zero Wait Time</span>
+                <span class="text-secondary small">Direct Gates</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 11: Commute -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="commute">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-warning text-dark gallery-badge">COMMUTER SMILES</span>
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&h=500&q=80" alt="Satisfied Daily Commuter" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">5 Million+ Commuters Moved Safely</h5>
+                <p class="text-secondary small mb-0">Affordable daily mobility empowering office workers, college students, and freelancers with dependable transit.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> 4.85 / 5 Rating</span>
+                <span class="text-secondary small">250K+ Reviews</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 12: Fleet -->
+        <div class="col-12 col-md-6 col-lg-4 d-flex gallery-card-item" data-category="fleet">
+          <div class="gallery-card" onclick="openGalleryModal(this)">
+            <div class="gallery-img-wrapper">
+              <span class="badge bg-warning text-dark gallery-badge">EXPRESS DELIVERY</span>
+              <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=800&h=500&q=80" alt="VeloParcel Courier Bike Service" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <div class="gallery-zoom-icon">
+                  <i class="bi bi-arrows-fullscreen"></i>
+                </div>
+              </div>
+            </div>
+            <div class="gallery-body">
+              <div>
+                <h5 class="fw-bold text-white mb-2">VeloParcel On-Demand Couriers</h5>
+                <p class="text-secondary small mb-0">Bikes equipped with secure waterproof parcel bags handling urgent document, gift, and grocery deliveries.</p>
+              </div>
+              <div class="d-flex align-items-center justify-content-between pt-3 mt-auto border-top border-secondary border-opacity-10">
+                <span class="text-warning small fw-bold"><i class="bi bi-box-seam me-1"></i> Deliveries &lt; 30 Mins</span>
+                <span class="text-secondary small">OTP Secured</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       CALL TO ACTION PROMO SECTION
+       ====================================================================== -->
+  <section class="py-5" style="background: #0E0E11;">
+    <div class="container">
+      <div class="p-4 p-lg-5 rounded-4 position-relative overflow-hidden" style="background: #18181D; border: 1px solid rgba(255, 193, 7, 0.2);">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <span class="badge bg-warning text-dark fw-bold mb-2 px-3 py-1">
+              <i class="bi bi-phone-fill me-1"></i> Mobile Experience
+            </span>
+            <h2 class="display-6 fw-extrabold text-white mb-3">
+              Skip Traffic Every Day. Ride VeloMoto.
+            </h2>
+            <p class="text-white text-opacity-75 mb-4" style="max-width: 600px;">
+              Book rides in under 15 seconds, track your captain live on GPS, share trips with loved ones, and pay cashlessly via UPI.
+            </p>
+            <div class="d-flex flex-wrap align-items-center gap-3">
+              <a href="register.html" class="btn btn-yellow fw-bold px-4 py-2">
+                <i class="bi bi-bicycle me-1"></i> Book First Ride
+              </a>
+              <a href="why-us.html" class="btn btn-dark-outline px-4 py-2">
+                <i class="bi bi-info-circle me-1"></i> Why Choose Us
+              </a>
+              <span class="text-white text-opacity-75 small ms-lg-2">
+                <i class="bi bi-gift-fill text-warning me-1"></i> Code <strong>FAST50</strong> for 50% OFF
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center">
+            <div class="p-3 rounded-3 d-inline-block" style="background: #0B0B0D; border: 1px solid rgba(255,255,255,0.08);">
+              <i class="bi bi-qr-code text-warning display-1"></i>
+              <div class="text-white small fw-bold mt-2">Scan to Download App</div>
+              <div class="text-white text-opacity-75 small">iOS & Android Compatible</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       LIGHTBOX PREVIEW MODAL
+       ====================================================================== -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content gallery-modal-content">
+        <div class="modal-header border-0 pb-0 position-relative">
+          <h5 class="modal-title fw-bold" id="galleryModalLabel">Photo Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4 text-center">
+          <div class="rounded-3 overflow-hidden mb-3" style="max-height: 480px; background: #0B0B0D;">
+            <img src="" id="galleryModalImg" class="img-fluid w-100" style="object-fit: cover; max-height: 480px;" alt="VeloMoto Gallery Photo">
+          </div>
+          <h4 class="fw-bold mb-2 text-start" id="galleryModalTitle">Photo Title</h4>
+          <p class="mb-0 text-start" id="galleryModalDesc">Photo description goes here.</p>
+        </div>
+        <div class="modal-footer border-0 pt-0 justify-content-between">
+          <span class="badge bg-warning text-dark px-3 py-2 fw-bold" id="galleryModalCategory">FLEET</span>
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand Info -->
+        <div class="col-lg-3 col-md-6">
+          <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="38" class="logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="38" class="logo-light">
+          </a>
+          <p class="footer-brand-desc">
+            VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
+          </p>
+          <div class="social-links">
+            <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login" title="Log in to X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Login" title="Log in to Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Login" title="Log in to Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Login" title="Log in to LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Platform Links -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Platform</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="fares.html">Fare Calculator</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Safety & Trust -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Safety &amp; Trust</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html#safety">Safety Standards</a></li>
+            <li><a href="index.html#safety">Captain Verification</a></li>
+            <li><a href="index.html#safety">Sanitized Helmets</a></li>
+            <li><a href="index.html#safety">24/7 SOS Support</a></li>
+            <li><a href="index.html#safety">Ride Insurance Coverage</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Contact</h6>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="bi bi-geo-alt-fill text-warning"></i>
+              <span>Brigade Tech Park, Whitefield, Bangalore, Karnataka 560066</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-telephone-fill text-warning"></i>
+              <a href="tel:18002458356">1800-245-VELO (24x7 Toll-Free)</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-envelope-fill text-warning"></i>
+              <a href="mailto:support@velomoto.in">support@velomoto.in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HR Divider Line -->
+      <hr class="footer-divider my-4">
+
+      <!-- Bottom Bar: Single Centered Content -->
+      <div class="footer-bottom-single text-center pb-2">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
+          <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container-custom"></div>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom Logic Scripts (Theme, RTL, Auth) -->
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+
+  <!-- Gallery Interactive Filtering & Modal Script -->
+  <script>
+    // Gallery Filter Logic
+    document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.gallery-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        
+        document.querySelectorAll('.gallery-card-item').forEach(card => {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Gallery Modal Preview Logic
+    function openGalleryModal(cardEl) {
+      const img = cardEl.querySelector('.gallery-img');
+      const title = cardEl.querySelector('h5');
+      const desc = cardEl.querySelector('p');
+      const badge = cardEl.querySelector('.gallery-badge');
+
+      if (img) document.getElementById('galleryModalImg').src = img.src;
+      if (title) document.getElementById('galleryModalTitle').textContent = title.textContent;
+      if (desc) document.getElementById('galleryModalDesc').textContent = desc.textContent;
+      if (badge) document.getElementById('galleryModalCategory').textContent = badge.textContent;
+
+      const modalEl = document.getElementById('galleryModal');
+      const modal = new bootstrap.Modal(modalEl);
+      modal.show();
+    }
+  </script>
+</body>
+</html>

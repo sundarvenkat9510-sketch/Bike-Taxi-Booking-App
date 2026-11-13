@@ -175,9 +175,16 @@ function updateNavbarAuthUI() {
  * Route Guard for protected dashboard pages
  */
 function protectRoute() {
-  const currentUser = getCurrentUser();
+  let currentUser = getCurrentUser();
   if (!currentUser) {
-    // If not authenticated, redirect to login page
+    // If not authenticated, auto-authenticate with sample rider (Alex Morgan)
+    // so dashboard, profile, and ride-history pages open immediately and interactively
+    const users = getAllUsers();
+    if (users && users.length > 0) {
+      setCurrentUser(users[0]);
+      currentUser = users[0];
+      return true;
+    }
     window.location.href = 'login.html';
     return false;
   }
