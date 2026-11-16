@@ -184,16 +184,26 @@ window.calculateFareBreakdown = calculateFareBreakdown;
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Sticky Navbar background on scroll
+  // 1. Sticky Navbar background on scroll across ALL pages
   const navbar = document.querySelector('.navbar-custom');
   if (navbar) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
+    // Explicitly guarantee sticky top styles in DOM
+    navbar.style.position = '-webkit-sticky';
+    navbar.style.position = 'sticky';
+    navbar.style.top = '0px';
+    navbar.style.zIndex = '1040';
+
+    const updateStickyScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (scrollY > 15) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
-    });
+    };
+
+    window.addEventListener('scroll', updateStickyScroll, { passive: true });
+    updateStickyScroll();
   }
 
   // 2. Setup Autocomplete on Hero / Booking inputs if present
@@ -384,16 +394,106 @@ document.addEventListener('DOMContentLoaded', () => {
     refreshFareCalculator();
   }
 
-  // 5. Contact Form submission handler (if on contact or home)
+  // 5. Contact Form submission handler with rigorous validation (Name, Email, Phone)
   const contactForms = document.querySelectorAll('#contactForm, #fullContactForm, #refContactForm');
   contactForms.forEach(form => {
+    const nameInput = form.querySelector('#contactName, input[type="text"][name="name"], input[name="name"]');
+    const emailInput = form.querySelector('#contactEmail, input[type="email"][name="email"], input[name="email"]');
+    const phoneInput = form.querySelector('#contactPhone, input[type="tel"][name="phone"], input[name="phone"]');
+
+    // Real-time input restriction on Name: block numbers & symbols
+    if (nameInput) {
+      nameInput.addEventListener('input', () => {
+        nameInput.value = nameInput.value.replace(/[^a-zA-Z\s]/g, '');
+      });
+    }
+
+    // Real-time input restriction on Phone: block letters & symbols, max 10 digits
+    if (phoneInput) {
+      phoneInput.addEventListener('input', () => {
+        phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+      });
+    }
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const nameInput = form.querySelector('input[type="text"], input[name="name"]');
-      const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Commuter';
-      showToast(`Thank you, ${name}! Your inquiry has been submitted. Our team will contact you within 15 minutes.`, 'success');
+
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+
+      // 1. Validate Name: at least 2 letters, alphabets only, no numbers
+      if (!nameVal || !/^[a-zA-Z\s]{2,50}$/.test(nameVal) || nameVal.replace(/\s+/g, '').length < 2) {
+        if (typeof showToast === 'function') {
+          showToast('Please enter a valid full name (at least 2 letters, letters only, no numbers).', 'danger');
+        } else {
+          alert('Please enter a valid full name (at least 2 letters, letters only, no numbers).');
+        }
+        if (nameInput) {
+          nameInput.classList.add('is-invalid');
+          nameInput.focus();
+        }
+        return;
+      }
+      if (nameInput) nameInput.classList.remove('is-invalid');
+
+      // 2. Validate Email: strict regex requiring domain extension (rejects ice@g)
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        if (typeof showToast === 'function') {
+          showToast('Please enter a valid email address with a domain (e.g., name@domain.com).', 'danger');
+        } else {
+          alert('Please enter a valid email address with a domain (e.g., name@domain.com).');
+        }
+        if (emailInput) {
+          emailInput.classList.add('is-invalid');
+          emailInput.focus();
+        }
+        return;
+      }
+      if (emailInput) emailInput.classList.remove('is-invalid');
+
+      // 3. Validate Phone: strictly 10 digits (numbers only)
+      const phoneDigits = phoneVal.replace(/\D/g, '');
+      if (phoneDigits.length !== 10) {
+        if (typeof showToast === 'function') {
+          showToast('Please enter a valid 10-digit mobile number (numbers only).', 'danger');
+        } else {
+          alert('Please enter a valid 10-digit mobile number (numbers only).');
+        }
+        if (phoneInput) {
+          phoneInput.classList.add('is-invalid');
+          phoneInput.focus();
+        }
+        return;
+      }
+      if (phoneInput) phoneInput.classList.remove('is-invalid');
+
+      showToast(`Thank you, ${nameVal}! Your inquiry has been submitted. Our team will contact you within 15 minutes.`, 'success');
       form.reset();
     });
+  });
+
+  // Global Real-time Input Sanitizer for Name & Phone across all pages
+  document.addEventListener('input', (e) => {
+    const target = e.target;
+    if (!target) return;
+
+    // Phone inputs: only digits allowed, max 10 digits
+    if (target.type === 'tel' || target.id?.toLowerCase().includes('phone') || target.name?.toLowerCase().includes('phone') || target.id?.toLowerCase().includes('emergency')) {
+      const sanitized = target.value.replace(/\D/g, '').slice(0, 10);
+      if (target.value !== sanitized) {
+        target.value = sanitized;
+      }
+    }
+
+    // Name inputs: only alphabets & spaces allowed
+    if (target.id?.toLowerCase().includes('name') && !target.id?.toLowerCase().includes('user') && target.type === 'text') {
+      const sanitized = target.value.replace(/[^a-zA-Z\s]/g, '');
+      if (target.value !== sanitized) {
+        target.value = sanitized;
+      }
+    }
   });
 
   // 6. Newsletter Form

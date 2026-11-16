@@ -1005,14 +1005,66 @@ function setupProfileForm() {
     if (workInp) workInp.value = user.workAddress || '';
   }
 
+  const nameInp = document.getElementById('profileName');
+  const phoneInp = document.getElementById('profilePhone');
+  const emgInp = document.getElementById('profileEmergency');
+
+  // Real-time input restriction: Name (no numbers/symbols)
+  if (nameInp) {
+    nameInp.addEventListener('input', () => {
+      nameInp.value = nameInp.value.replace(/[^a-zA-Z\s]/g, '');
+    });
+  }
+
+  // Real-time input restriction: Phone & Emergency (no alphabets/symbols, max 10 digits)
+  if (phoneInp) {
+    phoneInp.addEventListener('input', () => {
+      phoneInp.value = phoneInp.value.replace(/\D/g, '').slice(0, 10);
+    });
+  }
+  if (emgInp) {
+    emgInp.addEventListener('input', () => {
+      emgInp.value = emgInp.value.replace(/\D/g, '').slice(0, 10);
+    });
+  }
+
   profileForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const user = getCurrentUser();
     if (!user) return;
 
-    user.name = document.getElementById('profileName').value.trim();
-    user.phone = document.getElementById('profilePhone').value.trim();
-    user.emergencyContact = document.getElementById('profileEmergency').value.trim();
+    const nameVal = nameInp ? nameInp.value.trim() : '';
+    const phoneVal = phoneInp ? phoneInp.value.trim() : '';
+    const emgVal = emgInp ? emgInp.value.trim() : '';
+
+    // 1. Validate Name: at least 2 letters, alphabets only, no numbers
+    if (!nameVal || !/^[a-zA-Z\s]{2,50}$/.test(nameVal) || nameVal.replace(/\s+/g, '').length < 2) {
+      showToast('Please enter a valid legal name (at least 2 letters, letters only, no numbers).', 'danger');
+      if (nameInp) nameInp.focus();
+      return;
+    }
+
+    // 2. Validate Phone: exactly 10 digits
+    const digits = phoneVal.replace(/\D/g, '');
+    if (digits.length !== 10) {
+      showToast('Please enter a valid 10-digit mobile number (numbers only).', 'danger');
+      if (phoneInp) phoneInp.focus();
+      return;
+    }
+
+    // 3. Validate Emergency Contact if provided
+    if (emgVal) {
+      const emgDigits = emgVal.replace(/\D/g, '');
+      if (emgDigits.length !== 10) {
+        showToast('Emergency contact must be a valid 10-digit phone number.', 'danger');
+        if (emgInp) emgInp.focus();
+        return;
+      }
+    }
+
+    user.name = nameVal;
+    user.phone = digits;
+    user.emergencyContact = emgVal ? emgVal.replace(/\D/g, '') : '';
     user.homeAddress = document.getElementById('profileHome').value.trim();
     user.workAddress = document.getElementById('profileWork').value.trim();
 

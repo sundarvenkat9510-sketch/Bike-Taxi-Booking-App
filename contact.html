@@ -68,7 +68,7 @@
               Home <i class="bi bi-chevron-down ms-1"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
-              <li><a class="dropdown-item " href="index.html">HOME</a></li>
+              <li><a class="dropdown-item " href="index.html">HOME 1</a></li>
               <li><a class="dropdown-item " href="home-2.html">HOME 2</a></li>
             </ul>
           </li>
@@ -92,6 +92,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="blog.html">Blog</a>
           </li>
           <li class="nav-item">
             <a class="nav-link nav-link-custom active" aria-current="page" href="contact.html">Contact</a>
@@ -220,7 +223,7 @@
                     <label class="ref-form-label" for="contactName">
                       <i class="bi bi-person-fill text-warning me-1"></i> Full Name
                     </label>
-                    <input type="text" id="contactName" name="name" class="ref-form-control" placeholder="e.g. Rahul Sharma" required>
+                    <input type="text" id="contactName" name="name" class="ref-form-control" placeholder="e.g. Rahul Sharma" required minlength="2" maxlength="50" pattern="[a-zA-Z\s]{2,50}" title="Name must contain at least 2 letters and only alphabets (no numbers or symbols)">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -228,7 +231,7 @@
                     <label class="ref-form-label" for="contactEmail">
                       <i class="bi bi-envelope-fill text-warning me-1"></i> Email Address
                     </label>
-                    <input type="email" id="contactEmail" name="email" class="ref-form-control" placeholder="name@example.com" required>
+                    <input type="email" id="contactEmail" name="email" class="ref-form-control" placeholder="name@domain.com" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address with a domain (e.g. name@domain.com)">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -236,7 +239,7 @@
                     <label class="ref-form-label" for="contactPhone">
                       <i class="bi bi-telephone-fill text-warning me-1"></i> Mobile Number
                     </label>
-                    <input type="tel" id="contactPhone" name="phone" class="ref-form-control" placeholder="+91 98765 43210" required>
+                    <input type="tel" id="contactPhone" name="phone" class="ref-form-control" placeholder="10-digit mobile" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit mobile number (numbers only)">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -452,11 +455,11 @@
         <div class="col-lg-3 col-md-6">
           <h6 class="footer-heading">Safety &amp; Trust</h6>
           <ul class="footer-links-list">
-            <li><a href="index.html#safety">Safety Standards</a></li>
-            <li><a href="index.html#safety">Verified Captains</a></li>
-            <li><a href="index.html#safety">Sanitized Helmets</a></li>
-            <li><a href="index.html#safety">24/7 SOS Support</a></li>
-            <li><a href="index.html#safety">Ride Insurance Coverage</a></li>
+            <li><a href="security.html#safety-standards">Safety Standards</a></li>
+            <li><a href="security.html#verification">Captain Verification</a></li>
+            <li><a href="security.html#helmets">Sanitized Helmets</a></li>
+            <li><a href="security.html#sos">24/7 SOS Support</a></li>
+            <li><a href="security.html#insurance-shield">Ride Insurance Coverage</a></li>
           </ul>
         </div>
 
@@ -488,11 +491,11 @@
         <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
           <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
           <span class="d-none d-sm-inline opacity-50">&bull;</span>
-          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <a href="privacy-policy.html" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
           <span class="d-none d-sm-inline opacity-50">&bull;</span>
-          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <a href="terms-of-service.html" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
           <span class="d-none d-sm-inline opacity-50">&bull;</span>
-          <a href="javascript:void(0)" class="footer-legal-link text-muted text-decoration-none">Security</a>
+          <a href="security.html" class="footer-legal-link text-muted text-decoration-none">Security</a>
         </div>
       </div>
     </div>

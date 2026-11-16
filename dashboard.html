@@ -46,7 +46,7 @@
   <!-- ======================================================================
        DASHBOARD TOPBAR
        ====================================================================== -->
-  <nav class="navbar navbar-custom py-2 px-3">
+  <nav class="navbar navbar-custom py-2 px-3 sticky-top">
     <div class="container-fluid d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center gap-3">
         <a class="navbar-brand m-0 d-flex align-items-center" href="index.html">
@@ -481,7 +481,7 @@
                 <div class="row g-3 mb-3">
                   <div class="col-md-6">
                     <label class="form-label text-light small fw-bold">Full Legal Name</label>
-                    <input type="text" id="profileName" class="custom-form-control ps-3" required>
+                    <input type="text" id="profileName" class="custom-form-control ps-3" placeholder="e.g., Alex Morgan" required minlength="2" maxlength="50" pattern="[a-zA-Z\s]{2,50}" title="Name must contain at least 2 letters and only alphabets (no numbers or symbols)">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label text-light small fw-bold">Email Address</label>
@@ -492,11 +492,11 @@
                 <div class="row g-3 mb-3">
                   <div class="col-md-6">
                     <label class="form-label text-light small fw-bold">Mobile Number</label>
-                    <input type="tel" id="profilePhone" class="custom-form-control ps-3" required>
+                    <input type="tel" id="profilePhone" class="custom-form-control ps-3" placeholder="10-digit mobile" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit mobile number (numbers only)">
                   </div>
                   <div class="col-md-6">
                     <label class="form-label text-light small fw-bold">Emergency Contact (SOS)</label>
-                    <input type="tel" id="profileEmergency" class="custom-form-control ps-3" placeholder="Family / Friend phone">
+                    <input type="tel" id="profileEmergency" class="custom-form-control ps-3" placeholder="10-digit emergency phone" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit mobile number (numbers only)">
                   </div>
                 </div>
 

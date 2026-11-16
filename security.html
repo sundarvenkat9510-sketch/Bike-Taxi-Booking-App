@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security & Safety Standards | VeloMoto - Urban Bike Taxi Network</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='veloYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23FF9100'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23121214' stroke='%23FFC107' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='45' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='19' cy='42' r='2.5' fill='%23FFC107'/%3E%3Ccircle cx='45' cy='42' r='2.5' fill='%23FFC107'/%3E%3Cpath d='M19 42 L28 28 L39 28 L45 42 M28 28 L32 42 L45 42 M31 23 L25 23 M37 21 L43 28' stroke='%23FFFFFF' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M33 13 L27 23 L34 23 L29 33' stroke='url(%23veloYellow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+  <meta name="description" content="Learn about VeloMoto 7-point captain verification, 24/7 SOS dispatch, dual-visor sanitized helmets, and live trip tracking.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link id="bootstrapCSS" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('velomoto_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      const dir = localStorage.getItem('velomoto_direction');
+      if (dir === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+        const bs = document.getElementById('bootstrapCSS');
+        if (bs) bs.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css';
+      }
+    })();
+  </script>
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Urban Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVIGATION BAR
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
+      </a>
+      
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-warning"></i>
+      </button>
+
+      <!-- Nav Links & Action Buttons -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <!-- Home Dropdown Menu (Home 1 & Home 2) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item" href="index.html">HOME 1</a></li>
+              <li><a class="dropdown-item" href="home-2.html">HOME 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="how-it-works.html">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="why-us.html">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" href="security.html">Safety</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
+          <a href="dashboard.html" class="btn-dashboard-icon" id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard">
+            <i class="bi bi-speedometer2"></i>
+          </a>
+          <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR">
+            <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+          </button>
+          <div id="navbarAuthButtons" class="d-flex align-items-center gap-2">
+            <a href="login.html" class="btn btn-dark-outline btn-sm">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+            <a href="register.html" class="btn btn-yellow btn-sm">
+              <i class="bi bi-person-plus-fill"></i> Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="py-5 bg-darker" id="safety-standards">
+    <div class="container text-center py-3">
+      <span class="badge badge-yellow mb-2"><i class="bi bi-shield-check me-1"></i> Safety First Architecture</span>
+      <h1 class="display-5 fw-bold text-white mb-2">VeloMoto Security & Safety Standards</h1>
+      <p class="text-muted mx-auto" style="max-width: 650px;">
+        Your safety is the foundational pillar of our engineering. From 7-point background verification to live satellite route monitoring and instant emergency SOS response.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <!-- Key Safety Pillars -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-4">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D; border: 1.5px solid rgba(255, 193, 7, 0.3);">
+            <div class="mb-3 text-warning display-5">
+              <i class="bi bi-fingerprint"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">100% Verified Captains</h5>
+            <p class="text-muted small mb-0">Every driver undergoes mandatory Aadhaar e-KYC, commercial driving license validation, criminal background checks, and road agility assessments.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D; border: 1.5px solid rgba(16, 185, 129, 0.4);">
+            <div class="mb-3 text-success display-5">
+              <i class="bi bi-shield-shaded"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">Sanitized ISI Helmets</h5>
+            <p class="text-muted small mb-0">Dual-visor ISI-marked helmets sanitized before every shift, equipped with disposable non-woven hygienic head nets for total cleanliness.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="urban-card p-4 rounded-4 h-100" style="background-color: #18181D; border: 1.5px solid rgba(245, 158, 11, 0.3);">
+            <div class="mb-3 text-warning display-5">
+              <i class="bi bi-broadcast"></i>
+            </div>
+            <h5 class="text-white fw-bold mb-2">Real-Time GPS & 24/7 SOS</h5>
+            <p class="text-muted small mb-0">One-tap emergency SOS connected to emergency services and our 24x7 Safety Command Center, with instant live trip sharing for friends and family.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- In-Depth Safety Features -->
+      <div class="row g-4 justify-content-center">
+        <!-- Quick Nav Sidebar -->
+        <div class="col-lg-3 d-none d-lg-block">
+          <div class="p-4 rounded-4 urban-card sticky-top" style="top: 90px; background-color: #18181D; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <h6 class="fw-bold text-white mb-3"><i class="bi bi-shield-lock-fill text-warning me-2"></i>Safety Protocols</h6>
+            <nav class="nav flex-column gap-2 small">
+              <a class="nav-link p-0 text-muted" href="#verification">1. Captain Screening Protocol</a>
+              <a class="nav-link p-0 text-muted" href="#otp-feature">2. 4-Digit Ride Start OTP</a>
+              <a class="nav-link p-0 text-muted" href="#helmets">3. Helmet & Hygiene Standards</a>
+              <a class="nav-link p-0 text-muted" href="#tracking">4. Live Route Tracking</a>
+              <a class="nav-link p-0 text-muted" href="#sos">5. 24/7 Rapid Action SOS</a>
+              <a class="nav-link p-0 text-muted" href="#privacy-calls">6. Number Masking Privacy</a>
+              <a class="nav-link p-0 text-muted" href="#insurance-shield">7. ₹5 Lakh Accident Cover</a>
+            </nav>
+            <hr class="border-secondary my-3">
+            <div class="p-3 rounded-3" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.25);">
+              <strong class="text-danger small d-block mb-1"><i class="bi bi-telephone-fill me-1"></i> Emergency Hotline:</strong>
+              <span class="text-white fw-bold small">1800-245-VELO</span>
+              <small class="text-muted d-block mt-1" style="font-size: 0.72rem;">Available 24/7 for in-ride emergencies.</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-lg-9">
+          <div class="urban-card p-4 p-lg-5 rounded-4" style="background-color: #18181D; border: 1px solid rgba(255, 255, 255, 0.08);">
+            
+            <!-- 1. Captain Screening -->
+            <div id="verification" class="mb-5 position-relative">
+              <span id="captain-verification" style="position: absolute; top: -20px; left: 0;"></span>
+              <span class="badge badge-yellow mb-2"><i class="bi bi-person-check-fill me-1"></i> Screening Standard</span>
+              <h3 class="text-white fw-bold mb-3">The 7-Point Captain Verification Standard</h3>
+              <p class="text-muted small">Only the top 15% of applicant drivers qualify to become certified VeloMoto captains. Our comprehensive onboarding funnel includes:</p>
+              
+              <div class="row g-3 mt-2">
+                <div class="col-md-6">
+                  <div class="p-3 rounded-3 h-100" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);">
+                    <div class="fw-bold text-white small mb-1"><i class="bi bi-check-circle-fill text-warning me-2"></i>Govt Aadhaar & ID e-KYC</div>
+                    <span class="text-muted" style="font-size: 0.8rem;">Real-time biometric and identity authentication cross-checked against government databases.</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-3 h-100" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);">
+                    <div class="fw-bold text-white small mb-1"><i class="bi bi-check-circle-fill text-warning me-2"></i>Commercial License Check</div>
+                    <span class="text-muted" style="font-size: 0.8rem;">Verification of valid RTO commercial transport endorsement with zero past suspension history.</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-3 h-100" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);">
+                    <div class="fw-bold text-white small mb-1"><i class="bi bi-check-circle-fill text-warning me-2"></i>Police Criminal Verification</div>
+                    <span class="text-muted" style="font-size: 0.8rem;">Stringent criminal background checks to ensure zero past record of reckless driving or misconduct.</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="p-3 rounded-3 h-100" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06);">
+                    <div class="fw-bold text-white small mb-1"><i class="bi bi-check-circle-fill text-warning me-2"></i>Physical Vehicle Fitness Audit</div>
+                    <span class="text-muted" style="font-size: 0.8rem;">Comprehensive 24-point vehicle inspection: brakes, dual mirrors, tire tread depth, horn, and indicators.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Start OTP -->
+            <div id="otp-feature" class="mb-5">
+              <span class="badge badge-yellow mb-2"><i class="bi bi-key-fill me-1"></i> Trip Verification</span>
+              <h3 class="text-white fw-bold mb-3">4-Digit Start Ride OTP Verification</h3>
+              <p class="text-muted small">
+                To guarantee you always board the correct bike taxi and captain, a unique 4-digit numeric OTP is generated upon booking. The captain's mobile meter cannot activate until you physically share this code at the start of your journey. This eliminates ride swapping and unauthorized trip startups.
+              </p>
+            </div>
+
+            <!-- 3. Helmets -->
+            <div id="helmets" class="mb-5 position-relative">
+              <span id="sanitized-helmets" style="position: absolute; top: -20px; left: 0;"></span>
+              <span class="badge badge-yellow mb-2"><i class="bi bi-shield-shaded me-1"></i> Hygiene & Protection</span>
+              <h3 class="text-white fw-bold mb-3">Sanitized Dual-Visor Helmets & Hygiene Caps</h3>
+              <p class="text-muted small">
+                Every VeloMoto bike is fitted with a rear passenger helmet certified to IS 4151 standards. Features include:
+              </p>
+              <ul class="text-muted small">
+                <li class="mb-2"><strong class="text-white">Anti-Scratch Clear Visor:</strong> High-clarity wind and dust shield for eye protection.</li>
+                <li class="mb-2"><strong class="text-white">Daily UV & Antibacterial Sanitization:</strong> Helmets are sanitized before every morning and evening shift.</li>
+                <li class="mb-2"><strong class="text-white">Free Disposable Hairnets:</strong> Sealed non-woven hygienic caps provided to every passenger before boarding.</li>
+              </ul>
+            </div>
+
+            <!-- 4. Live Tracking -->
+            <div id="tracking" class="mb-5">
+              <span class="badge badge-yellow mb-2"><i class="bi bi-broadcast me-1"></i> Live Monitoring</span>
+              <h3 class="text-white fw-bold mb-3">Real-Time GPS Tracking & Share Trip Live</h3>
+              <p class="text-muted small">
+                From pickup to destination drop-off, your ride is tracked live by satellite at 2-second intervals. With one tap on the <strong>"Share Trip"</strong> button, you can send an encrypted web link to friends or family via WhatsApp or SMS, allowing them to follow your bike's live location, captain details, and estimated time of arrival in real time.
+              </p>
+            </div>
+
+            <!-- 5. 24/7 SOS -->
+            <div id="sos" class="mb-5 position-relative">
+              <span id="sos-support" style="position: absolute; top: -20px; left: 0;"></span>
+              <span class="badge bg-danger text-white mb-2"><i class="bi bi-exclamation-octagon-fill me-1"></i> Emergency Response</span>
+              <h3 class="text-white fw-bold mb-3">24x7 Rapid Action SOS & Emergency Protocol</h3>
+              <p class="text-muted small">
+                The VeloMoto app features an ever-present, one-tap emergency SOS button during all active rides. Triggering SOS initiates three simultaneous protocols:
+              </p>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <div class="p-3 rounded-3 text-center h-100" style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2);">
+                    <i class="bi bi-telephone-forward-fill text-danger fs-3 mb-2 d-block"></i>
+                    <strong class="text-white small d-block mb-1">Police Direct Connect</strong>
+                    <span class="text-muted" style="font-size: 0.78rem;">Immediate connection to national emergency 112 with live coordinates transmitted.</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 rounded-3 text-center h-100" style="background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.2);">
+                    <i class="bi bi-shield-fill-exclamation text-warning fs-3 mb-2 d-block"></i>
+                    <strong class="text-white small d-block mb-1">VeloMoto Safety Desk</strong>
+                    <span class="text-muted" style="font-size: 0.78rem;">Immediate outbound call from our 24x7 crisis response specialists.</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="p-3 rounded-3 text-center h-100" style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.2);">
+                    <i class="bi bi-people-fill text-success fs-3 mb-2 d-block"></i>
+                    <strong class="text-white small d-block mb-1">Emergency Contacts</strong>
+                    <span class="text-muted" style="font-size: 0.78rem;">Automated SMS alert with your exact GPS pin dispatched to your trusted contacts.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Number Masking -->
+            <div id="privacy-calls" class="mb-5">
+              <span class="badge badge-yellow mb-2"><i class="bi bi-telephone-x-fill me-1"></i> Identity Protection</span>
+              <h3 class="text-white fw-bold mb-3">Two-Way Private Calling (Number Masking)</h3>
+              <p class="text-muted small">
+                Your private mobile number is never disclosed to captains, and their phone numbers are never disclosed to you. All pre-ride pickup calls route through our secure virtual telecom exchange, ensuring zero unwanted follow-up contact once your ride is concluded.
+              </p>
+            </div>
+
+            <!-- 7. Insurance Shield -->
+            <div id="insurance-shield" class="position-relative">
+              <span id="insurance-coverage" style="position: absolute; top: -20px; left: 0;"></span>
+              <span class="badge badge-yellow mb-2"><i class="bi bi-shield-fill-plus me-1"></i> Financial Safety</span>
+              <h3 class="text-white fw-bold mb-3">₹5 Lakh Complimentary Accident Coverage</h3>
+              <p class="text-muted small mb-0">
+                Safety includes financial peace of mind. Every single passenger riding with VeloMoto is automatically insured under our group accidental insurance policy for up to ₹5,00,000 against accidental disability or loss of life, and up to ₹1,00,000 for emergency medical hospitalization expenses.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer-custom pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        
+        <!-- Brand Summary Column -->
+        <div class="col-lg-3 col-md-6">
+          <a class="footer-logo-link d-inline-block mb-3" href="index.html">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
+          </a>
+          <p class="text-muted small mb-3">
+            India's fastest-growing on-demand bike taxi platform. Delivering fast, safe, and pocket-friendly urban rides across metro cities.
+          </p>
+          <div class="d-flex gap-2 social-icons">
+            <a href="javascript:void(0)" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="javascript:void(0)" class="social-icon-btn" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="javascript:void(0)" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="javascript:void(0)" class="social-icon-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About VeloMoto</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="fares.html">Fare Calculator</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Safety & Trust -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Safety &amp; Trust</h6>
+          <ul class="footer-links-list">
+            <li><a href="security.html#safety-standards">Safety Standards</a></li>
+            <li><a href="security.html#verification">Captain Verification</a></li>
+            <li><a href="security.html#helmets">Sanitized Helmets</a></li>
+            <li><a href="security.html#sos">24/7 SOS Support</a></li>
+            <li><a href="security.html#insurance-shield">Ride Insurance Coverage</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Contact</h6>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
+              <span>123 Tech Park, 100ft Road, Indiranagar, Bangalore 560038</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-telephone-fill footer-contact-icon"></i>
+              <a href="tel:+918008356668">+91 1800-245-VELO (24x7)</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-envelope-fill footer-contact-icon"></i>
+              <a href="mailto:support@velomoto.com">support@velomoto.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HR Divider Line -->
+      <hr class="footer-divider my-4">
+
+      <!-- Bottom Bar: Working Legal Links -->
+      <div class="footer-bottom-single text-center pb-2">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
+          <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="privacy-policy.html" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="terms-of-service.html" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="security.html" class="footer-legal-link text-muted text-decoration-none">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom Script -->
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

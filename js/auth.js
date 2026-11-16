@@ -288,11 +288,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let isValid = true;
 
-      // Validate Identifier
-      if (!idInput.value.trim()) {
+      // Validate Identifier (Strict Email validation, rejecting ice@g)
+      const emailRegexStrict = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      const idVal = idInput.value.trim();
+      if (!idVal || !emailRegexStrict.test(idVal)) {
         idInput.classList.add('is-invalid');
         idInput.classList.remove('is-valid');
-        if (idFeedback) idFeedback.classList.add('is-invalid', 'd-block');
+        if (idFeedback) {
+          idFeedback.textContent = !idVal ? 'Please enter your email.' : 'Please enter a valid email address with a domain (e.g. name@domain.com).';
+          idFeedback.classList.add('is-invalid', 'd-block');
+        }
         isValid = false;
       } else {
         idInput.classList.remove('is-invalid');
@@ -397,20 +402,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkName() {
-      const isVal = nameInput && nameInput.value.trim().length >= 3;
-      return setFieldValidity(nameInput, !!isVal, nameFeedback);
+      if (!nameInput) return false;
+      const val = nameInput.value.trim();
+      const hasNumbers = /[0-9]/.test(val);
+      // Strictly letters and spaces only, at least 2 letters, no numbers
+      const isVal = !hasNumbers && /^[a-zA-Z\s]{2,50}$/.test(val) && val.replace(/\s+/g, '').length >= 2;
+      return setFieldValidity(nameInput, isVal, nameFeedback);
     }
 
     function checkPhone() {
       if (!phoneInput) return false;
-      const digits = phoneInput.value.replace(/\D/g, '');
-      const isVal = digits.length === 10 || (digits.length === 12 && digits.startsWith('91'));
+      const val = phoneInput.value.trim();
+      const digits = val.replace(/\D/g, '');
+      const hasLetters = /[a-zA-Z]/.test(val);
+      // Strictly 10 digits only, no alphabets
+      const isVal = !hasLetters && digits.length === 10 && (/^[6-9]\d{9}$/.test(digits) || /^\d{10}$/.test(digits));
       return setFieldValidity(phoneInput, isVal, phoneFeedback);
     }
 
     function checkEmail() {
       if (!emailInput) return false;
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      // Strictly standard email with valid domain extension (rejects ice@g, requires .com/.org/etc)
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       const isVal = emailPattern.test(emailInput.value.trim());
       return setFieldValidity(emailInput, isVal, emailFeedback);
     }
@@ -436,7 +449,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Real-time input listeners to remove error state as soon as user types valid input
     if (nameInput) {
       nameInput.addEventListener('input', () => {
-        if (nameInput.classList.contains('is-invalid') || nameInput.value.trim().length >= 3) {
+        // Strip numbers and special symbols in real time
+        const sanitized = nameInput.value.replace(/[^a-zA-Z\s]/g, '');
+        if (nameInput.value !== sanitized) {
+          nameInput.value = sanitized;
+        }
+        if (nameInput.classList.contains('is-invalid') || nameInput.value.trim().replace(/\s+/g, '').length >= 2) {
           checkName();
         }
       });
@@ -447,7 +465,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (phoneInput) {
       phoneInput.addEventListener('input', () => {
-        if (phoneInput.classList.contains('is-invalid') || phoneInput.value.replace(/\D/g, '').length >= 10) {
+        // Strip any alphabets and non-digits in real time, capped at 10 digits
+        const digits = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+        if (phoneInput.value !== digits) {
+          phoneInput.value = digits;
+        }
+        if (phoneInput.classList.contains('is-invalid') || digits.length >= 10) {
           checkPhone();
         }
       });
@@ -458,7 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (emailInput) {
       emailInput.addEventListener('input', () => {
-        if (emailInput.classList.contains('is-invalid') || emailInput.value.includes('@')) {
+        if (emailInput.classList.contains('is-invalid') || emailInput.value.includes('.')) {
           checkEmail();
         }
       });
@@ -585,3 +608,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Handle Forgot Password modal submit
+window.handleForgotPassword = function() {
+  const forgotInp = document.getElementById('forgotInput');
+  if (!forgotInp) return;
+  const val = forgotInp.value.trim();
+  const emailRegexStrict = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const phoneDigits = val.replace(/\D/g, '');
+  
+  const isEmail = emailRegexStrict.test(val);
+  const isPhone = phoneDigits.length === 10 && !/[a-zA-Z]/.test(val);
+
+  if (!isEmail && !isPhone) {
+    if (typeof showToast === 'function') {
+      showToast('Please enter a valid email (e.g. name@domain.com) or 10-digit phone number.', 'danger');
+    } else {
+      alert('Please enter a valid email (e.g. name@domain.com) or 10-digit phone number.');
+    }
+    forgotInp.focus();
+    return;
+  }
+
+  if (typeof showToast === 'function') {
+    showToast('Reset OTP sent successfully! Check your inbox or SMS.', 'success');
+  }
+  const modalEl = document.getElementById('forgotPasswordModal');
+  if (modalEl && window.bootstrap) {
+    const modalInstance = bootstrap.Modal.getInstance(modalEl);
+    if (modalInstance) modalInstance.hide();
+  }
+  forgotInp.value = '';
+};

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Urban Commuter Insights | VeloMoto - India's Fast & Affordable Bike Taxi Network</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='veloYellow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23FFD700'/%3E%3Cstop offset='100%25' stop-color='%23FF9100'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='%23121214' stroke='%23FFC107' stroke-width='2.5'/%3E%3Ccircle cx='19' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='45' cy='42' r='9' stroke='url(%23veloYellow)' stroke-width='3.2' fill='none'/%3E%3Ccircle cx='19' cy='42' r='2.5' fill='%23FFC107'/%3E%3Ccircle cx='45' cy='42' r='2.5' fill='%23FFC107'/%3E%3Cpath d='M19 42 L28 28 L39 28 L45 42 M28 28 L32 42 L45 42 M31 23 L25 23 M37 21 L43 28' stroke='%23FFFFFF' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M33 13 L27 23 L34 23 L29 33' stroke='url(%23veloYellow)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/images/favicon.svg">
+  <meta name="description" content="Discover VeloMoto's blog: real commuter insights, EV urban transit innovations, traffic bottleneck guides, safety protocols, and captain success stories across India.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link id="bootstrapCSS" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('velomoto_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      const dir = localStorage.getItem('velomoto_direction');
+      if (dir === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+        const bs = document.getElementById('bootstrapCSS');
+        if (bs) bs.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css';
+      }
+    })();
+  </script>
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Urban Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================================================================
+       NAVIGATION BAR (Sticky, Unified across all pages)
+       ====================================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
+      </a>
+      
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-warning"></i>
+      </button>
+
+      <!-- Nav Links & Action Buttons -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <!-- Home Dropdown Menu (Home 1 & Home 2) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item" href="index.html">HOME 1</a></li>
+              <li><a class="dropdown-item" href="home-2.html">HOME 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="how-it-works.html">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="why-us.html">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" aria-current="page" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
+          <a href="dashboard.html" class="btn-dashboard-icon" id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard">
+            <i class="bi bi-speedometer2"></i>
+          </a>
+          <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR">
+            <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+          </button>
+          <div id="navbarAuthButtons" class="d-flex align-items-center gap-2">
+            <a href="login.html" class="btn btn-dark-outline btn-sm">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+            <a href="register.html" class="btn btn-yellow btn-sm">
+              <i class="bi bi-person-plus-fill"></i> Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ======================================================================
+       HERO SECTION
+       ====================================================================== -->
+  <section class="hero-section py-5">
+    <div class="container py-3">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <span class="badge badge-yellow mb-3"><i class="bi bi-journal-text me-1"></i> VeloMoto Commuter Journal</span>
+          <h1 class="display-4 fw-bold text-white mb-3">
+            Smart City Commutes, EV Mobility &amp; Urban Insights
+          </h1>
+          <p class="hero-subtitle mb-4 text-muted">
+            Discover how electric two-wheelers, smart route dispatching, and verified captain networks are slashing commute times and reshaping everyday transportation across Bengaluru, Hyderabad, Chennai, Delhi NCR, and beyond.
+          </p>
+          <!-- Search & Filter Controls -->
+          <div class="d-flex flex-column flex-sm-row gap-2 mt-4" style="max-width: 520px;">
+            <div class="input-group">
+              <span class="input-group-text bg-dark border-secondary text-warning"><i class="bi bi-search"></i></span>
+              <input type="text" id="blogSearchInput" class="form-control bg-dark border-secondary text-white" placeholder="Search commute hacks, EV fleet, safety..." aria-label="Search articles">
+            </div>
+            <button class="btn btn-yellow px-4 flex-shrink-0" type="button" id="blogSearchBtn">Search</button>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+          <div class="p-4 rounded-4" style="background-color: #18181D; border: 1px solid rgba(255, 255, 255, 0.08);">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow"><i class="bi bi-lightning-charge-fill me-1"></i> Live Mobility Stats</span>
+              <span class="text-success small fw-semibold"><i class="bi bi-circle-fill" style="font-size: 8px;"></i> Updated Today</span>
+            </div>
+            <div class="row g-3 text-start">
+              <div class="col-6">
+                <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+                  <div class="fs-4 fw-bolder text-warning">55%</div>
+                  <div class="small text-muted">Peak Time Saved</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+                  <div class="fs-4 fw-bolder text-warning">₹45</div>
+                  <div class="small text-muted">Avg Ride Savings</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+                  <div class="fs-4 fw-bolder text-warning">4.2M+</div>
+                  <div class="small text-muted">Safe Commutes</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);">
+                  <div class="fs-4 fw-bolder text-warning">12K Tons</div>
+                  <div class="small text-muted">CO₂ Avoided</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       CATEGORY FILTER PILLS
+       ====================================================================== -->
+  <section class="py-3 border-top border-bottom" style="border-color: rgba(255,255,255,0.08) !important;">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-start justify-content-md-center gap-2" id="blogCategoryPills">
+        <button class="btn btn-sm btn-yellow active px-3 rounded-pill blog-filter-btn" data-category="all">
+          <i class="bi bi-grid-fill me-1"></i> All Articles (7)
+        </button>
+        <button class="btn btn-sm btn-dark-outline px-3 rounded-pill blog-filter-btn" data-category="urban-mobility">
+          <i class="bi bi-signpost-split me-1"></i> Urban Mobility (2)
+        </button>
+        <button class="btn btn-sm btn-dark-outline px-3 rounded-pill blog-filter-btn" data-category="ev-revolution">
+          <i class="bi bi-battery-charging me-1"></i> EV Revolution (2)
+        </button>
+        <button class="btn btn-sm btn-dark-outline px-3 rounded-pill blog-filter-btn" data-category="safety-first">
+          <i class="bi bi-shield-check me-1"></i> Safety First (2)
+        </button>
+        <button class="btn btn-sm btn-dark-outline px-3 rounded-pill blog-filter-btn" data-category="captain-stories">
+          <i class="bi bi-person-heart me-1"></i> Captain Stories (1)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       FEATURED ARTICLE SECTION
+       ====================================================================== -->
+  <section class="py-5">
+    <div class="container">
+      <div class="p-4 p-lg-5 rounded-4 position-relative overflow-hidden" style="background-color: #18181D; border: 1px solid rgba(255, 193, 7, 0.35); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" data-category="urban-mobility">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <span class="badge badge-yellow"><i class="bi bi-star-fill me-1"></i> Featured Insight</span>
+              <span class="badge bg-secondary text-white">Urban Mobility</span>
+              <span class="text-muted small"><i class="bi bi-clock me-1"></i> 6 min read</span>
+            </div>
+            <h2 class="h2 fw-bold text-white mb-3">
+              How EV Bike Taxis are Beating 60-Minute Silk Board &amp; Cyber City Traffic Bottlenecks
+            </h2>
+            <p class="text-muted mb-4">
+              Real-world telemetry analysis across 4.2 million rides in Bengaluru, Hyderabad, and Delhi NCR proves that two-wheelers cut daily office commute times by 55% over private four-wheelers, while delivering a third of the commute expense.
+            </p>
+            <div class="d-flex align-items-center gap-3">
+              <div class="d-flex align-items-center gap-2">
+                <div class="rounded-circle bg-warning text-dark d-flex align-items-center justify-content-center fw-bold" style="width: 38px; height: 38px;">PS</div>
+                <div>
+                  <div class="text-white small fw-bold">Priya Sharma</div>
+                  <div class="text-muted" style="font-size: 0.75rem;">Head of Transit Analytics • Nov 15, 2026</div>
+                </div>
+              </div>
+              <button class="btn btn-yellow btn-sm ms-auto px-3 read-article-btn" data-article-id="featured">
+                Read Analysis <i class="bi bi-arrow-right ms-1"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="rounded-3 p-4 text-center" style="background: rgba(255, 193, 7, 0.05); border: 1px dashed rgba(255, 193, 7, 0.3);">
+              <i class="bi bi-bicycle text-warning display-3 d-block mb-3"></i>
+              <div class="fw-bold text-white mb-1">Peak Rush Hour Velocity</div>
+              <p class="text-muted small mb-3">Average speed in tech park bottlenecks:</p>
+              <div class="d-flex justify-content-around">
+                <div>
+                  <span class="h4 text-danger d-block mb-0">11 km/h</span>
+                  <span class="small text-muted">Cab / Auto</span>
+                </div>
+                <div class="border-start border-secondary"></div>
+                <div>
+                  <span class="h4 text-warning d-block mb-0">27 km/h</span>
+                  <span class="small text-muted">VeloMoto Bike Taxi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       ARTICLES GRID
+       ====================================================================== -->
+  <section class="py-4">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h3 class="h3 fw-bold text-white mb-1">Latest Commuter Articles</h3>
+          <p class="text-muted small mb-0">Guides, fleet engineering, rider safety, and captain success stories.</p>
+        </div>
+        <div id="articlesCountBadge" class="badge bg-dark border border-secondary text-warning px-3 py-2">
+          Showing 6 Articles
+        </div>
+      </div>
+
+      <div class="row g-4" id="blogCardsContainer">
+        
+        <!-- Article 1: EV Revolution -->
+        <div class="col-lg-4 col-md-6 blog-card-col" data-category="ev-revolution">
+          <div class="card h-100 service-feature-card p-4" style="background-color: #18181D; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow"><i class="bi bi-battery-charging me-1"></i> EV Revolution</span>
+              <span class="text-muted small"><i class="bi bi-clock me-1"></i> 5 min read</span>
+            </div>
+            <h4 class="h5 fw-bold text-white mb-3">
+              The Green Shift: Scaling 50,000 Electric Bike Taxis Across Indian Metros by 2027
+            </h4>
+            <p class="text-muted small flex-grow-1">
+              How rapid battery swap stations and zero tailpipe emissions are removing 12,000 metric tons of carbon annually while lowering per-km costs for daily commuters.
+            </p>
+            <hr class="border-secondary my-3 opacity-25">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="small text-muted">
+                <i class="bi bi-person me-1"></i> Vikram Mehta • Nov 12, 2026
+              </div>
+              <button class="btn btn-outline-warning btn-sm read-article-btn" data-article-id="article-1">
+                Read <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 2: Safety First -->
+        <div class="col-lg-4 col-md-6 blog-card-col" data-category="safety-first">
+          <div class="card h-100 service-feature-card p-4" style="background-color: #18181D; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow"><i class="bi bi-shield-check me-1"></i> Safety First</span>
+              <span class="text-muted small"><i class="bi bi-clock me-1"></i> 4 min read</span>
+            </div>
+            <h4 class="h5 fw-bold text-white mb-3">
+              Inside VeloMoto's 5-Layer Safety Shield: 24/7 SOS &amp; Sanitized Helmets
+            </h4>
+            <p class="text-muted small flex-grow-1">
+              A detailed look at our real-time GPS route variance detection, dedicated night-time female commuter escort protocols, and daily helmet UV-sanitization standards.
+            </p>
+            <hr class="border-secondary my-3 opacity-25">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="small text-muted">
+                <i class="bi bi-person me-1"></i> Dr. Ananya Deshmukh • Nov 08, 2026
+              </div>
+              <button class="btn btn-outline-warning btn-sm read-article-btn" data-article-id="article-2">
+                Read <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 3: Urban Mobility -->
+        <div class="col-lg-4 col-md-6 blog-card-col" data-category="urban-mobility">
+          <div class="card h-100 service-feature-card p-4" style="background-color: #18181D; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow"><i class="bi bi-calculator me-1"></i> Urban Mobility</span>
+              <span class="text-muted small"><i class="bi bi-clock me-1"></i> 6 min read</span>
+            </div>
+            <h4 class="h5 fw-bold text-white mb-3">
+              Cab vs Metro vs Bike Taxi: Complete Cost &amp; Time Breakdown for Tech Workers
+            </h4>
+            <p class="text-muted small flex-grow-1">
+              We tracked 30 software engineers commuting daily from Indiranagar to Bellandur. Discover why bike taxis delivered ₹3,600 monthly savings and 40 minutes daily reclaimed.
+            </p>
+            <hr class="border-secondary my-3 opacity-25">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="small text-muted">
+                <i class="bi bi-person me-1"></i> Karthik Raja • Nov 04, 2026
+              </div>
+              <button class="btn btn-outline-warning btn-sm read-article-btn" data-article-id="article-3">
+                Read <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 4: Captain Stories -->
+        <div class="col-lg-4 col-md-6 blog-card-col" data-category="captain-stories">
+          <div class="card h-100 service-feature-card p-4" style="background-color: #18181D; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow"><i class="bi bi-person-heart me-1"></i> Captain Stories</span>
+              <span class="text-muted small"><i class="bi bi-clock me-1"></i> 5 min read</span>
+            </div>
+            <h4 class="h5 fw-bold text-white mb-3">
+              From Factory Shifts to Top-Rated Captain: How Rajesh Completed 14,000 Safe Rides
+            </h4>
+            <p class="text-muted small flex-grow-1">
+              Meet Captain Rajesh Kumar from Chennai, who achieved flexible work hours, weekly zero-commission bonuses, and funded his daughter's college education through VeloMoto.
+            </p>
+            <hr class="border-secondary my-3 opacity-25">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="small text-muted">
+                <i class="bi bi-person me-1"></i> Sanya Nair • Oct 28, 2026
+              </div>
+              <button class="btn btn-outline-warning btn-sm read-article-btn" data-article-id="article-4">
+                Read <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 5: Safety First -->
+        <div class="col-lg-4 col-md-6 blog-card-col" data-category="safety-first">
+          <div class="card h-100 service-feature-card p-4" style="background-color: #18181D; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow"><i class="bi bi-cloud-rain me-1"></i> Safety First</span>
+              <span class="text-muted small"><i class="bi bi-clock me-1"></i> 4 min read</span>
+            </div>
+            <h4 class="h5 fw-bold text-white mb-3">
+              Monsoon City Commuting: 6 Critical Rules for Safe &amp; Dry Two-Wheeler Rides
+            </h4>
+            <p class="text-muted small flex-grow-1">
+              From complimentary rider rain ponchos to wet-asphalt brake pad standards and waterlogging avoidance routing, see how VeloMoto maintains safety in heavy rains.
+            </p>
+            <hr class="border-secondary my-3 opacity-25">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="small text-muted">
+                <i class="bi bi-person me-1"></i> Operations Desk • Oct 22, 2026
+              </div>
+              <button class="btn btn-outline-warning btn-sm read-article-btn" data-article-id="article-5">
+                Read <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 6: EV Revolution -->
+        <div class="col-lg-4 col-md-6 blog-card-col" data-category="ev-revolution">
+          <div class="card h-100 service-feature-card p-4" style="background-color: #18181D; border: 1px solid rgba(255,255,255,0.08); border-radius: 18px;">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="badge badge-yellow"><i class="bi bi-geo-alt me-1"></i> EV Revolution</span>
+              <span class="text-muted small"><i class="bi bi-clock me-1"></i> 5 min read</span>
+            </div>
+            <h4 class="h5 fw-bold text-white mb-3">
+              First &amp; Last Mile Solved: Dedicated Bike Taxi Pickup Bays at Metro Stations
+            </h4>
+            <p class="text-muted small flex-grow-1">
+              How partnering with metro transit authorities for 2-minute instant dispatch bays is bridging the critical gap between suburban neighborhoods and rapid transit.
+            </p>
+            <hr class="border-secondary my-3 opacity-25">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="small text-muted">
+                <i class="bi bi-person me-1"></i> Urban Planning Desk • Oct 15, 2026
+              </div>
+              <button class="btn btn-outline-warning btn-sm read-article-btn" data-article-id="article-6">
+                Read <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- No Results State (Hidden by default) -->
+      <div id="noResultsAlert" class="text-center py-5 d-none">
+        <i class="bi bi-search display-3 text-muted mb-3 d-block"></i>
+        <h4 class="text-white">No matching articles found</h4>
+        <p class="text-muted">Try searching with different keywords or reset your category filter.</p>
+        <button class="btn btn-yellow btn-sm px-4" id="resetFiltersBtn">Reset Filters</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       COMMUTER NEWSLETTER / DIGEST SUBSCRIPTION
+       ====================================================================== -->
+  <section class="py-5 my-4" style="background-color: #18181D; border-top: 1px solid rgba(255, 255, 255, 0.08); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+    <div class="container text-center py-3">
+      <span class="badge badge-yellow mb-2"><i class="bi bi-envelope-open-fill me-1"></i> The Commuter Digest</span>
+      <h3 class="h2 fw-bold text-white mb-3">Get Weekly Commute Hacks &amp; Promo Codes</h3>
+      <p class="text-muted mx-auto mb-4" style="max-width: 600px;">
+        Join 150,000+ urban riders who receive weekly city traffic reports, new EV route updates, and exclusive weekend discounts directly to their inbox.
+      </p>
+      <form id="blogNewsletterForm" class="d-flex flex-column flex-sm-row justify-content-center gap-2 mx-auto" style="max-width: 480px;">
+        <input type="email" id="newsletterEmailInput" class="form-control bg-dark border-secondary text-white" placeholder="Enter your work or personal email" required>
+        <button type="submit" class="btn btn-yellow px-4 flex-shrink-0">Subscribe</button>
+      </form>
+      <div id="newsletterSuccessMsg" class="text-success small mt-3 fw-bold d-none">
+        <i class="bi bi-check-circle-fill me-1"></i> You're subscribed! Welcome to VeloMoto Commuter Digest.
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       ARTICLE VIEWER MODAL
+       ====================================================================== -->
+  <div class="modal fade" id="blogArticleModal" tabindex="-1" aria-labelledby="blogArticleModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content" style="background-color: #18181D; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 18px;">
+        <div class="modal-header border-secondary border-opacity-25 pb-3">
+          <div>
+            <span class="badge badge-yellow mb-2" id="modalArticleBadge">Urban Mobility</span>
+            <h4 class="modal-title text-white fw-bold" id="blogArticleModalTitle">Article Title</h4>
+            <div class="text-muted small mt-1" id="modalArticleMeta">Author • Date • Reading Time</div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-light py-4" id="modalArticleBody">
+          <!-- Dynamic article content loaded here -->
+        </div>
+        <div class="modal-footer border-secondary border-opacity-25 d-flex justify-content-between">
+          <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+          <a href="index.html" class="btn btn-yellow btn-sm"><i class="bi bi-lightning-charge-fill me-1"></i> Book a Ride</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       FOOTER
+       ====================================================================== -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <!-- Brand Info -->
+        <div class="col-lg-3 col-md-6">
+          <a href="index.html" class="footer-logo-link d-inline-block" title="VeloMoto Home">
+            <img src="assets/images/logo.svg" alt="VeloMoto Logo" height="38" class="logo-dark">
+            <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" height="38" class="logo-light">
+          </a>
+          <p class="footer-brand-desc">
+            VeloMoto is India's fastest-growing urban bike taxi network, helping city commuters beat traffic, save money, and reach destinations safely.
+          </p>
+          <div class="social-links">
+            <a href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter) Login" title="Log in to X (Twitter)"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.facebook.com/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook Login" title="Log in to Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram Login" title="Log in to Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn Login" title="Log in to LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Platform Links -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Platform</h6>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+            <li><a href="fares.html">Fare Calculator</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blog.html">Blog &amp; Insights</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Safety & Trust -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Safety &amp; Trust</h6>
+          <ul class="footer-links-list">
+            <li><a href="security.html#safety-standards">Safety Standards</a></li>
+            <li><a href="security.html#verification">Captain Verification</a></li>
+            <li><a href="security.html#helmets">Sanitized Helmets</a></li>
+            <li><a href="security.html#sos">24/7 SOS Support</a></li>
+            <li><a href="security.html#insurance-shield">Ride Insurance Coverage</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-3 col-md-6">
+          <h6 class="footer-heading">Contact</h6>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <i class="bi bi-geo-alt-fill footer-contact-icon"></i>
+              <span>123 Tech Park, 100ft Road, Indiranagar, Bangalore 560038</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-telephone-fill footer-contact-icon"></i>
+              <a href="tel:+918008356668">+91 1800-245-VELO (24x7)</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="bi bi-envelope-fill footer-contact-icon"></i>
+              <a href="mailto:support@velomoto.com">support@velomoto.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HR Divider Line -->
+      <hr class="footer-divider my-4">
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-single text-center pb-2">
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 gap-md-3 text-muted small">
+          <span>&copy; 2026 VeloMoto Technologies Inc. All rights reserved.</span>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="privacy-policy.html" class="footer-legal-link text-muted text-decoration-none">Privacy Policy</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="terms-of-service.html" class="footer-legal-link text-muted text-decoration-none">Terms of Service</a>
+          <span class="d-none d-sm-inline opacity-50">&bull;</span>
+          <a href="security.html" class="footer-legal-link text-muted text-decoration-none">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Custom Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/script.js"></script>
+
+  <!-- Interactive Blog Filter & Modal Loader -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Articles Data Dictionary for In-Depth Reading Modal
+      const articleArticles = {
+        'featured': {
+          badge: 'Urban Mobility • Featured Story',
+          title: 'How EV Bike Taxis are Beating 60-Minute Silk Board & Cyber City Traffic Bottlenecks',
+          meta: 'By Priya Sharma • Head of Transit Analytics • Published Nov 15, 2026 • 6 min read',
+          body: `
+            <p class="lead text-light">Urban transit bottlenecks in India's leading tech corridors—from Bengaluru's Silk Board junction to Gurugram's Cyber Hub—cost commuters an average of 240 lost working hours each year. Four-wheelers remain trapped bumper-to-bumper, consuming fuel and inflating commuter stress.</p>
+            <h5 class="text-warning fw-bold mt-4">1. The Lane-Splitting Advantage</h5>
+            <p>Our GPS telemetry across 4.2 million rides demonstrates that agile two-wheelers navigate tight lane clearances smoothly. While average four-wheeler speeds drop to 11 km/h during peak 8:30 AM to 10:30 AM windows, VeloMoto electric bikes maintain a consistent 27 km/h progress.</p>
+            <h5 class="text-warning fw-bold mt-4">2. First-and-Last Mile Integration</h5>
+            <p>Over 64% of VeloMoto rides either originate or terminate at rapid transit metro stations. Commuters avoid 25-minute auto hailing negotiations and instead hop on a pre-assigned, GPS-tracked bike taxi waiting at dedicated pickup bays.</p>
+            <div class="p-3 my-3 rounded-3" style="background: rgba(255, 193, 7, 0.08); border-left: 4px solid #FFC107;">
+              <strong class="text-white d-block mb-1">Key Takeaway:</strong>
+              <span class="text-muted">Commuters switching from shared cabs or personal sedans save an estimated ₹3,800 monthly and reclaim 50 minutes of productive personal time every single workday.</span>
+            </div>
+            <h5 class="text-warning fw-bold mt-4">3. Zero Surge Pricing Guarantee</h5>
+            <p>Unlike conventional rideshare platforms that apply 2.5x surge pricing during evening rain or sudden peak demand, VeloMoto operates on clear, transparent per-kilometer slabs with transparent GST invoices.</p>
+          `
+        },
+        'article-1': {
+          badge: 'EV Revolution',
+          title: 'The Green Shift: Scaling 50,000 Electric Bike Taxis Across Indian Metros by 2027',
+          meta: 'By Vikram Mehta • Clean Energy Specialist • Published Nov 12, 2026 • 5 min read',
+          body: `
+            <p class="lead text-light">Metropolitan air quality remains one of the defining challenges of modern Indian urban centers. Internal combustion two-wheelers, while space-efficient, still contribute significantly to localized particulate emissions.</p>
+            <h5 class="text-warning fw-bold mt-4">Battery Swap Stations Every 2 Kilometers</h5>
+            <p>VeloMoto's EV fleet is powered by modular battery swapping stations deployed across fuel bunks, metro stations, and partner retail hubs. Captains swap depleted battery packs for 100% charged units in under 90 seconds—faster than filling a petrol tank.</p>
+            <h5 class="text-warning fw-bold mt-4">12,000 Metric Tons of CO₂ Eliminated</h5>
+            <p>Every electric kilometer driven replaces 42 grams of tailpipe greenhouse gases. With our 2027 milestone of 50,000 EVs in active circulation, VeloMoto is on track to eliminate over 12,000 metric tons of carbon emissions annually.</p>
+          `
+        },
+        'article-2': {
+          badge: 'Safety First',
+          title: "Inside VeloMoto's 5-Layer Safety Shield: 24/7 SOS & Sanitized Helmets",
+          meta: 'By Dr. Ananya Deshmukh • Safety & Compliance Director • Published Nov 08, 2026 • 4 min read',
+          body: `
+            <p class="lead text-light">Passenger safety is not an add-on; it is the core foundation upon which VeloMoto was engineered. Every trip is monitored through our 24/7 AI-assisted Safety Command Center.</p>
+            <h5 class="text-warning fw-bold mt-4">Automated Route Variance Detection</h5>
+            <p>If a ride deviates by more than 300 meters from the predicted algorithmic route or remains stationary unexpectedly for over 3 minutes, our system immediately pings the captain and prompts the rider with an instant check-in. If unconfirmed, our rapid response safety team initiates an immediate voice call.</p>
+            <h5 class="text-warning fw-bold mt-4">Sanitized Dual-Helmet Policy</h5>
+            <p>Every captain carries two ISI-certified helmets. Rider helmets feature clean disposable inner liners and undergo UV-C sanitization daily at captain hub check-ins, guaranteeing clean, hygienic rides.</p>
+          `
+        },
+        'article-3': {
+          badge: 'Urban Mobility',
+          title: 'Cab vs Metro vs Bike Taxi: Complete Cost & Time Breakdown for Tech Workers',
+          meta: 'By Karthik Raja • Product Commute Specialist • Published Nov 04, 2026 • 6 min read',
+          body: `
+            <p class="lead text-light">To understand the economic impact of urban transit choices, our data team tracked 30 tech employees over 45 business days across Bengaluru's Outer Ring Road and Hyderabad's HITEC City corridor.</p>
+            <div class="table-responsive my-3">
+              <table class="table table-dark table-bordered border-secondary">
+                <thead>
+                  <tr class="text-warning">
+                    <th>Mode</th>
+                    <th>Average 8km Fare</th>
+                    <th>Average Duration</th>
+                    <th>Door-to-Door Pickup</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>App-Based Sedan/Cab</td>
+                    <td>₹185 - ₹240</td>
+                    <td>48 - 62 mins</td>
+                    <td>8 - 14 mins</td>
+                  </tr>
+                  <tr>
+                    <td>Auto-Rickshaw</td>
+                    <td>₹120 - ₹160</td>
+                    <td>42 - 50 mins</td>
+                    <td>6 - 10 mins</td>
+                  </tr>
+                  <tr class="table-warning text-dark fw-bold">
+                    <td>VeloMoto Bike Taxi</td>
+                    <td>₹65 - ₹85</td>
+                    <td>19 - 24 mins</td>
+                    <td>2 - 4 mins</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The conclusion is unmistakable: for solo daily commuters, bike taxis provide a 60% fare reduction and cut travel time in half.</p>
+          `
+        },
+        'article-4': {
+          badge: 'Captain Stories',
+          title: 'From Factory Shifts to Top-Rated Captain: How Rajesh Completed 14,000 Safe Rides',
+          meta: 'By Sanya Nair • Community Lead • Published Oct 28, 2026 • 5 min read',
+          body: `
+            <p class="lead text-light">Rajesh Kumar spent eight years working 12-hour factory shifts with rigid schedules and limited financial upside. In 2023, he joined VeloMoto as a full-time captain in Chennai.</p>
+            <p>Today, Rajesh holds a flawless 4.98 rating across 14,000 completed rides. He sets his own working hours, prioritizes morning school drops for his children, and takes home predictable weekly earnings bolstered by zero-commission performance rewards.</p>
+            <p class="text-muted fst-italic">"With VeloMoto, I am my own boss. The passengers are respectful, the payouts arrive on time every Tuesday, and the insurance coverage gives my family total peace of mind."</p>
+          `
+        },
+        'article-5': {
+          badge: 'Safety First',
+          title: 'Monsoon City Commuting: 6 Critical Rules for Safe & Dry Two-Wheeler Rides',
+          meta: 'By Operations & Fleet Desk • Published Oct 22, 2026 • 4 min read',
+          body: `
+            <p class="lead text-light">Urban monsoons often bring road gridlock and slick pavement. Here is how VeloMoto maintains reliable, accident-free commutes through the wet season:</p>
+            <ol class="text-light ps-3">
+              <li class="mb-2"><strong>Complimentary Rider Ponchos:</strong> Every captain carries waterproof compact rain ponchos to keep passengers dry during sudden downpours.</li>
+              <li class="mb-2"><strong>Anti-Skid Tire Inspections:</strong> All fleet vehicles must pass weekly tread-depth checks (minimum 2.5mm) to ensure superior wet-asphalt braking traction.</li>
+              <li class="mb-2"><strong>Flood-Avoidance Routing:</strong> Our GPS dispatch engine actively routes captains away from documented underpass waterlogging zones.</li>
+              <li class="mb-2"><strong>Reduced Speed Protocol:</strong> Algorithmic speed caps dynamically adjust to 35 km/h during rain conditions to maximize passenger safety.</li>
+            </ol>
+          `
+        },
+        'article-6': {
+          badge: 'EV Revolution',
+          title: 'First & Last Mile Solved: Dedicated Bike Taxi Pickup Bays at Metro Stations',
+          meta: 'By Urban Planning Desk • Published Oct 15, 2026 • 5 min read',
+          body: `
+            <p class="lead text-light">The greatest barrier to public mass transit adoption is the friction of getting from home to the station and from the station to the office desk.</p>
+            <p>VeloMoto's dedicated station bays provide instant QR-code boarding. Riders step off the metro train, scan the QR code of any available bike taxi at the exit gate, and depart within 45 seconds—eliminating app waiting times entirely.</p>
+          `
+        }
+      };
+
+      // Handle Read Article Buttons
+      document.querySelectorAll('.read-article-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const articleId = this.getAttribute('data-article-id');
+          const data = articleArticles[articleId];
+          if (data) {
+            document.getElementById('modalArticleBadge').textContent = data.badge;
+            document.getElementById('blogArticleModalTitle').textContent = data.title;
+            document.getElementById('modalArticleMeta').textContent = data.meta;
+            document.getElementById('modalArticleBody').innerHTML = data.body;
+            const modal = new bootstrap.Modal(document.getElementById('blogArticleModal'));
+            modal.show();
+          }
+        });
+      });
+
+      // Category Filtering
+      const filterBtns = document.querySelectorAll('.blog-filter-btn');
+      const cards = document.querySelectorAll('.blog-card-col');
+      const noResultsAlert = document.getElementById('noResultsAlert');
+      const countBadge = document.getElementById('articlesCountBadge');
+
+      function filterArticles(category, searchKeyword = '') {
+        let visibleCount = 0;
+        const kw = searchKeyword.trim().toLowerCase();
+
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          const cardText = card.textContent.toLowerCase();
+          const matchesCategory = (category === 'all' || cardCategory === category);
+          const matchesSearch = (!kw || cardText.includes(kw));
+
+          if (matchesCategory && matchesSearch) {
+            card.classList.remove('d-none');
+            visibleCount++;
+          } else {
+            card.classList.add('d-none');
+          }
+        });
+
+        if (countBadge) {
+          countBadge.textContent = `Showing ${visibleCount} Article${visibleCount === 1 ? '' : 's'}`;
+        }
+
+        if (noResultsAlert) {
+          if (visibleCount === 0) noResultsAlert.classList.remove('d-none');
+          else noResultsAlert.classList.add('d-none');
+        }
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => {
+            b.classList.remove('btn-yellow', 'active');
+            b.classList.add('btn-dark-outline');
+          });
+          this.classList.remove('btn-dark-outline');
+          this.classList.add('btn-yellow', 'active');
+          const cat = this.getAttribute('data-category');
+          const kw = document.getElementById('blogSearchInput').value;
+          filterArticles(cat, kw);
+        });
+      });
+
+      // Search bar
+      const searchInput = document.getElementById('blogSearchInput');
+      const searchBtn = document.getElementById('blogSearchBtn');
+
+      function triggerSearch() {
+        const activeBtn = document.querySelector('.blog-filter-btn.active');
+        const cat = activeBtn ? activeBtn.getAttribute('data-category') : 'all';
+        filterArticles(cat, searchInput.value);
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', triggerSearch);
+        searchInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            triggerSearch();
+          }
+        });
+      }
+      if (searchBtn) {
+        searchBtn.addEventListener('click', triggerSearch);
+      }
+
+      const resetBtn = document.getElementById('resetFiltersBtn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+          if (searchInput) searchInput.value = '';
+          const allBtn = document.querySelector('.blog-filter-btn[data-category="all"]');
+          if (allBtn) allBtn.click();
+        });
+      }
+
+      // Newsletter Form Submit
+      const newsletterForm = document.getElementById('blogNewsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const emailInput = document.getElementById('newsletterEmailInput');
+          if (emailInput && emailInput.value) {
+            document.getElementById('newsletterSuccessMsg').classList.remove('d-none');
+            emailInput.value = '';
+            setTimeout(() => {
+              const msg = document.getElementById('newsletterSuccessMsg');
+              if (msg) msg.classList.add('d-none');
+            }, 6000);
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -80,6 +80,8 @@
   --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.10);
 }
 
+[data-theme="light"],
+[data-theme="light"] html,
 [data-theme="light"] body {
   background-color: #F6F8FA !important;
   color: #0F172A !important;
@@ -106,9 +108,15 @@
 [data-theme="light"] .bg-darker,
 [data-theme="light"] section.bg-darker,
 [data-theme="light"] .hero-section,
+[data-theme="light"] .metrics-strip-section,
 [data-theme="light"] [style*="#0B0B0D"],
-[data-theme="light"] [style*="#0b0b0d"] {
+[data-theme="light"] [style*="#0b0b0d"],
+[data-theme="light"] [style*="#121216"],
+[data-theme="light"] [style*="#121212"],
+[data-theme="light"] [style*="#0E0E11"],
+[data-theme="light"] [style*="#0e0e11"] {
   background-color: #EDF0F4 !important;
+  border-color: #E2E8F0 !important;
 }
 
 /* Cards & Boxes in Light Mode */
@@ -396,6 +404,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   background-color: #0B0B0D;
+  overflow-x: clip;
+  width: 100%;
 }
 
 body {
@@ -404,7 +414,8 @@ body {
   color: var(--text-light);
   min-height: 100vh;
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
+  width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -454,15 +465,22 @@ p {
 /* --------------------------------------------------------------------------
    3. Navigation Bar
    -------------------------------------------------------------------------- */
-.navbar-custom {
-  background: rgba(11, 11, 13, 0.88);
+.navbar-custom,
+nav.navbar-custom,
+.navbar-custom.sticky-top,
+nav.navbar.sticky-top {
+  background: rgba(11, 11, 13, 0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: none !important;
   padding: 0.85rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1030;
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1040 !important;
   transition: all var(--transition-normal);
 }
 
@@ -1557,10 +1575,10 @@ p {
    ========================================================================== */
 body.login-page {
   min-height: 100vh;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: #0B0B0D;
 }
 
@@ -2561,10 +2579,13 @@ hr.footer-divider {
   }
 
   .navbar-custom .nav-link-custom.active::after {
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    bottom: -4px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) scaleX(1) !important;
+    width: calc(100% - 8px) !important;
+    min-width: 18px !important;
+    bottom: -2px !important;
+    opacity: 1 !important;
   }
 
   /* Auth Buttons Right Alignment & Equal 44px Height */
@@ -5953,17 +5974,25 @@ html:not([data-theme="light"]) {
 }
 
 /* Ensure only one logo displays based on active theme */
-.navbar-brand-logo.logo-light {
+.navbar-brand-logo.logo-light,
+.logo-light,
+.navbar-custom .navbar-brand-logo.logo-light {
   display: none !important;
 }
-.navbar-brand-logo.logo-dark {
+.navbar-brand-logo.logo-dark,
+.logo-dark,
+.navbar-custom .navbar-brand-logo.logo-dark {
   display: inline-block !important;
 }
 
-[data-theme="light"] .navbar-brand-logo.logo-dark {
+[data-theme="light"] .navbar-brand-logo.logo-dark,
+[data-theme="light"] .logo-dark,
+[data-theme="light"] .navbar-custom .navbar-brand-logo.logo-dark {
   display: none !important;
 }
-[data-theme="light"] .navbar-brand-logo.logo-light {
+[data-theme="light"] .navbar-brand-logo.logo-light,
+[data-theme="light"] .logo-light,
+[data-theme="light"] .navbar-custom .navbar-brand-logo.logo-light {
   display: inline-block !important;
 }
 
@@ -6031,26 +6060,373 @@ html:not([data-theme="light"]) {
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  .navbar-custom {
+    padding: 0.65rem 0 !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
   .navbar-custom .container {
+    max-width: 100% !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    min-height: 100% !important;
   }
   .navbar-custom .navbar-brand {
     margin-right: 1rem !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    line-height: 1 !important;
   }
-  .navbar-custom .navbar-nav {
-    gap: 9px !important;
+  .navbar-custom .navbar-brand-logo {
+    height: 30px !important;
+    width: auto !important;
+    max-width: 118px !important;
+  }
+  .navbar-custom .navbar-collapse {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+    gap: 1rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .navbar-custom .navbar-nav,
+  .navbar-custom .navbar-collapse .navbar-nav,
+  .navbar-custom .navbar-nav.mx-auto {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 1 !important;
+  }
+  .navbar-custom .navbar-nav .nav-item {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   .navbar-custom .nav-link-custom {
-    font-size: 0.81rem !important;
-    padding: 0.35rem 0.35rem !important;
+    font-size: 0.73rem !important;
+    font-weight: 600 !important;
+    padding: 0.32rem 0.18rem !important;
+    letter-spacing: 0 !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.2 !important;
+    vertical-align: middle !important;
+    position: relative !important;
+  }
+  .navbar-custom .nav-link-custom .bi-chevron-down {
+    font-size: 0.62rem !important;
+    margin-left: 2px !important;
   }
   .navbar-actions-group {
-    gap: 6px !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
   }
   #navbarAuthButtons,
   #navbarAuthButtons .d-flex {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+  }
+  .btn-dashboard-icon,
+  .btn-theme-toggle {
+    flex: 0 0 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+  .btn-dashboard-icon i {
+    font-size: 0.90rem !important;
+    line-height: 1 !important;
+  }
+  .btn-theme-toggle i {
+    font-size: 0.90rem !important;
+    line-height: 1 !important;
+  }
+  .btn-rtl-toggle {
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    min-width: 34px !important;
+    padding: 0 6px !important;
+    font-size: 0.70rem !important;
+    font-weight: 700 !important;
+    border-radius: 9999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+  #navbarAuthButtons .btn {
+    height: 30px !important;
+    min-height: 30px !important;
+    max-height: 30px !important;
+    padding: 0 8px !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    gap: 3px !important;
+    border-radius: 9999px !important;
+    white-space: nowrap !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+  #navbarAuthButtons .btn i {
+    font-size: 0.82rem !important;
+    line-height: 1 !important;
+  }
+  [dir="rtl"] .navbar-custom .navbar-brand {
+    margin-left: 1rem !important;
+    margin-right: 0 !important;
+  }
+  [dir="rtl"] .navbar-custom .navbar-collapse {
+    gap: 1rem !important;
+  }
+  [dir="rtl"] .navbar-actions-group {
+    gap: 4px !important;
+  }
+  [dir="rtl"] #navbarAuthButtons {
+    gap: 4px !important;
+  }
+
+  /* Hero Section proportional styling at 1024px */
+  .hero-section {
+    padding: 3.5rem 0 3rem !important;
+  }
+  .hero-title {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .hero-booking-widget {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .navbar-custom {
+    padding: 0.75rem 0 !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .navbar-custom .container {
+    max-width: 100% !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+    min-height: 100% !important;
+  }
+  .navbar-custom .navbar-brand {
+    margin-right: 1.75rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    flex-shrink: 0 !important;
+  }
+  .navbar-custom .navbar-brand-logo {
+    height: 34px !important;
+    width: auto !important;
+    max-width: 130px !important;
+  }
+  .navbar-custom .navbar-collapse {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 1 1 auto !important;
+    gap: 1.75rem !important;
+  }
+  .navbar-custom .navbar-nav,
+  .navbar-custom .navbar-collapse .navbar-nav,
+  .navbar-custom .navbar-nav.mx-auto {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex: 1 1 auto !important;
+    margin: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+  .navbar-custom .navbar-nav .nav-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .navbar-custom .nav-link-custom {
+    font-size: 0.82rem !important;
+    padding: 0.38rem 0.38rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1.2 !important;
+    vertical-align: middle !important;
+    position: relative !important;
+  }
+  .navbar-actions-group {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
     gap: 6px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  #navbarAuthButtons,
+  #navbarAuthButtons .d-flex {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .btn-dashboard-icon,
+  .btn-theme-toggle {
+    flex: 0 0 36px !important;
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+  .btn-dashboard-icon i {
+    font-size: 1.05rem !important;
+    line-height: 1 !important;
+  }
+  .btn-theme-toggle i {
+    font-size: 1.05rem !important;
+    line-height: 1 !important;
+  }
+  .btn-rtl-toggle {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    min-width: 42px !important;
+    padding: 0 9px !important;
+    font-size: 0.78rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+  #navbarAuthButtons .btn {
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    padding: 0 12px !important;
+    font-size: 0.8rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    vertical-align: middle !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .navbar-custom .container {
+    max-width: 1360px !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  .navbar-custom .navbar-brand {
+    margin-right: 1.5rem !important;
+  }
+  .navbar-custom .navbar-brand-logo {
+    height: 38px !important;
+    max-width: 145px !important;
+  }
+  .navbar-custom .navbar-nav {
+    gap: 14px !important;
+  }
+  .navbar-custom .nav-link-custom {
+    font-size: 0.88rem !important;
+    padding: 0.45rem 0.55rem !important;
+  }
+  .navbar-actions-group,
+  #navbarAuthButtons,
+  #navbarAuthButtons .d-flex {
+    gap: 8px !important;
   }
   .btn-dashboard-icon,
   .btn-theme-toggle {
@@ -6059,86 +6435,16 @@ html:not([data-theme="light"]) {
     height: 38px !important;
     min-width: 38px !important;
     max-width: 38px !important;
-    min-height: 38px !important;
-    max-height: 38px !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 50% !important;
-  }
-  .btn-dashboard-icon i {
-    font-size: 1.12rem !important;
-  }
-  .btn-theme-toggle i {
-    font-size: 1.06rem !important;
   }
   .btn-rtl-toggle {
     height: 38px !important;
     min-height: 38px !important;
-    max-height: 38px !important;
-    min-width: 44px !important;
-    padding: 0 9px !important;
-    font-size: 0.76rem !important;
-  }
-  #navbarAuthButtons .btn {
-    height: 38px !important;
-    min-height: 38px !important;
-    max-height: 38px !important;
     padding: 0 12px !important;
-    font-size: 0.80rem !important;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1399.98px) {
-  .navbar-custom .container {
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-  }
-  .navbar-custom .navbar-brand {
-    margin-right: 1.5rem !important;
-  }
-  .navbar-custom .navbar-nav {
-    gap: 14px !important;
-  }
-  .navbar-custom .nav-link-custom {
-    font-size: 0.87rem !important;
-    padding: 0.42rem 0.5rem !important;
-  }
-  .navbar-actions-group {
-    gap: 8px !important;
-  }
-  #navbarAuthButtons,
-  #navbarAuthButtons .d-flex {
-    gap: 8px !important;
-  }
-  .btn-dashboard-icon,
-  .btn-theme-toggle {
-    flex: 0 0 40px !important;
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    max-width: 40px !important;
-    min-height: 40px !important;
-    max-height: 40px !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 50% !important;
-  }
-  .btn-dashboard-icon i {
-    font-size: 1.18rem !important;
-  }
-  .btn-theme-toggle i {
-    font-size: 1.12rem !important;
-  }
-  .btn-rtl-toggle {
-    height: 40px !important;
-    min-height: 40px !important;
-    max-height: 40px !important;
-    min-width: 48px !important;
-    padding: 0 11px !important;
-    font-size: 0.8rem !important;
+    font-size: 0.82rem !important;
   }
   #navbarAuthButtons .btn {
-    height: 40px !important;
-    min-height: 40px !important;
-    max-height: 40px !important;
+    height: 38px !important;
+    min-height: 38px !important;
     padding: 0 14px !important;
     font-size: 0.84rem !important;
   }
@@ -6720,7 +7026,17 @@ html {
 /* Offset for sections so sticky navbar never covers headings */
 section[id],
 div[id],
+span[id],
 #safety,
+#safety-standards,
+#verification,
+#captain-verification,
+#helmets,
+#sanitized-helmets,
+#sos,
+#sos-support,
+#insurance-shield,
+#insurance-coverage,
 #why-us,
 #about,
 #services,
@@ -6730,6 +7046,25 @@ div[id],
 #app-download,
 #drive {
   scroll-margin-top: 88px !important;
+}
+
+/* Subtle focus pulse when deep-linking to safety sections */
+#verification:target,
+#helmets:target,
+#sos:target,
+#insurance-shield:target,
+#safety-standards:target {
+  animation: veloTargetPulse 2s ease-out;
+  border-radius: 12px;
+}
+
+@keyframes veloTargetPulse {
+  0% {
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.7), 0 8px 30px rgba(255, 193, 7, 0.25);
+  }
+  100% {
+    box-shadow: none;
+  }
 }
 
 /* Smooth page enter transition (eliminates flash & lag between page clicks) */
@@ -6769,32 +7104,40 @@ body {
 @media (min-width: 992px) {
   .navbar-custom .nav-link-custom {
     position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
   .navbar-custom .nav-link-custom::after {
     content: '' !important;
     position: absolute !important;
-    bottom: -4px !important;
+    bottom: -2px !important;
     left: 50% !important;
+    right: auto !important;
     transform: translateX(-50%) scaleX(0) !important;
-    width: 100% !important;
+    transform-origin: center center !important;
+    width: calc(100% - 8px) !important;
+    min-width: 18px !important;
     height: 2.5px !important;
     background-color: var(--yellow-primary) !important;
     border-radius: 9999px !important;
-    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease !important;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease !important;
     opacity: 0 !important;
     pointer-events: none !important;
   }
 
   .navbar-custom .nav-link-custom:hover::after {
     transform: translateX(-50%) scaleX(0.7) !important;
-    opacity: 0.55 !important;
+    opacity: 0.65 !important;
   }
 
   .navbar-custom .nav-link-custom.active::after {
     transform: translateX(-50%) scaleX(1) !important;
     opacity: 1 !important;
+    left: 50% !important;
+    right: auto !important;
   }
 
   [data-theme="light"] .navbar-custom .nav-link-custom.active::after,
@@ -6846,4 +7189,502 @@ select:-webkit-autofill {
   -webkit-text-fill-color: inherit !important;
   transition: background-color 5000s ease-in-out 0s;
   box-shadow: inset 0 0 20px 20px transparent !important;
+}
+
+
+/* ==========================================================================
+   App Download QR Scanner Card - High-Contrast Styling
+   Ensures 100% visible, crystal-clear white & yellow text across ALL themes.
+   ========================================================================== */
+.app-scanner-card,
+.cta-banner-gradient .app-scanner-card,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card {
+  background: #111116 !important;
+  background-color: #111116 !important;
+  border: 1.5px solid rgba(255, 193, 7, 0.45) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45) !important;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast) !important;
+}
+
+.app-scanner-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), 0 0 20px rgba(255, 193, 7, 0.25) !important;
+  border-color: #FFC107 !important;
+}
+
+/* Scanner Icon */
+.app-scanner-card .bi-qr-code,
+.app-scanner-card i.bi-qr-code,
+.app-scanner-card .text-warning,
+.cta-banner-gradient .app-scanner-card .text-warning,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card .text-warning,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card .text-warning {
+  color: #FFC107 !important;
+}
+
+/* Scanner Title ("Scan to Download App") - Pure White in ALL Themes */
+.app-scanner-card .scanner-title,
+.app-scanner-card span.text-white,
+.app-scanner-card div.text-white,
+.app-scanner-card .text-white,
+.cta-banner-gradient .app-scanner-card .scanner-title,
+.cta-banner-gradient .app-scanner-card .text-white,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card .scanner-title,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card span.text-white,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card div.text-white,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card .text-white,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card .scanner-title,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card span.text-white,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card div.text-white,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card .text-white {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.2px !important;
+}
+
+/* Scanner Subtitle ("iOS & Android Compatible") - High-Contrast Light Slate in ALL Themes */
+.app-scanner-card .scanner-subtitle,
+.app-scanner-card small.text-muted,
+.app-scanner-card .text-muted,
+.app-scanner-card .text-opacity-75,
+.cta-banner-gradient .app-scanner-card .scanner-subtitle,
+.cta-banner-gradient .app-scanner-card .text-muted,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card .scanner-subtitle,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card small.text-muted,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card .text-muted,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card .text-opacity-75,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card .scanner-subtitle,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card small.text-muted,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card .text-muted,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card .text-opacity-75 {
+  color: #CBD5E1 !important;
+  opacity: 0.95 !important;
+}
+
+/* Scanner Rating & Stars ("4.8 (250K+ Reviews)") - Crisp White in ALL Themes */
+.app-scanner-card .scanner-rating,
+.cta-banner-gradient .app-scanner-card .scanner-rating,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card .scanner-rating,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card .scanner-rating {
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+}
+
+.app-scanner-card i.bi-star-fill,
+.app-scanner-card i.bi-star-half,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card i.bi-star-fill,
+[data-theme="light"] .cta-banner-gradient .app-scanner-card i.bi-star-half,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card i.bi-star-fill,
+[data-theme="dark"] .cta-banner-gradient .app-scanner-card i.bi-star-half {
+  color: #FFC107 !important;
+}
+
+
+/* ==========================================================================
+   Metrics Strip & Section Contrast Fixes
+   Ensures 100% contrast & readability across Home 2, Why Us, and all pages.
+   ========================================================================== */
+.metrics-strip-section {
+  background-color: #121216 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[data-theme="light"] .metrics-strip-section {
+  background-color: #EDF0F4 !important;
+  border-color: #E2E8F0 !important;
+}
+
+[data-theme="light"] .metrics-strip-section h3.text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .metrics-strip-section h3.text-warning,
+[data-theme="light"] .metrics-strip-section .text-warning.fw-black {
+  color: #D97706 !important;
+}
+
+[data-theme="light"] .metrics-strip-section p.text-muted {
+  color: #475569 !important;
+}
+
+/* Review Quotes & Light Text Contrast Guard */
+.review-quote,
+.text-light,
+p.text-light,
+span.text-light {
+  color: #CBD5E1 !important;
+}
+
+[data-theme="light"] .review-quote,
+[data-theme="light"] .text-light,
+[data-theme="light"] p.text-light,
+[data-theme="light"] span.text-light,
+[data-theme="light"] .urban-card p,
+[data-theme="light"] .urban-card .review-quote,
+[data-theme="light"] .urban-card .text-light {
+  color: #334155 !important;
+}
+
+[data-theme="dark"] .review-quote,
+[data-theme="dark"] .text-light,
+[data-theme="dark"] p.text-light,
+[data-theme="dark"] span.text-light,
+[data-theme="dark"] .urban-card p,
+[data-theme="dark"] .urban-card .review-quote,
+[data-theme="dark"] .urban-card .text-light {
+  color: #CBD5E1 !important;
+}
+
+
+/* ==========================================================================
+   Home 1 (index.html) & Service Page (services.html) - Light Mode Contrast
+   Ensures WCAG AA/AAA compliant contrast ratios across all cards, badges,
+   headings, prices, icons, accordions, and promo banners.
+   ========================================================================== */
+
+/* 1. Global Light Theme Headings & Text Contrast */
+[data-theme="light"] .section-title,
+[data-theme="light"] h2.section-title,
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .section-subtitle,
+[data-theme="light"] p.section-subtitle,
+[data-theme="light"] .hero-subtitle,
+[data-theme="light"] p.hero-subtitle {
+  color: #475569 !important;
+}
+
+/* 2. Brand Yellow / Amber Text & Highlights in Light Mode */
+/* Replaces low-contrast neon yellow #FFC107 with rich amber #B45309 / #D97706 on light backgrounds */
+[data-theme="light"] .text-warning:not(.app-scanner-card *):not(.cta-banner-gradient .app-scanner-card *) {
+  color: #B45309 !important;
+}
+
+[data-theme="light"] i.text-warning:not(.app-scanner-card *):not(.cta-banner-gradient .app-scanner-card *) {
+  color: #D97706 !important;
+}
+
+[data-theme="light"] .hero-highlight {
+  color: #D97706 !important;
+}
+
+/* 3. Badge Yellow (e.g., "Fastest Urban Commute", "High Demand Routes", "What We Offer") */
+[data-theme="light"] .badge-yellow {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .badge-yellow i {
+  color: #D97706 !important;
+}
+
+/* 4. Urban Cards & Feature Cards in Light Mode */
+[data-theme="light"] .urban-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .urban-card:hover {
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09) !important;
+}
+
+[data-theme="light"] .urban-card h1,
+[data-theme="light"] .urban-card h2,
+[data-theme="light"] .urban-card h3,
+[data-theme="light"] .urban-card h4,
+[data-theme="light"] .urban-card h5,
+[data-theme="light"] .urban-card h6,
+[data-theme="light"] .urban-card .text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .urban-card p,
+[data-theme="light"] .urban-card li {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .urban-card .text-muted,
+[data-theme="light"] .urban-card small.text-muted {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .urban-card .text-warning {
+  color: #B45309 !important;
+}
+
+/* 5. Feature Icon Wrappers & Stat Icons in Light Mode */
+[data-theme="light"] .feature-icon-wrapper {
+  background: rgba(245, 158, 11, 0.14) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(217, 119, 6, 0.28) !important;
+}
+
+[data-theme="light"] .urban-card:hover .feature-icon-wrapper {
+  background: #D97706 !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="light"] .stat-icon.yellow {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #B45309 !important;
+  border: 1px solid rgba(217, 119, 6, 0.25) !important;
+}
+
+/* 6. Service Feature Cards (services.html) in Light Mode */
+[data-theme="light"] .service-feature-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .service-feature-card:hover {
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.10) !important;
+}
+
+[data-theme="light"] .service-card-body h3,
+[data-theme="light"] .service-card-body h3.text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .service-card-body p {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .service-card-body ul li {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .service-card-body ul li i.text-warning {
+  color: #D97706 !important;
+}
+
+[data-theme="light"] .service-card-body ul li i.text-success {
+  color: #15803D !important;
+}
+
+[data-theme="light"] .service-card-body .text-warning {
+  color: #B45309 !important;
+}
+
+[data-theme="light"] .service-card-body .text-muted {
+  color: #64748B !important;
+}
+
+/* Service Card Pill Badges in Light Mode */
+[data-theme="light"] .service-card-body .badge.bg-dark-subtle.text-warning {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+
+[data-theme="light"] .service-card-body .badge.bg-dark-subtle.text-success {
+  background-color: #DCFCE7 !important;
+  color: #15803D !important;
+  border-color: rgba(22, 163, 74, 0.35) !important;
+}
+
+[data-theme="light"] .service-card-body .badge.bg-dark-subtle.text-danger {
+  background-color: #FEE2E2 !important;
+  color: #B91C1C !important;
+  border-color: rgba(220, 38, 38, 0.35) !important;
+}
+
+[data-theme="light"] .service-card-body .badge.bg-dark-subtle.text-info {
+  background-color: #E0F2FE !important;
+  color: #0369A1 !important;
+  border-color: rgba(2, 132, 199, 0.35) !important;
+}
+
+[data-theme="light"] .service-card-body .badge.bg-dark-subtle.text-primary {
+  background-color: #EDE9FE !important;
+  color: #6D28D9 !important;
+  border-color: rgba(109, 40, 217, 0.35) !important;
+}
+
+[data-theme="light"] .service-card-body .badge.bg-dark-subtle.text-secondary {
+  background-color: #F1F5F9 !important;
+  color: #334155 !important;
+  border-color: rgba(100, 116, 139, 0.35) !important;
+}
+
+[data-theme="light"] .service-card-footer {
+  border-top: 1px solid #E2E8F0 !important;
+}
+
+[data-theme="light"] .service-card-footer .text-muted {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .service-card-footer .text-muted i {
+  color: #D97706 !important;
+}
+
+/* 7. Status Badges across Home 1 & Services (Drive section, etc.) */
+[data-theme="light"] .badge.bg-success.bg-opacity-20 {
+  background-color: #DCFCE7 !important;
+  color: #15803D !important;
+  border-color: rgba(22, 163, 74, 0.35) !important;
+}
+
+[data-theme="light"] .badge.bg-warning.bg-opacity-20 {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+
+[data-theme="light"] .badge.bg-info.bg-opacity-20 {
+  background-color: #E0F2FE !important;
+  color: #0369A1 !important;
+  border-color: rgba(2, 132, 199, 0.35) !important;
+}
+
+[data-theme="light"] .badge.bg-danger.bg-opacity-20 {
+  background-color: #FEE2E2 !important;
+  color: #B91C1C !important;
+  border-color: rgba(220, 38, 38, 0.35) !important;
+}
+
+/* 8. Testimonials Section (index.html) */
+[data-theme="light"] .testimonial-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .testimonial-text {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .testimonial-stars {
+  color: #D97706 !important;
+}
+
+[data-theme="light"] .testimonial-avatar {
+  border-color: #D97706 !important;
+}
+
+[data-theme="light"] .testimonial-user h6.text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .testimonial-user .text-muted {
+  color: #64748B !important;
+}
+
+/* 9. Accordions (index.html & services.html FAQs) */
+[data-theme="light"] .accordion-item.urban-card {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .accordion-button {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .accordion-button.text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .accordion-button:not(.collapsed) {
+  background-color: #FEF3C7 !important;
+  color: #92400E !important;
+}
+
+[data-theme="light"] .accordion-button i.text-warning {
+  color: #D97706 !important;
+}
+
+[data-theme="light"] .accordion-button:not(.collapsed) i.text-warning {
+  color: #B45309 !important;
+}
+
+[data-theme="light"] .accordion-body,
+[data-theme="light"] .accordion-body.text-muted {
+  color: #334155 !important;
+  background-color: #FFFFFF !important;
+}
+
+/* 10. Booking Widget & Quick Estimate (Home 1 Hero) */
+[data-theme="light"] .hero-booking-widget {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .hero-booking-widget h5.text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] [style*="#202026"] {
+  background-color: #F8FAFC !important;
+  border-color: #CBD5E1 !important;
+}
+
+[data-theme="light"] [style*="#202026"] .text-light,
+[data-theme="light"] [style*="#202026"] span.text-light {
+  color: #334155 !important;
+}
+
+[data-theme="light"] [style*="#202026"] .text-warning {
+  color: #B45309 !important;
+}
+
+/* 11. Promo Code Box in App Download Banner */
+[data-theme="light"] .cta-banner-gradient [style*="rgba(255, 193, 7, 0.15)"] {
+  background: #FEF3C7 !important;
+  border-color: #D97706 !important;
+}
+
+[data-theme="light"] .cta-banner-gradient [style*="rgba(255, 193, 7, 0.15)"] span,
+[data-theme="light"] .cta-banner-gradient [style*="rgba(255, 193, 7, 0.15)"] span.text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .cta-banner-gradient [style*="rgba(255, 193, 7, 0.15)"] strong.text-warning {
+  color: #B45309 !important;
+  font-weight: 800 !important;
+}
+
+[data-theme="light"] .cta-banner-gradient [style*="rgba(255, 193, 7, 0.15)"] i.text-warning {
+  color: #D97706 !important;
+}
+
+/* 12. Captain Onboarding Box in Home 1 */
+[data-theme="light"] .urban-card[style*="#18181D"] {
+  background-color: #FFFFFF !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .urban-card[style*="#18181D"] h3.text-white,
+[data-theme="light"] .urban-card[style*="#18181D"] h5.text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .urban-card[style*="#18181D"] .text-muted,
+[data-theme="light"] .urban-card[style*="#18181D"] p.text-muted {
+  color: #475569 !important;
+}
+
+/* 13. Services Hero right graphic card */
+[data-theme="light"] .hero-section .rounded-4[style*="#18181D"] {
+  background-color: #FFFFFF !important;
+  border-color: rgba(217, 119, 6, 0.35) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
 }

@@ -420,107 +420,85 @@
 
   <!-- Sticky Navbar Header -->
   <header class="header">
-    <nav class="navbar" id="navbar">
-      <div class="navbar-container">
-        
-        <!-- 1. Logo (Left) -->
-        <a href="#home" class="navbar-brand" aria-label="VeloMoto Home">
-          <svg class="navbar-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="190" height="48">
-            <defs>
-              <linearGradient id="veloYellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FFD700" />
-                <stop offset="100%" stop-color="#FFAB00" />
-              </linearGradient>
-            </defs>
-            <!-- Bike Icon Badge -->
-            <g transform="translate(6, 6)">
-              <rect width="48" height="48" rx="14" fill="#121212" stroke="#FFB800" stroke-width="1.8"/>
-              <circle cx="16" cy="32" r="7" stroke="url(#veloYellowGrad)" stroke-width="2.5" fill="none"/>
-              <circle cx="34" cy="32" r="7" stroke="url(#veloYellowGrad)" stroke-width="2.5" fill="none"/>
-              <path d="M16 32 L23 22 L31 22 L34 32 M23 22 L26 32 L34 32 M25 18 L21 18 M29 17 L33 22" 
-                    stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              <path d="M25 12 L20 20 L26 20 L22 28" stroke="#FFD700" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </g>
-            <!-- Brand Typography -->
-            <text x="64" y="32" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="22" fill="#FFFFFF" letter-spacing="-0.5">VELO<tspan fill="#FFB800">MOTO</tspan></text>
-            <rect x="64" y="38" width="56" height="13" rx="3" fill="#FFB800"/>
-            <text x="67" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="8.5" fill="#121212" letter-spacing="1">BIKE TAXI</text>
-            <circle cx="127" cy="44.5" r="2.5" fill="#10B981"/>
-            <text x="134" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="8" fill="#94A3B8">FAST • URBAN</text>
-          </svg>
-        </a>
+      <!-- Header / Navbar Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <!-- Brand Logo -->
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
+      </a>
+      
+      <!-- Mobile Hamburger Toggle -->
+      <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="bi bi-list fs-2 text-warning"></i>
+      </button>
 
-        <!-- 2. Nav Links (Center) -->
-        <ul class="nav-links" id="navLinks">
-          <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-          <li class="nav-item"><a href="#how-it-works" class="nav-link">How It Works</a></li>
-          <li class="nav-item"><a href="#fares" class="nav-link">Fares</a></li>
-          <li class="nav-item"><a href="#why-us" class="nav-link">Why Us</a></li>
-          <li class="nav-item"><a href="#safety" class="nav-link">Safety</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      <!-- Nav Links & Action Buttons -->
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <!-- Home Dropdown Menu (Home 1 & Home 2) -->
+          <li class="nav-item dropdown">
+            <a class="nav-link nav-link-custom dropdown-toggle active" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Home <i class="bi bi-chevron-down ms-1"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
+              <li><a class="dropdown-item " href="index.html">HOME 1</a></li>
+              <li><a class="dropdown-item " href="home-2.html">HOME 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="services.html">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="how-it-works.html">How It Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="fares.html">Fares</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="why-us.html">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="contact.html">Contact</a>
+          </li>
         </ul>
 
-        <!-- 3. Auth Buttons (Right) -->
-        <div class="navbar-auth">
-          <!-- Login Button -->
-          <a href="#login" class="btn btn-login">
-            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 3H16C16.55 3 17 3.45 17 4V16C17 16.55 16.55 17 16 17H12" stroke-linecap="round"/>
-              <path d="M8 7L12 10L8 13" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 10H3" stroke-linecap="round"/>
-            </svg>
-            <span>Login</span>
+        <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
+        <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
+          <a href="dashboard.html" class="btn-dashboard-icon " id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard">
+            <i class="bi bi-speedometer2"></i>
           </a>
-          <!-- Sign Up Button -->
-          <a href="#signup" class="btn btn-signup">
-            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M2 17C2 13.7 5.1 11 9 11C10.1 11 11.1 11.2 12 11.6"/>
-              <path d="M16 8V14M13 11H19" stroke-linecap="round"/>
-            </svg>
-            <span>Sign Up</span>
-          </a>
-        </div>
-
-        <!-- 4. Mobile Hamburger Button (<= 1024px) -->
-        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileMenu">
-          <span class="hamburger-bar bar-1"></span>
-          <span class="hamburger-bar bar-2"></span>
-          <span class="hamburger-bar bar-3"></span>
-        </button>
-
-      </div>
-
-      <!-- 5. Mobile Dropdown Menu (Hidden on Desktop) -->
-      <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-        <ul class="mobile-nav-links">
-          <li><a href="#home" class="mobile-nav-link active">Home</a></li>
-          <li><a href="#how-it-works" class="mobile-nav-link">How It Works</a></li>
-          <li><a href="#fares" class="mobile-nav-link">Fares</a></li>
-          <li><a href="#why-us" class="mobile-nav-link">Why Us</a></li>
-          <li><a href="#safety" class="mobile-nav-link">Safety</a></li>
-          <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-        </ul>
-        <div class="mobile-auth">
-          <a href="#login" class="btn btn-login">
-            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 3H16C16.55 3 17 3.45 17 4V16C17 16.55 16.55 17 16 17H12" stroke-linecap="round"/>
-              <path d="M8 7L12 10L8 13" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M12 10H3" stroke-linecap="round"/>
-            </svg>
-            <span>Login</span>
-          </a>
-          <a href="#signup" class="btn btn-signup">
-            <svg class="btn-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M2 17C2 13.7 5.1 11 9 11C10.1 11 11.1 11.2 12 11.6"/>
-              <path d="M16 8V14M13 11H19" stroke-linecap="round"/>
-            </svg>
-            <span>Sign Up</span>
-          </a>
+          <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+            <i class="bi bi-sun-fill"></i>
+          </button>
+          <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR">
+            <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+          </button>
+          <div id="navbarAuthButtons" class="d-flex align-items-center gap-2">
+            <a href="login.html" class="btn btn-dark-outline btn-sm ">
+              <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+            <a href="register.html" class="btn btn-yellow btn-sm ">
+              <i class="bi bi-person-plus-fill"></i> Sign Up
+            </a>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
   </header>
 
   <!-- Visual Demo Content (Demonstrating Sticky Navbar & Spacing) -->

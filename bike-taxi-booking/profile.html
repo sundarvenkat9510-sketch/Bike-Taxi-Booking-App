@@ -43,49 +43,65 @@
   <!-- ======================================================================
        NAVIGATION BAR
        ====================================================================== -->
-  <nav class="navbar navbar-expand-lg navbar-custom">
+    <!-- Header / Navbar Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
     <div class="container">
+      <!-- Brand Logo -->
       <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="34">
-        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="34">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
       </a>
       
+      <!-- Mobile Hamburger Toggle -->
       <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
         <i class="bi bi-list fs-2 text-warning"></i>
       </button>
 
+      <!-- Nav Links & Action Buttons -->
       <div class="collapse navbar-collapse" id="navbarMain">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <!-- Home Dropdown Menu (Home 1 & Home 2) -->
           <li class="nav-item dropdown">
-            <a class="nav-link nav-link-custom dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link nav-link-custom dropdown-toggle " href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Home <i class="bi bi-chevron-down ms-1"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="homeDropdown">
-              <li><a class="dropdown-item" href="index.html">HOME</a></li>
-              <li><a class="dropdown-item" href="home-2.html">HOME 2</a></li>
+              <li><a class="dropdown-item " href="index.html">HOME 1</a></li>
+              <li><a class="dropdown-item " href="home-2.html">HOME 2</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="about.html">About</a>
+            <a class="nav-link nav-link-custom " href="about.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="how-it-works.html">How It Works</a>
+            <a class="nav-link nav-link-custom " href="services.html">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="fares.html">Fares</a>
+            <a class="nav-link nav-link-custom " href="how-it-works.html">How It Works</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom" href="dashboard.html">Dashboard</a>
+            <a class="nav-link nav-link-custom " href="fares.html">Fares</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-link-custom active" aria-current="page" href="profile.html">My Profile</a>
+            <a class="nav-link nav-link-custom " href="why-us.html">Why Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html#safety">Safety</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="blog.html">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom " href="contact.html">Contact</a>
           </li>
         </ul>
 
         <!-- Dynamic Auth Buttons, RTL Switcher & Theme Switcher -->
         <div class="d-flex align-items-center justify-content-center justify-content-lg-end gap-2 navbar-actions-group">
-          <a href="dashboard.html" class="btn-dashboard-icon" id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard">
+          <a href="dashboard.html" class="btn-dashboard-icon " id="headerDashboardBtn" title="Dashboard" aria-label="Dashboard">
             <i class="bi bi-speedometer2"></i>
           </a>
           <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
@@ -95,10 +111,10 @@
             <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
           </button>
           <div id="navbarAuthButtons" class="d-flex align-items-center gap-2">
-            <a href="login.html" class="btn btn-dark-outline btn-sm">
+            <a href="login.html" class="btn btn-dark-outline btn-sm ">
               <i class="bi bi-box-arrow-in-right"></i> Login
             </a>
-            <a href="register.html" class="btn btn-yellow btn-sm">
+            <a href="register.html" class="btn btn-yellow btn-sm ">
               <i class="bi bi-person-plus-fill"></i> Sign Up
             </a>
           </div>
@@ -169,7 +185,7 @@
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <label class="form-label text-light small fw-bold">Full Legal Name</label>
-                  <input type="text" id="profileName" class="custom-form-control ps-3" required>
+                  <input type="text" id="profileName" class="custom-form-control ps-3" placeholder="e.g., Alex Morgan" required minlength="2" maxlength="50" pattern="[a-zA-Z\s]{2,50}" title="Name must contain at least 2 letters and only alphabets (no numbers or symbols)">
                 </div>
                 <div class="col-md-6">
                   <label class="form-label text-light small fw-bold">Registered Email</label>
@@ -180,11 +196,11 @@
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <label class="form-label text-light small fw-bold">Mobile Phone Number</label>
-                  <input type="tel" id="profilePhone" class="custom-form-control ps-3" required>
+                  <input type="tel" id="profilePhone" class="custom-form-control ps-3" placeholder="10-digit mobile" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit mobile number (numbers only)">
                 </div>
                 <div class="col-md-6">
                   <label class="form-label text-light small fw-bold">Emergency Contact (SOS Alert)</label>
-                  <input type="tel" id="profileEmergency" class="custom-form-control ps-3" placeholder="9876500000">
+                  <input type="tel" id="profileEmergency" class="custom-form-control ps-3" placeholder="10-digit emergency phone" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" title="Please enter a valid 10-digit mobile number (numbers only)">
                 </div>
               </div>
 
