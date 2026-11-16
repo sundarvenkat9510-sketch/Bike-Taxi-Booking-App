@@ -116,15 +116,41 @@
 [data-theme="light"] .stat-card,
 [data-theme="light"] .step-card,
 [data-theme="light"] .contact-card,
+[data-theme="light"] a.contact-card,
+[data-theme="light"] div.contact-card,
 [data-theme="light"] .auth-card,
 [data-theme="light"] .hero-booking-widget,
 [data-theme="light"] .fare-breakdown-card,
 [data-theme="light"] .bike-option-card,
 [data-theme="light"] [style*="#18181D"],
-[data-theme="light"] [style*="#18181d"] {
+[data-theme="light"] [style*="#18181d"],
+[data-theme="light"] [style*="background-color: #18181D"],
+[data-theme="light"] [style*="background-color:#18181D"] {
   background-color: #FFFFFF !important;
   border-color: #E2E8F0 !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .border-secondary {
+  border-color: #E2E8F0 !important;
+}
+
+[data-theme="light"] .text-secondary {
+  color: #64748B !important;
+}
+
+[data-theme="light"] .bg-secondary-subtle {
+  background-color: #F1F5F9 !important;
+}
+
+[data-theme="light"] .service-card-body h3,
+[data-theme="light"] .service-card-body h3.text-white {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .service-card-body p,
+[data-theme="light"] .service-card-body ul li {
+  color: #475569 !important;
 }
 
 [data-theme="light"] [style*="#202026"] {
@@ -4230,7 +4256,7 @@ select.custom-form-control option {
 a.contact-card,
 div.contact-card {
   background: #18181D;
-  background-color: #18181D !important;
+  background-color: #18181D;
   border: 1.5px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 34px 20px 28px;
@@ -4351,6 +4377,74 @@ div.contact-card {
 
 [dir="rtl"] .contact-card:hover .contact-card-action {
   transform: translateX(-3px);
+}
+
+/* Light Mode Overrides for Contact Cards (VeloMoto Light Brand Oriented) */
+[data-theme="light"] .contact-card,
+[data-theme="light"] a.contact-card,
+[data-theme="light"] div.contact-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: 1.5px solid #E2E8F0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .contact-card:hover,
+[data-theme="light"] a.contact-card:hover,
+[data-theme="light"] div.contact-card:hover {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border-color: #F59E0B !important;
+  box-shadow: 0 14px 34px rgba(245, 158, 11, 0.16) !important;
+  transform: translateY(-6px);
+}
+
+[data-theme="light"] .contact-card-title {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .contact-card-text,
+[data-theme="light"] .contact-card:hover .contact-card-text {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .contact-card-action {
+  color: #D97706 !important;
+}
+
+[data-theme="light"] .contact-card:hover .contact-card-action {
+  color: #B45309 !important;
+  transform: translateX(3px);
+}
+
+[data-theme="light"] [dir="rtl"] .contact-card:hover .contact-card-action {
+  transform: translateX(-3px);
+}
+
+[data-theme="light"] .contact-card-icon {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+  color: #D97706 !important;
+}
+
+[data-theme="light"] .contact-card:hover .contact-card-icon {
+  background: #F59E0B !important;
+  color: #FFFFFF !important;
+  border-color: #F59E0B !important;
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.4) !important;
+}
+
+[data-theme="light"] .contact-card-icon.whatsapp-icon {
+  background: rgba(37, 211, 102, 0.12) !important;
+  border-color: rgba(37, 211, 102, 0.35) !important;
+  color: #16A34A !important;
+}
+
+[data-theme="light"] .contact-card:hover .contact-card-icon.whatsapp-icon {
+  background: #16A34A !important;
+  color: #FFFFFF !important;
+  border-color: #16A34A !important;
+  box-shadow: 0 0 22px rgba(22, 163, 74, 0.4) !important;
 }
 
 @media (max-width: 575.98px) {
@@ -5521,6 +5615,19 @@ html:not([data-theme="light"]) {
   color: #FFC107 !important;
 }
 
+/* Navbar links in Light Theme: High Contrast Clean Slate & Brand Amber Hover */
+[data-theme="light"] .navbar-custom .nav-link-custom,
+[data-theme="light"] .nav-link-custom {
+  color: #0F172A !important;
+}
+
+[data-theme="light"] .navbar-custom .nav-link-custom:hover,
+[data-theme="light"] .navbar-custom .nav-link-custom.active,
+[data-theme="light"] .nav-link-custom:hover,
+[data-theme="light"] .nav-link-custom.active {
+  color: #D97706 !important;
+}
+
 /* Dropdown Menu in Dark Theme */
 [data-theme="dark"] .dropdown-menu-custom {
   background-color: #18181D !important;
@@ -5831,6 +5938,15 @@ html:not([data-theme="light"]) {
     letter-spacing: 0.25px !important;
     padding: 0.45rem 0.55rem !important;
     color: #E2E8F0 !important;
+  }
+
+  [data-theme="light"] .navbar-custom .nav-link-custom {
+    color: #0F172A !important;
+  }
+
+  [data-theme="light"] .navbar-custom .nav-link-custom:hover,
+  [data-theme="light"] .navbar-custom .nav-link-custom.active {
+    color: #D97706 !important;
   }
 
   .navbar-actions-group {
@@ -6628,5 +6744,10 @@ body {
   .navbar-custom .nav-link-custom.active::after {
     transform: translateX(-50%) scaleX(1) !important;
     opacity: 1 !important;
+  }
+
+  [data-theme="light"] .navbar-custom .nav-link-custom.active::after,
+  [data-theme="light"] .navbar-custom .nav-link-custom:hover::after {
+    background-color: #D97706 !important;
   }
 }
