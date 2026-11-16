@@ -83,12 +83,12 @@
       <div id="loginErrorAlert" class="alert alert-danger py-1 px-2 small mb-2 d-none" role="alert"></div>
 
       <!-- Login Form -->
-      <form id="loginForm" novalidate>
+      <form id="loginForm" novalidate autocomplete="off">
         <!-- Email -->
         <div class="mb-3">
           <label class="form-label login-label small fw-bold mb-1" for="loginIdentifier">Email Address</label>
           <div class="position-relative">
-            <input type="email" id="loginIdentifier" class="custom-form-control ps-3 py-2" placeholder="alex@example.com" required>
+            <input type="email" id="loginIdentifier" name="loginIdentifier" class="custom-form-control ps-3 py-2" placeholder="alex@example.com" value="" autocomplete="off" required>
           </div>
           <div class="form-feedback text-danger small">Please enter a valid email address.</div>
         </div>
@@ -99,7 +99,7 @@
             <label class="form-label login-label small fw-bold mb-0" for="loginPassword">Password</label>
           </div>
           <div class="position-relative">
-            <input type="password" id="loginPassword" class="custom-form-control ps-3 pe-5 py-2" placeholder="Enter your password" required>
+            <input type="password" id="loginPassword" name="loginPassword" class="custom-form-control ps-3 pe-5 py-2" placeholder="Enter your password" value="" autocomplete="new-password" required>
             <button type="button" class="btn border-0 position-absolute end-0 top-50 translate-middle-y text-muted me-2 p-0" id="togglePasswordBtn" aria-label="Toggle password visibility">
               <i class="bi bi-eye" id="togglePasswordIcon"></i>
             </button>

@@ -92,11 +92,8 @@ function loginUser(identifier, password, rememberMe = false) {
 
   if (user) {
     setCurrentUser(user);
-    if (rememberMe) {
-      localStorage.setItem(STORAGE_KEYS.REMEMBER, cleanId);
-    } else {
-      localStorage.removeItem(STORAGE_KEYS.REMEMBER);
-    }
+    // Never persist email in storage so login inputs remain completely clean and empty
+    localStorage.removeItem(STORAGE_KEYS.REMEMBER);
     return { success: true, user };
   }
 
@@ -206,9 +203,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const errorAlert = document.getElementById('loginErrorAlert');
     const idInput = document.getElementById('loginIdentifier');
     const passInput = document.getElementById('loginPassword');
+    const remCheck = document.getElementById('rememberMe');
+
+    // Never pre-fill email address: remove any previously stored remember token
+    localStorage.removeItem(STORAGE_KEYS.REMEMBER);
+
+    // Track if user has manually typed or interacted
+    let userHasTyped = false;
+    const markTyped = () => { userHasTyped = true; };
+    if (idInput) {
+      idInput.addEventListener('keydown', markTyped);
+      idInput.addEventListener('paste', markTyped);
+      idInput.addEventListener('input', markTyped);
+    }
+    if (passInput) {
+      passInput.addEventListener('keydown', markTyped);
+      passInput.addEventListener('paste', markTyped);
+      passInput.addEventListener('input', markTyped);
+    }
+
+    // Function to ensure login inputs are completely blank on initial load
+    function ensureEmptyLoginInputs() {
+      if (userHasTyped) return;
+      if (loginForm) loginForm.reset();
+      if (idInput) idInput.value = '';
+      if (passInput) passInput.value = '';
+      if (remCheck) remCheck.checked = false;
+    }
+
+    // Immediately clear on load
+    ensureEmptyLoginInputs();
+
+    // Guard against delayed browser autofill (Chrome/Edge/Safari)
+    setTimeout(ensureEmptyLoginInputs, 50);
+    setTimeout(ensureEmptyLoginInputs, 150);
+    setTimeout(ensureEmptyLoginInputs, 350);
+    window.addEventListener('pageshow', ensureEmptyLoginInputs);
 
     if (registeredParam) {
-      // Keep email address input completely empty as requested
       if (idInput) {
         idInput.value = '';
         idInput.focus();
@@ -225,14 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
           showToast('Account created successfully! Please log in.', 'success');
         }
       }, 300);
-    } else {
-      // Auto-fill remembered identifier if present
-      const remembered = localStorage.getItem(STORAGE_KEYS.REMEMBER);
-      if (remembered) {
-        const remCheck = document.getElementById('rememberMe');
-        if (idInput) idInput.value = remembered;
-        if (remCheck) remCheck.checked = true;
-      }
     }
 
     const idFeedback = idInput ? idInput.closest('.mb-3')?.querySelector('.form-feedback') : null;
