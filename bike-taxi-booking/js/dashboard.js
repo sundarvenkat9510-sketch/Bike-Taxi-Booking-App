@@ -20,7 +20,7 @@ const CAPTAINS_POOL = [
     totalRides: 3840,
     vehicleModel: 'Yamaha FZ-S (Black/Yellow)',
     plateNumber: 'DL-04-AB-2983',
-    avatar: 'assets/images/driver-avatar-1.svg',
+    avatar: 'assets/images/avatar-driver-1.jpg',
     helmetSanitized: true
   },
   {
@@ -31,7 +31,7 @@ const CAPTAINS_POOL = [
     totalRides: 2190,
     vehicleModel: 'Honda Hornet 160R (Charcoal)',
     plateNumber: 'HR-26-CD-1190',
-    avatar: 'assets/images/driver-avatar-2.svg',
+    avatar: 'assets/images/avatar-driver-2.jpg',
     helmetSanitized: true
   },
   {
