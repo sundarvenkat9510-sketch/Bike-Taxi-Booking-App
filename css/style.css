@@ -1581,6 +1581,9 @@ nav.navbar.sticky-top {
 /* ==========================================================================
    Login Page Specific Clean Viewport Layout (Zero Scrollbar & Perfectly Centered)
    ========================================================================== */
+/* ==========================================================================
+   Login & Register Auth Header Bar (Theme-aware, Responsive)
+   ========================================================================== */
 .auth-header-bar {
   width: 100%;
   flex-shrink: 0;
@@ -1601,28 +1604,138 @@ nav.navbar.sticky-top {
   object-fit: contain;
 }
 
+/* Back Button (Theme-aware, Arrow to Home) */
+.btn-auth-back {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 40px !important;
+  width: 40px !important;
+  min-height: 40px !important;
+  min-width: 40px !important;
+  flex: 0 0 40px !important;
+  border-radius: 50% !important;
+  background: #18181D;
+  border: 1.5px solid rgba(255, 193, 7, 0.45);
+  color: var(--yellow-primary) !important;
+  font-size: 1.15rem;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.btn-auth-back:hover {
+  background: rgba(255, 193, 7, 0.15) !important;
+  border-color: var(--yellow-primary) !important;
+  color: #ffd043 !important;
+  transform: translateX(-3px);
+  box-shadow: 0 4px 14px rgba(255, 193, 7, 0.35);
+}
+
+.btn-auth-back:active {
+  transform: translateX(0);
+}
+
+[data-theme="light"] .btn-auth-back {
+  background: #FFFFFF !important;
+  border: 1.5px solid #CBD5E1 !important;
+  color: #1E293B !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .btn-auth-back:hover {
+  background: #FFFBEB !important;
+  border-color: #F59E0B !important;
+  color: #D97706 !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+}
+
+[dir="rtl"] .btn-auth-back i {
+  display: inline-block;
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .btn-auth-back:hover {
+  transform: translateX(3px);
+}
+
 @media (max-width: 575.98px) {
-  .auth-header-bar .navbar-brand-logo {
-    height: 32px;
+  .auth-header-bar .container-fluid {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
   }
-  .auth-header-bar .btn-theme-toggle {
-    height: 38px !important;
-    width: 38px !important;
-    min-height: 38px !important;
-    min-width: 38px !important;
-  }
-  .auth-header-bar .btn-theme-toggle i {
+  .btn-auth-back {
+    height: 34px !important;
+    width: 34px !important;
+    min-height: 34px !important;
+    min-width: 34px !important;
+    flex: 0 0 34px !important;
     font-size: 1rem !important;
   }
+  .auth-header-bar .navbar-brand-logo {
+    height: 30px !important;
+    max-width: 130px !important;
+  }
+  .auth-header-bar .btn-theme-toggle {
+    height: 34px !important;
+    width: 34px !important;
+    min-height: 34px !important;
+    min-width: 34px !important;
+  }
+  .auth-header-bar .btn-theme-toggle i {
+    font-size: 0.95rem !important;
+  }
   .auth-header-bar .btn-rtl-toggle {
-    height: 38px !important;
-    min-height: 38px !important;
-    min-width: 50px !important;
-    padding: 0 12px !important;
-    font-size: 0.8rem !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    min-width: 48px !important;
+    padding: 0 10px !important;
+    font-size: 0.75rem !important;
   }
 }
 
+@media (max-width: 350px) {
+  .auth-header-bar .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+  .btn-auth-back {
+    height: 32px !important;
+    width: 32px !important;
+    min-height: 32px !important;
+    min-width: 32px !important;
+    flex: 0 0 32px !important;
+    font-size: 0.95rem !important;
+  }
+  .auth-header-bar .navbar-brand-logo {
+    height: 27px !important;
+    max-width: 115px !important;
+  }
+  .auth-header-bar .btn-theme-toggle {
+    height: 32px !important;
+    width: 32px !important;
+    min-height: 32px !important;
+    min-width: 32px !important;
+  }
+  .auth-header-bar .btn-rtl-toggle {
+    height: 32px !important;
+    min-height: 32px !important;
+    min-width: 42px !important;
+    padding: 0 8px !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+/* ==========================================================================
+   Auth Layout: Login & Register Shared Foundation
+   ========================================================================== */
 body.login-page,
 body.register-page {
   min-height: 100vh;
@@ -1661,6 +1774,7 @@ body.login-page .auth-wrapper {
   min-height: 0;
   height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0.65rem 1rem;
@@ -1676,21 +1790,74 @@ body.login-page .login-card {
   max-width: 440px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
   position: relative;
+  margin: auto;
+}
+
+/* Remember Me & Forgot Password Alignment */
+.login-options-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.login-options-row .form-check {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  min-width: 0 !important;
+  margin-bottom: 0 !important;
+  padding-left: 0 !important;
+}
+
+.login-options-row .form-check-input {
+  margin: 0 !important;
+  float: none !important;
+  flex-shrink: 0 !important;
+}
+
+.login-options-row .form-check-label {
+  white-space: nowrap !important;
+  font-size: 0.8rem !important;
+  line-height: 1.2 !important;
+  cursor: pointer;
+}
+
+.login-options-row .forgot-link {
+  white-space: nowrap !important;
+  font-size: 0.8rem !important;
+  line-height: 1.2 !important;
+  flex-shrink: 0 !important;
 }
 
 body.login-page .login-card .mb-3 {
   margin-bottom: 0.75rem !important;
 }
 
+body.login-page .login-card .auth-social-group {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 8px !important;
+  width: 100% !important;
+  margin-bottom: 0.65rem !important;
+}
+
 body.login-page .login-card .auth-social-btn,
 body.login-page .login-card .auth-apple-btn {
-  height: 38px;
-  min-height: 38px;
-  font-size: 0.85rem;
-  padding: 0 0.85rem;
+  flex: 1 1 0 !important;
+  width: 50% !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  font-size: 0.85rem !important;
+  padding: 0 0.75rem !important;
   border-radius: var(--radius-pill);
   background: #202026;
   border: 1px solid var(--border-color);
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
 }
 
 body.login-page .login-card .auth-social-btn:hover,
@@ -1703,11 +1870,200 @@ body.login-page .login-card .auth-divider {
   margin: 0.65rem 0 !important;
 }
 
-/* Fallback for ultra-small height viewports (<540px) */
-@media (max-height: 540px) {
+/* ==========================================================================
+   Mobile Devices Specific Layout (Fixes 320px - 576px screens & short heights)
+   ========================================================================== */
+@media (max-width: 575.98px) {
   body.login-page {
-    height: auto;
-    overflow-y: auto;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+  }
+
+  body.login-page .auth-wrapper {
+    flex: 1 !important;
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 0.35rem 0.65rem 1.25rem !important;
+  }
+
+  body.login-page .login-card {
+    padding: 1.15rem 1.15rem 1rem !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    border-radius: 18px !important;
+  }
+
+  body.login-page .login-card .auth-header {
+    margin-bottom: 0.6rem !important;
+  }
+
+  body.login-page .login-card .stat-icon {
+    width: 36px !important;
+    height: 36px !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  body.login-page .login-card .stat-icon i {
+    font-size: 1rem !important;
+  }
+
+  body.login-page .login-card h2 {
+    font-size: 1.2rem !important;
+  }
+
+  body.login-page .login-card .mb-3 {
+    margin-bottom: 0.5rem !important;
+  }
+
+  body.login-page .login-card .login-label {
+    font-size: 0.76rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  body.login-page .login-card .custom-form-control {
+    font-size: 0.85rem !important;
+    padding-top: 0.42rem !important;
+    padding-bottom: 0.42rem !important;
+  }
+
+  body.login-page .login-card .btn-yellow {
+    padding-top: 0.45rem !important;
+    padding-bottom: 0.45rem !important;
+    font-size: 0.88rem !important;
+  }
+
+  body.login-page .login-card .auth-divider {
+    margin: 0.45rem 0 !important;
+  }
+
+  body.login-page .login-card .auth-divider span {
+    font-size: 10px !important;
+    padding: 0 0.5rem !important;
+  }
+
+  body.login-page .login-card .auth-social-group {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  body.login-page .login-card .auth-social-btn,
+  body.login-page .login-card .auth-apple-btn {
+    flex: 1 1 0 !important;
+    width: 50% !important;
+    height: 35px !important;
+    min-height: 35px !important;
+    padding: 0 0.4rem !important;
+    font-size: 0.8rem !important;
+    gap: 6px !important;
+  }
+
+  body.login-page .login-card .text-center.pt-2 {
+    padding-top: 0.25rem !important;
+  }
+
+  /* Register Page Mobile Optimization */
+  body.register-page {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+  }
+
+  body.register-page .auth-wrapper {
+    padding: 0.5rem 0.65rem 2rem !important;
+  }
+
+  body.register-page .auth-card {
+    padding: 1.25rem 1rem 1.25rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 18px !important;
+  }
+
+  body.register-page .auth-header {
+    margin-bottom: 0.75rem !important;
+  }
+
+  body.register-page .stat-icon {
+    width: 38px !important;
+    height: 38px !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  body.register-page .stat-icon i {
+    font-size: 1.05rem !important;
+  }
+
+  body.register-page .auth-header h2 {
+    font-size: 1.3rem !important;
+  }
+
+  body.register-page .signup-form {
+    gap: 10px !important;
+  }
+
+  body.register-page .form-field-group {
+    gap: 4px !important;
+  }
+
+  body.register-page .signup-label {
+    font-size: 0.78rem !important;
+  }
+
+  body.register-page .signup-input {
+    font-size: 0.85rem !important;
+    padding-top: 0.45rem !important;
+    padding-bottom: 0.45rem !important;
+  }
+
+  body.register-page .signup-terms-check .form-check-label {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+  }
+
+  body.register-page .auth-social-group {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  body.register-page .auth-social-btn {
+    flex: 1 1 0 !important;
+    width: 50% !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 0.5rem !important;
+    font-size: 0.8rem !important;
+    gap: 6px !important;
+  }
+}
+
+/* Ultra Small Viewports (e.g. 320px width) */
+@media (max-width: 350px) {
+  body.login-page .auth-wrapper {
+    padding: 0.25rem 0.4rem 0.85rem !important;
+  }
+
+  body.login-page .login-card {
+    padding: 0.95rem 0.85rem 0.85rem !important;
+  }
+
+  .login-options-row .form-check-label {
+    font-size: 0.74rem !important;
+  }
+
+  .login-options-row .forgot-link {
+    font-size: 0.74rem !important;
+  }
+
+  body.login-page .login-card .auth-social-btn,
+  body.login-page .login-card .auth-apple-btn {
+    font-size: 0.76rem !important;
+    gap: 4px !important;
   }
 }
 

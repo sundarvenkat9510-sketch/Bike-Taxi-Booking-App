@@ -41,15 +41,20 @@
 <body class="login-page">
 
   <!-- ======================================================================
-       AUTH HEADER BAR (Logo on Left -> Home, Theme & RTL on Right)
+       AUTH HEADER BAR (Back Button & Logo on Left, Theme & RTL on Right)
        ====================================================================== -->
   <header class="auth-header-bar">
     <div class="container-fluid px-3 px-sm-4 px-lg-5 py-3 d-flex align-items-center justify-content-between">
-      <!-- Left: Logo linking to Home -->
-      <a class="navbar-brand d-inline-flex align-items-center" href="index.html" title="VeloMoto Home">
-        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
-        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
-      </a>
+      <!-- Left: Back Button & Logo linking to Home -->
+      <div class="d-flex align-items-center gap-2 gap-sm-3">
+        <a href="index.html" class="btn-auth-back" aria-label="Back to Home" title="Back to Home">
+          <i class="bi bi-arrow-left"></i>
+        </a>
+        <a class="navbar-brand d-inline-flex align-items-center" href="index.html" title="VeloMoto Home">
+          <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+          <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
+        </a>
+      </div>
       
       <!-- Right: Action Icons (Theme & RTL Toggle) -->
       <div class="d-flex align-items-center gap-2">
@@ -105,14 +110,14 @@
         </div>
 
         <!-- Remember Me & Forgot Password (Single Row) -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="login-options-row mb-3">
           <div class="form-check mb-0">
             <input class="form-check-input" type="checkbox" id="rememberMe">
-            <label class="form-check-label text-muted small" for="rememberMe" style="font-size: 0.82rem;">
+            <label class="form-check-label text-muted" for="rememberMe">
               Remember me
             </label>
           </div>
-          <a href="#" class="small text-warning text-decoration-none fw-semibold" style="font-size: 0.82rem;" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</a>
+          <a href="#" class="forgot-link text-warning text-decoration-none fw-semibold" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</a>
         </div>
 
         <!-- Submit Button -->
