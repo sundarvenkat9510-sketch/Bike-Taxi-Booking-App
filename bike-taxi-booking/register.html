@@ -38,8 +38,30 @@
   <!-- Custom Urban Style -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="register-page">
 
+  <!-- ======================================================================
+       AUTH HEADER BAR (Logo on Left -> Home, Theme & RTL on Right)
+       ====================================================================== -->
+  <header class="auth-header-bar">
+    <div class="container-fluid px-3 px-sm-4 px-lg-5 py-3 d-flex align-items-center justify-content-between">
+      <!-- Left: Logo linking to Home -->
+      <a class="navbar-brand d-inline-flex align-items-center" href="index.html" title="VeloMoto Home">
+        <img src="assets/images/logo.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-dark" height="38">
+        <img src="assets/images/logo-light.svg" alt="VeloMoto Logo" class="navbar-brand-logo logo-light" height="38">
+      </a>
+      
+      <!-- Right: Action Icons (Theme & RTL Toggle) -->
+      <div class="d-flex align-items-center gap-2">
+        <button type="button" class="btn-theme-toggle" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
+          <i class="bi bi-sun-fill"></i>
+        </button>
+        <button type="button" class="btn-rtl-toggle" id="rtlToggleBtn" aria-label="Toggle RTL/LTR">
+          <span class="rtl-toggle-text" id="rtlToggleText">RTL</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
   <!-- ======================================================================
        REGISTRATION AUTH CARD
@@ -142,7 +164,7 @@
           <span>Google</span>
         </button>
         <button type="button" class="auth-social-btn w-100 min-w-0" onclick="showToast('Apple Sign-In simulation: Welcome to VeloMoto!', 'info')">
-          <i class="bi bi-apple text-white"></i>
+          <i class="bi bi-apple auth-apple-icon"></i>
           <span>Apple</span>
         </button>
       </div>

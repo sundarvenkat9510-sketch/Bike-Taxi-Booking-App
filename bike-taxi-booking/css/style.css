@@ -311,23 +311,31 @@
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08) !important;
 }
 
-[data-theme="light"] body.login-page {
+[data-theme="light"] body.login-page,
+[data-theme="light"] body.register-page {
   background-color: #F6F8FA !important;
 }
 
-[data-theme="light"] body.login-page .auth-wrapper {
+[data-theme="light"] body.login-page .auth-wrapper,
+[data-theme="light"] body.register-page .auth-wrapper {
   background: radial-gradient(circle at 50% 30%, rgba(255, 193, 7, 0.08) 0%, transparent 65%), #F6F8FA !important;
 }
 
 [data-theme="light"] body.login-page .login-card .auth-social-btn,
-[data-theme="light"] body.login-page .login-card .auth-apple-btn {
+[data-theme="light"] body.login-page .login-card .auth-apple-btn,
+[data-theme="light"] .auth-card .auth-social-btn {
   background: #F8FAFC !important;
   border: 1px solid #CBD5E1 !important;
   color: #1E293B !important;
 }
 
+[data-theme="light"] .auth-card .auth-social-btn .bi-apple {
+  color: #0F172A !important;
+}
+
 [data-theme="light"] body.login-page .login-card .auth-social-btn:hover,
-[data-theme="light"] body.login-page .login-card .auth-apple-btn:hover {
+[data-theme="light"] body.login-page .login-card .auth-apple-btn:hover,
+[data-theme="light"] .auth-card .auth-social-btn:hover {
   background: #EDF2F7 !important;
   border-color: #F59E0B !important;
 }
@@ -1573,13 +1581,72 @@ nav.navbar.sticky-top {
 /* ==========================================================================
    Login Page Specific Clean Viewport Layout (Zero Scrollbar & Perfectly Centered)
    ========================================================================== */
-body.login-page {
+.auth-header-bar {
+  width: 100%;
+  flex-shrink: 0;
+  z-index: 1030;
+  background: transparent;
+  transition: background-color var(--transition-fast);
+}
+
+.auth-header-bar .navbar-brand {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.auth-header-bar .navbar-brand-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 575.98px) {
+  .auth-header-bar .navbar-brand-logo {
+    height: 32px;
+  }
+  .auth-header-bar .btn-theme-toggle {
+    height: 38px !important;
+    width: 38px !important;
+    min-height: 38px !important;
+    min-width: 38px !important;
+  }
+  .auth-header-bar .btn-theme-toggle i {
+    font-size: 1rem !important;
+  }
+  .auth-header-bar .btn-rtl-toggle {
+    height: 38px !important;
+    min-height: 38px !important;
+    min-width: 50px !important;
+    padding: 0 12px !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+body.login-page,
+body.register-page {
   min-height: 100vh;
   height: auto;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   background-color: #0B0B0D;
+}
+
+body.register-page .auth-wrapper {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.25rem 1rem 3rem;
+  background: radial-gradient(circle at 50% 30%, rgba(255, 193, 7, 0.05) 0%, transparent 65%), #0B0B0D;
+}
+
+body.register-page .auth-card {
+  margin: auto;
 }
 
 body.login-page .navbar-custom {
@@ -5990,12 +6057,14 @@ html:not([data-theme="light"]) {
   color: #475569 !important;
 }
 
-/* Dark Theme Login Page Explicit Styling */
-[data-theme="dark"] body.login-page {
+/* Dark Theme Auth Pages Explicit Styling */
+[data-theme="dark"] body.login-page,
+[data-theme="dark"] body.register-page {
   background-color: #0A0A0B !important;
 }
 
-[data-theme="dark"] body.login-page .auth-wrapper {
+[data-theme="dark"] body.login-page .auth-wrapper,
+[data-theme="dark"] body.register-page .auth-wrapper {
   background: radial-gradient(circle at 50% 30%, rgba(255, 193, 7, 0.05) 0%, transparent 65%), #0B0B0D !important;
 }
 
@@ -7629,29 +7698,185 @@ span.text-light {
   color: #D97706 !important;
 }
 
-/* 7. Status Badges across Home 1 & Services (Drive section, etc.) */
-[data-theme="light"] .badge.bg-success.bg-opacity-20 {
-  background-color: #DCFCE7 !important;
-  color: #15803D !important;
-  border-color: rgba(22, 163, 74, 0.35) !important;
+/* 7. Comprehensive Status Badges (Guaranteed High Contrast in Both Dark & Light Themes) */
+/* Opacity utility variable fallbacks for custom bootstrap values */
+.bg-opacity-15 { --bs-bg-opacity: 0.15 !important; }
+.bg-opacity-20 { --bs-bg-opacity: 0.20 !important; }
+.bg-opacity-25 { --bs-bg-opacity: 0.25 !important; }
+.border-opacity-15 { --bs-border-opacity: 0.15 !important; }
+.border-opacity-25 { --bs-border-opacity: 0.25 !important; }
+.border-opacity-50 { --bs-border-opacity: 0.50 !important; }
+
+/* Base & Dark Theme Badge Styling (Transparent tinted pill with bright glowing text & borders) */
+.badge.bg-warning.text-warning,
+.badge[class*="bg-warning"][class*="text-warning"],
+.badge.bg-warning[class*="bg-opacity-"] {
+  background-color: rgba(245, 158, 11, 0.16) !important;
+  color: #FBBF24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.38) !important;
+  font-weight: 600 !important;
 }
 
-[data-theme="light"] .badge.bg-warning.bg-opacity-20 {
+.badge.bg-warning.text-warning i,
+.badge[class*="bg-warning"][class*="text-warning"] i,
+.badge.bg-warning[class*="bg-opacity-"] i {
+  color: #F59E0B !important;
+}
+
+.badge.bg-success.text-success,
+.badge[class*="bg-success"][class*="text-success"],
+.badge.bg-success[class*="bg-opacity-"] {
+  background-color: rgba(16, 185, 129, 0.16) !important;
+  color: #34D399 !important;
+  border: 1px solid rgba(16, 185, 129, 0.38) !important;
+  font-weight: 600 !important;
+}
+
+.badge.bg-success.text-success i,
+.badge[class*="bg-success"][class*="text-success"] i,
+.badge.bg-success[class*="bg-opacity-"] i {
+  color: #10B981 !important;
+}
+
+.badge.bg-info.text-info,
+.badge[class*="bg-info"][class*="text-info"],
+.badge.bg-info[class*="bg-opacity-"],
+.badge.bg-primary[class*="bg-opacity-"][class*="text-info"] {
+  background-color: rgba(14, 165, 233, 0.16) !important;
+  color: #38BDF8 !important;
+  border: 1px solid rgba(14, 165, 233, 0.38) !important;
+  font-weight: 600 !important;
+}
+
+.badge.bg-info.text-info i,
+.badge[class*="bg-info"][class*="text-info"] i,
+.badge.bg-info[class*="bg-opacity-"] i,
+.badge.bg-primary[class*="bg-opacity-"][class*="text-info"] i {
+  color: #0EA5E9 !important;
+}
+
+.badge.bg-danger.text-danger,
+.badge[class*="bg-danger"][class*="text-danger"],
+.badge.bg-danger[class*="bg-opacity-"] {
+  background-color: rgba(239, 68, 68, 0.16) !important;
+  color: #F87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.38) !important;
+  font-weight: 600 !important;
+}
+
+.badge.bg-danger.text-danger i,
+.badge[class*="bg-danger"][class*="text-danger"] i,
+.badge.bg-danger[class*="bg-opacity-"] i {
+  color: #EF4444 !important;
+}
+
+/* Explicit Dark Theme Re-enforcement */
+[data-theme="dark"] .badge.bg-warning.text-warning,
+[data-theme="dark"] .badge[class*="bg-warning"][class*="text-warning"],
+[data-theme="dark"] .badge.bg-warning[class*="bg-opacity-"] {
+  background-color: rgba(245, 158, 11, 0.16) !important;
+  color: #FBBF24 !important;
+  border-color: rgba(245, 158, 11, 0.38) !important;
+}
+
+[data-theme="dark"] .badge.bg-success.text-success,
+[data-theme="dark"] .badge[class*="bg-success"][class*="text-success"],
+[data-theme="dark"] .badge.bg-success[class*="bg-opacity-"] {
+  background-color: rgba(16, 185, 129, 0.16) !important;
+  color: #34D399 !important;
+  border-color: rgba(16, 185, 129, 0.38) !important;
+}
+
+[data-theme="dark"] .badge.bg-info.text-info,
+[data-theme="dark"] .badge[class*="bg-info"][class*="text-info"],
+[data-theme="dark"] .badge.bg-info[class*="bg-opacity-"],
+[data-theme="dark"] .badge.bg-primary[class*="bg-opacity-"][class*="text-info"] {
+  background-color: rgba(14, 165, 233, 0.16) !important;
+  color: #38BDF8 !important;
+  border-color: rgba(14, 165, 233, 0.38) !important;
+}
+
+[data-theme="dark"] .badge.bg-danger.text-danger,
+[data-theme="dark"] .badge[class*="bg-danger"][class*="text-danger"],
+[data-theme="dark"] .badge.bg-danger[class*="bg-opacity-"] {
+  background-color: rgba(239, 68, 68, 0.16) !important;
+  color: #F87171 !important;
+  border-color: rgba(239, 68, 68, 0.38) !important;
+}
+
+/* Light Theme Status Badges (Soft pastel background with rich high-contrast dark text) */
+[data-theme="light"] .badge.bg-warning.text-warning,
+[data-theme="light"] .badge[class*="bg-warning"][class*="text-warning"],
+[data-theme="light"] .badge.bg-warning[class*="bg-opacity-"],
+[data-theme="light"] .badge.bg-warning.bg-opacity-15,
+[data-theme="light"] .badge.bg-warning.bg-opacity-20,
+[data-theme="light"] .badge.bg-warning.bg-opacity-25 {
   background-color: #FEF3C7 !important;
   color: #92400E !important;
-  border-color: rgba(217, 119, 6, 0.35) !important;
+  border: 1px solid rgba(217, 119, 6, 0.35) !important;
+  font-weight: 700 !important;
 }
 
-[data-theme="light"] .badge.bg-info.bg-opacity-20 {
+[data-theme="light"] .badge.bg-warning.text-warning i,
+[data-theme="light"] .badge[class*="bg-warning"][class*="text-warning"] i,
+[data-theme="light"] .badge.bg-warning[class*="bg-opacity-"] i {
+  color: #D97706 !important;
+}
+
+[data-theme="light"] .badge.bg-success.text-success,
+[data-theme="light"] .badge[class*="bg-success"][class*="text-success"],
+[data-theme="light"] .badge.bg-success[class*="bg-opacity-"],
+[data-theme="light"] .badge.bg-success.bg-opacity-15,
+[data-theme="light"] .badge.bg-success.bg-opacity-20,
+[data-theme="light"] .badge.bg-success.bg-opacity-25 {
+  background-color: #DCFCE7 !important;
+  color: #15803D !important;
+  border: 1px solid rgba(22, 163, 74, 0.35) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .badge.bg-success.text-success i,
+[data-theme="light"] .badge[class*="bg-success"][class*="text-success"] i,
+[data-theme="light"] .badge.bg-success[class*="bg-opacity-"] i {
+  color: #16A34A !important;
+}
+
+[data-theme="light"] .badge.bg-info.text-info,
+[data-theme="light"] .badge[class*="bg-info"][class*="text-info"],
+[data-theme="light"] .badge.bg-info[class*="bg-opacity-"],
+[data-theme="light"] .badge.bg-info.bg-opacity-15,
+[data-theme="light"] .badge.bg-info.bg-opacity-20,
+[data-theme="light"] .badge.bg-info.bg-opacity-25,
+[data-theme="light"] .badge.bg-primary[class*="bg-opacity-"][class*="text-info"] {
   background-color: #E0F2FE !important;
   color: #0369A1 !important;
-  border-color: rgba(2, 132, 199, 0.35) !important;
+  border: 1px solid rgba(2, 132, 199, 0.35) !important;
+  font-weight: 700 !important;
 }
 
-[data-theme="light"] .badge.bg-danger.bg-opacity-20 {
+[data-theme="light"] .badge.bg-info.text-info i,
+[data-theme="light"] .badge[class*="bg-info"][class*="text-info"] i,
+[data-theme="light"] .badge.bg-info[class*="bg-opacity-"] i,
+[data-theme="light"] .badge.bg-primary[class*="bg-opacity-"][class*="text-info"] i {
+  color: #0284C7 !important;
+}
+
+[data-theme="light"] .badge.bg-danger.text-danger,
+[data-theme="light"] .badge[class*="bg-danger"][class*="text-danger"],
+[data-theme="light"] .badge.bg-danger[class*="bg-opacity-"],
+[data-theme="light"] .badge.bg-danger.bg-opacity-15,
+[data-theme="light"] .badge.bg-danger.bg-opacity-20,
+[data-theme="light"] .badge.bg-danger.bg-opacity-25 {
   background-color: #FEE2E2 !important;
   color: #B91C1C !important;
-  border-color: rgba(220, 38, 38, 0.35) !important;
+  border: 1px solid rgba(220, 38, 38, 0.35) !important;
+  font-weight: 700 !important;
+}
+
+[data-theme="light"] .badge.bg-danger.text-danger i,
+[data-theme="light"] .badge[class*="bg-danger"][class*="text-danger"] i,
+[data-theme="light"] .badge.bg-danger[class*="bg-opacity-"] i {
+  color: #DC2626 !important;
 }
 
 /* 8. Testimonials Section (index.html) */
@@ -7768,8 +7993,14 @@ span.text-light {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
 }
 
-[data-theme="light"] .urban-card[style*="#18181D"] h3.text-white,
-[data-theme="light"] .urban-card[style*="#18181D"] h5.text-white {
+[data-theme="light"] .urban-card[style*="#18181D"] h1,
+[data-theme="light"] .urban-card[style*="#18181D"] h2,
+[data-theme="light"] .urban-card[style*="#18181D"] h3,
+[data-theme="light"] .urban-card[style*="#18181D"] h4,
+[data-theme="light"] .urban-card[style*="#18181D"] h5,
+[data-theme="light"] .urban-card[style*="#18181D"] h6,
+[data-theme="light"] .urban-card[style*="#18181D"] .text-white,
+[data-theme="light"] .urban-card[style*="#18181D"] [class*="text-white"] {
   color: #0F172A !important;
 }
 
